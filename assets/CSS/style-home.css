@@ -21,7 +21,7 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: black
+  background-color: blue;
 }
 .nav_links{
   list-style: none;

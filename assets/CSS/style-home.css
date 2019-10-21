@@ -3,8 +3,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #24252A
 }
+/* Header */
 .logo {
   width:100px;
   height: 100px;
@@ -21,6 +21,7 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background-color: black
 }
 .nav_links{
   list-style: none;
@@ -48,4 +49,10 @@ button {
 }
 button:hover {
   background-color: rgba(0,136, 169, 0.8);
+}
+/* Media Query Mobile */
+@media (max-width: 420px) {
+}
+/* Media Query Tablets */
+@media (min-width: 421px) and (max-width: 800px){
 }

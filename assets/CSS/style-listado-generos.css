@@ -1,0 +1,29 @@
+content-wrap {
+  position: relative;
+}
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  background-color: black;
+}
+footer .tmdb-logo {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .tmdb-logo p {
+  margin: 7px;
+}
+footer .tmdb-logo img {
+  width: 40%;
+  padding-bottom: 10px;
+}
+footer p {
+  color: #edf0f1;
+}

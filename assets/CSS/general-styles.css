@@ -244,10 +244,7 @@ footer p {
     display: block;
     width: 250px;
     height: 25px;
-<<<<<<< HEAD
     transition: width 0.4s ease-in-out;
-=======
->>>>>>> master
     /* clip-path: circle(100px at 90% -10%);
     -webkit-clip-path: circle(100px at 90% -10%); */
   }

@@ -40,6 +40,9 @@ header {
 i.fa-search {
   cursor: pointer;
 }
+i.fa-search:hover {
+  color: #0088a9
+}
 /* List Menu */
 .nav_links{
   list-style: none;

@@ -13,11 +13,6 @@ body {
   background-color: rgb(0,0,25,0.9)
 }
 /* Header */
-.logo {
-  width:100px;
-  height: 100px;
-  margin-right: auto;
-}
 li, a, button {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -32,9 +27,20 @@ header {
   align-items: center;
   background-color: black;
 }
+/* Logo */
+.logo {
+  width:100px;
+  height: 100px;
+  margin-right: auto;
+}
+/* Search Bar */
 .searchbar-wrap input {
   width: 250px;
 }
+i.fa-search {
+  cursor: pointer;
+}
+/* List Menu */
 .nav_links{
   list-style: none;
 }
@@ -49,6 +55,7 @@ header {
 .nav_links li a:hover {
   color: #0088a9
 }
+/* Log in button */
 button {
   margin-left: 20px;
   margin-right: 20px;
@@ -65,6 +72,7 @@ button:hover {
 content-wrap {
   position: relative;
 }
+/* Footer */
 footer {
   display: flex;
   justify-content: space-around;

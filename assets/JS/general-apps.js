@@ -18,5 +18,4 @@ const searchicon = document.querySelector(".fa-search");
 
 searchicon.addEventListener("click", ()=> {
   searchbar.classList.toggle("expand");
-  searchbox.classList.toggle("search-flex");
 });

@@ -5,6 +5,7 @@ const links = document.querySelectorAll(".nav_links li");
 
 hamburger.addEventListener("click",()=> {
   navlinks.classList.toggle("open");
+  navlinks.classList.toggle("is-visible");
   links.forEach(link =>{
     link.classList.toggle("fade");
   });

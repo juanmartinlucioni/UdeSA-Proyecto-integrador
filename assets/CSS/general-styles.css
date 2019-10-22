@@ -107,6 +107,11 @@ footer p {
     clip-path: circle(100px at 90% -10%);
     -webkit-clip-path: circle(100px at 90% -10%);
     transition: all 1s ease-out;
+    opacity: 0;
+  }
+  .nav_links.is-visible{
+    transition: all 1s ease 0.3s;
+    opacity: 1;
   }
   .nav_links.open{
     clip-path: circle(1200px at 90% -10%);
@@ -129,6 +134,24 @@ footer p {
     cursor: pointer;
     z-index: 155;
   }
+  .nav_links li {
+    opacity: 0;
+  }
+  .nav_links li a {
+    font-size: 25px;
+  }
+  .nav_links li:nth-child(1){
+    transition: all 0.5s ease 0.2s;
+  }
+  .nav_links li:nth-child(2){
+    transition: all 0.5s ease 0.4s;
+  }
+  .nav_links li:nth-child(3){
+    transition: all 0.5s ease 0.6s;
+  }
+  li.fade {
+    opacity: 1;
+  }
 }
 /* Media Query Tablets */
 @media (min-width: 421px) and (max-width: 800px){
@@ -148,10 +171,15 @@ footer p {
     clip-path: circle(100px at 90% -10%);
     -webkit-clip-path: circle(100px at 90% -10%);
     transition: all 1s ease-out;
+    opacity: 0;
+  }
+  .nav_links.is-visible{
+    transition: all 1s ease 0.3s;
+    opacity: 1;
   }
   .nav_links.open{
-    clip-path: circle(1200px at 90% -10%);
-    -webkit-clip-path: circle(1200px at 90% -10%);
+    clip-path: circle(1500px at 90% -50%);
+    -webkit-clip-path: circle(1500px at 90% -50%);
   }
   .nav_links{
     display: flex;

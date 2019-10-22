@@ -107,6 +107,11 @@ footer p {
     clip-path: circle(100px at 90% -10%);
     -webkit-clip-path: circle(100px at 90% -10%);
     transition: all 1s ease-out;
+    opacity: 0;
+  }
+  .nav_links.is-visible{
+    transition: all 1s ease 0.3s;
+    opacity: 1;
   }
   .nav_links.open{
     clip-path: circle(1200px at 90% -10%);
@@ -166,10 +171,15 @@ footer p {
     clip-path: circle(100px at 90% -10%);
     -webkit-clip-path: circle(100px at 90% -10%);
     transition: all 1s ease-out;
+    opacity: 0;
+  }
+  .nav_links.is-visible{
+    transition: all 1s ease 0.3s;
+    opacity: 1;
   }
   .nav_links.open{
-    clip-path: circle(1200px at 90% -10%);
-    -webkit-clip-path: circle(1200px at 90% -10%);
+    clip-path: circle(1500px at 90% -50%);
+    -webkit-clip-path: circle(1500px at 90% -50%);
   }
   .nav_links{
     display: flex;

@@ -32,6 +32,9 @@ header {
   align-items: center;
   background-color: black;
 }
+.searchbar-wrap input {
+  width: 250px;
+}
 .nav_links{
   list-style: none;
 }
@@ -88,6 +91,7 @@ footer .tmdb-logo img {
 }
 footer p {
   color: #edf0f1;
+  font-size: 10px;
 }
 /* Media Query Mobile */
 @media (max-width: 420px) {
@@ -152,6 +156,11 @@ footer p {
   li.fade {
     opacity: 1;
   }
+  .searchbar-wrap input {
+    width: 0px;
+    display: none;
+    transition: width 0.4s ease-in-out;
+  }
 }
 /* Media Query Tablets */
 @media (min-width: 421px) and (max-width: 800px){
@@ -215,5 +224,21 @@ footer p {
   }
   li.fade {
     opacity: 1;
+  }
+  .searchbar-wrap input {
+    width: 0px;
+    display: none;
+  }
+  input.expand {
+    display: block;
+    width: 250px;
+    height: 25px;
+    /* clip-path: circle(100px at 90% -10%);
+    -webkit-clip-path: circle(100px at 90% -10%); */
+  }
+  .search-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

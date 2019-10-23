@@ -29,9 +29,12 @@ header {
 }
 /* Logo */
 .logo {
-  width:100px;
-  height: 100px;
   margin-right: auto;
+  margin-left: 10px;
+  margin-top: auto;
+}
+.logo img {
+  width:59px;
 }
 /* Search Bar */
 .searchbar-wrap input {

@@ -155,6 +155,9 @@ footer p {
     cursor: pointer;
     z-index: 155;
   }
+  .hamburger:hover .line{
+    background: color: #0088a9;
+  }
   .nav_links li {
     opacity: 0;
   }
@@ -227,6 +230,9 @@ footer p {
   .hamburger {
     cursor: pointer;
     z-index: 155;
+  }
+  .hamburger:hover .line{
+    background: color: #0088a9;
   }
   .nav_links li {
     opacity: 0;

@@ -19,3 +19,15 @@ const searchicon = document.querySelector(".fa-search");
 searchicon.addEventListener("click", ()=> {
   searchbar.classList.toggle("expand");
 });
+
+//Hover logo
+const logo = document.querySelector(".logo");
+const logoimg = document.querySelector(".logo img");
+
+logo.onmouseover = function() {
+  logoimg.setAttribute('src', 'assets/IMG/zseries1hover.png');
+}
+
+logo.onmouseout = function() {
+  logoimg.setAttribute('src', 'assets/IMG/zseries1.png');
+}

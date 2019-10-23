@@ -35,6 +35,14 @@ header {
 }
 /* Search Bar */
 .searchbar-wrap input {
+  opacity: 0;
+  width: 0px;
+  transition: all 0.5s ease 0.2s;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+input.expand {
+  opacity: 1;
   width: 250px;
 }
 .searchbox {
@@ -173,13 +181,7 @@ footer p {
   li.fade {
     opacity: 1;
   }
-  .searchbar-wrap input {
-    opacity: 0;
-    width: 0px;
-    transition: all 0.5s ease 0.2s;
-  }
   input.expand {
-    opacity: 1;
     width: 100%;
   }
 }
@@ -245,14 +247,5 @@ footer p {
   }
   li.fade {
     opacity: 1;
-  }
-  .searchbar-wrap input {
-    opacity: 0;
-    width: 0px;
-    transition: all 0.5s ease 0.2s;
-  }
-  input.expand {
-    opacity: 1;
-    width: 250px;
   }
 }

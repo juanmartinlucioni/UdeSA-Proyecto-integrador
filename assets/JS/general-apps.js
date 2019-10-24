@@ -31,3 +31,10 @@ logo.onmouseover = function() {
 logo.onmouseout = function() {
   logoimg.setAttribute('src', 'assets/IMG/zseries1.png');
 }
+//Login In Modal
+var modal = document.getElementById('login-modal');
+window.onclick = function(event) {
+     if (event.target == modal) {
+         modal.style.display = "none";
+     }
+ }

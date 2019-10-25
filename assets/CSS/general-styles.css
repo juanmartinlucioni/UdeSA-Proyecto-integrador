@@ -281,7 +281,7 @@ footer p {
     z-index: 155;
   }
   .hamburger:hover .line{
-    background: color: #0088a9;
+    background-color: #0088a9;
   }
   .nav_links li {
     opacity: 0;
@@ -351,7 +351,7 @@ footer p {
     z-index: 155;
   }
   .hamburger:hover .line{
-    background: color: #0088a9;
+    background-color: #0088a9;
   }
   .nav_links li {
     opacity: 0;

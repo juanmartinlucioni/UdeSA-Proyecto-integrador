@@ -96,7 +96,7 @@ content-wrap {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 156;
   left: 0;
   top: 0;
   width: 100%;
@@ -126,7 +126,8 @@ content-wrap {
   padding: 15px;
 }
 form input[type=text],
-form input[type=password] {
+form input[type=password],
+form input[type=email] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -149,16 +150,31 @@ form input[type=password] {
   justify-content: center;
   padding: 16px;
 }
+.modal-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .modal-form-checkbox{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+#login-checkbox:hover {
+  cursor: pointer;
+}
 label.rememberme{
   padding: 15px;
 }
 label.rememberme:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.register-click-here:hover {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -175,7 +191,7 @@ label.rememberme:hover{
   color: red;
   cursor: pointer;
 }
-/* animacion Modal */
+/* Animacion Modal */
 .animate {
   -webkit-animation: animatezoom 0.6s;
   animation: animatezoom 0.6s
@@ -206,6 +222,16 @@ label.rememberme:hover{
     width: 100%;
   }
 }
+
+/* Modal Register */
+.register-modal {
+  display: flex;
+  flex-direction: row;
+}
+.register-modal-button {
+  margin-bottom: 15px;
+}
+
 /* Footer */
 footer {
   display: flex;
@@ -304,6 +330,17 @@ footer p {
   input.expand {
     width: 100%;
   }
+  .register-modal {
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-bottom {
+    justify-content: center;
+    align-items: center;
+  }
+  .register-click-here {
+    text-align: center;
+  }
 }
 /* Media Query Tablets */
 @media (min-width: 421px) and (max-width: 800px){
@@ -370,5 +407,16 @@ footer p {
   }
   li.fade {
     opacity: 1;
+  }
+  .register-modal {
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-bottom {
+    justify-content: center;
+    align-items: center;
+  }
+  .register-click-here {
+    text-align: center;
   }
 }

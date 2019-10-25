@@ -75,7 +75,7 @@ i.fa-search:hover {
 .nav_links li a:hover {
   color: #0088a9
 }
-/* Log in button */
+/* Login button */
 button {
   margin-left: 20px;
   margin-right: 20px;
@@ -93,47 +93,6 @@ content-wrap {
   position: relative;
 }
 /* Modal Login */
-form{
-  display: flex;
-  justify-content: center;
-}
-.form-img-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-.form-image-container img{
-  width:500px;
-}
-form input[type=text],
-form input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-.cancelbtn{
-  position: relative;
-  top: 70px;
-}
-.container {
-  width:500px;
-  margin-right:10%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 16px;
-}
-.container2 {
-  padding: 16px;
-}
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-    }
 .modal {
   display: none;
   position: fixed;
@@ -144,20 +103,70 @@ img.avatar {
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   padding-top: 60px;
 }
 .modal-content {
-  background-color: #fefefe;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
   margin: 5% auto 15% auto;
-  border: 1px solid #888;
+  border: 1px solid black;
   width: 80%;
+  border-radius:15px;
+}
+.form-img-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-image-container img{
+  padding: 15px;
+}
+form input[type=text],
+form input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.form-information {
+  width:100%;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.modal-form-inputs{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
+}
+.modal-form-checkbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+label.rememberme{
+  padding: 15px;
+}
+label.rememberme:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }
 .close {
   position: absolute;
   right: 25px;
   top: 0;
-  color: #000;
+  color: white;
   font-size: 35px;
   font-weight: bold;
 }
@@ -171,7 +180,6 @@ img.avatar {
   -webkit-animation: animatezoom 0.6s;
   animation: animatezoom 0.6s
 }
-
 @-webkit-keyframes animatezoom {
   from {
     -webkit-transform: scale(0)
@@ -180,7 +188,6 @@ img.avatar {
     -webkit-transform: scale(1)
   }
 }
-
 @keyframes animatezoom {
   from {
     transform: scale(0)

@@ -32,9 +32,38 @@ logo.onmouseout = function() {
   logoimg.setAttribute('src', 'assets/IMG/zseries1.png');
 }
 //Login In Modal
-var modal = document.getElementById('login-modal');
+var logModal = document.getElementById("login-modal");
 window.onclick = function(event) {
-     if (event.target == modal) {
-         modal.style.display = "none";
+     if (event.target == logModal) {
+         logModal.style.display = "none";
      }
  }
+
+var loginBtn = document.querySelector(".login-button");
+ loginBtn.onclick = function() {
+   logModal.style.display = "block";
+ }
+
+var closeLogModal = document.querySelector(".close-login");
+ closeLogModal.onclick = function() {
+   logModal.style.display = "none";
+ }
+
+ //Register Modal
+var regModal = document.getElementById("register-modal");
+var regTrigger = document.querySelector(".register-trigger");
+ regTrigger.onclick = function() {
+   regModal.style.display = "block";
+   logModal.style.display = "none";
+ }
+
+var closeRegModal = document.querySelector(".close-reg");
+ closeRegModal.onclick = function() {
+   regModal.style.display = "none";
+ }
+
+window.onclick = function(event) {
+  if (event.target == regModal) {
+      regModal.style.display = "none";
+  }
+}

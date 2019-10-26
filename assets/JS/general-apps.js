@@ -49,7 +49,7 @@ var closeLogModal = document.querySelector(".close-login");
    logModal.style.display = "none";
  }
 
- //Register Modal
+//Register Modal
 var regModal = document.getElementById("register-modal");
 var regTrigger = document.querySelector(".register-trigger");
  regTrigger.onclick = function() {

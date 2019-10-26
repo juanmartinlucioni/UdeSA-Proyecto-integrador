@@ -1,0 +1,29 @@
+/* Trending Series */
+.trending-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin: 50px 1%;
+}
+.series-posters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+.series-posters img{
+    width: 200px;
+    transition: all 0.3s ease 0s;
+}
+.series-names{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    display: none;
+}
+
+/* Animacion hover serie */
+.series-hover {
+    width: 300px;
+}

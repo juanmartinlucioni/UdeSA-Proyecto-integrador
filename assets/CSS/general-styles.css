@@ -4,6 +4,13 @@
   margin: 0;
   padding: 0;
 }
+ul, ol {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
 body {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;

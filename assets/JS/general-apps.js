@@ -40,13 +40,13 @@ window.onclick = function(event) {
  }
 
 var loginBtn = document.querySelector(".login-button");
- loginBtn.onclick = function() {
-   logModal.style.display = "block";
+  loginBtn.onclick = function() {
+  logModal.style.display = "block";
  }
 
 var closeLogModal = document.querySelector(".close-login");
- closeLogModal.onclick = function() {
-   logModal.style.display = "none";
+  closeLogModal.onclick = function() {
+  logModal.style.display = "none";
  }
 
 //Register Modal
@@ -62,8 +62,8 @@ var closeRegModal = document.querySelector(".close-reg");
    regModal.style.display = "none";
  }
 
-window.onclick = function(event) {
+window.addEventListener("click",function(event) {
   if (event.target == regModal) {
       regModal.style.display = "none";
   }
-}
+})

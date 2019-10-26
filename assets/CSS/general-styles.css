@@ -4,8 +4,30 @@
   margin: 0;
   padding: 0;
 }
-ul, ol {
+a:hover{
+  text-decoration: none;
+}
+.test{
+  height: 1000px;
+}
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: baseline;
+}
+address,
+dl,
+fieldset,
+figure,
+ol,
+p,
+pre,
+ul{
   padding: 0;
+  margin:0;
 }
 
 li {

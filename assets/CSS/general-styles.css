@@ -266,9 +266,7 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
   width: 100%;
-  bottom: 0px;
   background-color: black;
 }
 footer .tmdb-logo {
@@ -370,6 +368,12 @@ footer p {
   .register-click-here {
     text-align: center;
   }
+  footer{
+    flex-direction: column;
+  }
+  footer p {
+    margin-top: 7px;
+  }
 }
 /* Media Query Tablets */
 @media (min-width: 421px) and (max-width: 800px){
@@ -447,5 +451,11 @@ footer p {
   }
   .register-click-here {
     text-align: center;
+  }
+  footer{
+    flex-direction: column;
+  }
+  footer p {
+    margin-top: 7px;
   }
 }

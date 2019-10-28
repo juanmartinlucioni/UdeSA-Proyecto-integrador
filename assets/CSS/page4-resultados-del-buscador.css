@@ -1,0 +1,40 @@
+.search-results-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+ul .result{
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+.result li img {
+    width: 90%;
+    transition: width 0.1s ease-in 0.1s;
+}
+.result:hover li img {
+    width: 100%;
+}
+
+.result li {
+    text-align: center;
+}
+
+
+/* Media Query Mobile */
+@media (max-width: 420px) {
+    ul .result {
+        width: 100%;
+    }
+}
+
+
+/* Media Query Tablets */
+@media (min-width: 421px) and (max-width: 800px){
+    ul .result {
+        width: 30%;
+    }
+}

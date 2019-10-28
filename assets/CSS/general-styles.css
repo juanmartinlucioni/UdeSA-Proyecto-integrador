@@ -46,7 +46,9 @@ body {
   font-size: 16px;
   color: #edf0f1;
   text-decoration: none;
-  background-color: rgb(0,0,25,0.9)
+  background-color: rgb(0,0,25,0.9);
+  min-height: 100vh;
+  position: relative;
 }
 /* Header */
 li, a, button {
@@ -62,6 +64,8 @@ header {
   justify-content: flex-end;
   align-items: center;
   background-color: black;
+  position: sticky;
+  top: 0;
 }
 /* Logo */
 .logo {
@@ -273,9 +277,7 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
   width: 100%;
-  bottom: 0px;
   background-color: black;
 }
 footer .tmdb-logo {
@@ -377,6 +379,12 @@ footer p {
   .register-click-here {
     text-align: center;
   }
+  footer{
+    flex-direction: column;
+  }
+  footer p {
+    margin-top: 7px;
+  }
 }
 /* Media Query Tablets */
 @media (min-width: 421px) and (max-width: 800px){
@@ -454,5 +462,11 @@ footer p {
   }
   .register-click-here {
     text-align: center;
+  }
+  footer{
+    flex-direction: column;
+  }
+  footer p {
+    margin-top: 7px;
   }
 }

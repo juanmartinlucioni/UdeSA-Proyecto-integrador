@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="assets/UIkit/css/uikit.min.css" />
-    <link rel="stylesheet" href="assets/CSS/page1-home.css">
     <link rel="stylesheet" href="assets/CSS/general-styles.css">
+    <link rel="stylesheet" href="assets/CSS/page1-home.css">
     <script src="https://kit.fontawesome.com/c466667ff8.js"></script>
     <script src="assets/UIkit/js/uikit.min.js"></script>
     <script src="assets/UIkit/js/uikit-icons.min.js"></script>
@@ -17,9 +17,9 @@
         <a class="logo" href="#"><img src="assets/img/zseries1.png" alt="logo"></a>
         <div class="searchbox">
           <div class="searchbar-wrap">
-            <input type="text" name="searchbar" value="" class="searchbar">
+            <input type="text" name="searchbar" value="" class="searchbar" id="searchbar">
           </div>
-          <i class="fas fa-search"></i>
+          <label for="searchbar"><i class="fas fa-search"></i></label>
         </div>
         <div class="hamburger">
           <div class="line"></div>
@@ -75,7 +75,7 @@
 
       <div class="modal" id="register-modal">
 
-        <form class="register-modal modal-content animate" action="index.html" method="post">
+        <form class="register-modal modal-content animate" action="page1-home.html" method="get">
           <span  class="close close-reg" title="Close Modal">×</span>
           <div class="form-image-container">
             <img src="assets/img/zseries1.png" alt="">

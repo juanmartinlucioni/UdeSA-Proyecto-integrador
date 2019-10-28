@@ -12,9 +12,9 @@
     justify-content: space-between;
     padding: 10px;
 }
-.series-posters img{
-    width: 200px;
-    transition: width 0.3s ease-in-out 2s;
+.series-posters li img {
+    width: 90%;
+    transition: width 0.1s ease-in 0.1s;
 }
 .series-names{
     display: flex;
@@ -24,6 +24,6 @@
 }
 
 /* Animacion hover serie */
-.series-hover {
-    width: 300px;
+.series-posters li img:hover {
+    width: 100%;
 }

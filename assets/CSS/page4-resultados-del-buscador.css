@@ -35,6 +35,6 @@ ul .result{
 /* Media Query Tablets */
 @media (min-width: 421px) and (max-width: 800px){
     ul .result {
-        width: 100%;
+        width: 30%;
     }
 }

@@ -29,7 +29,6 @@ searchBar.onkeypress = function (event) {
     var searchQueryStr = searchBar.value;
     var searchQueryFix = searchQueryStr.replace(" ", "+")
     localStorage.setItem("searchQuery", searchQueryFix);
-    // location.href = "page4-resultados-del-buscador.html?query=" + localStorage.getItem("searchQuery") WIP
-    runSearch(localStorage.getItem("searchQuery"));
+    location.href = "page4-resultados-del-buscador.html?query=" + localStorage.getItem("searchQuery")
   }
 }

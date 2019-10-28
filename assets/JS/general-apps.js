@@ -67,10 +67,30 @@ window.addEventListener("click",function(event) {
       regModal.style.display = "none";
   }
 })
-// document.querySelector("form").addEventListener("submit",function(event){
-//   event.preventDefault()
-//   var nuevoUsuario= document.getElementById("usuario").value
-//   console.log(nuevoUsuario);
+// Local storage Usuarios
+
+document.querySelector(".register-modal").addEventListener("submit",function(event){
+  event.preventDefault()
+  // var nuevoUsuario= document.getElementById("reg-user").value
+  // console.log(nuevoUsuario);
+
+  var users = JSON.parse(localStorage.getItem('Users')) || [];
+  var userData = [{
+      Username: document.getElementById("reg-user").value
+    },
+    {
+      Email: document.getElementById("reg-email").value
+    },
+    {
+      Password: document.getElementById("reg-psw").value
+    }
+  ];
+  users.push(userData);
+  localStorage.setItem('Users', JSON.stringify(users));
+  document.getElementById("register-modal").style.display="none"
+  document.getElementById("login-modal").style.display="block"
+console.log(users);
+
 //   if (nuevoUsuario === usuario) {
 //     // innerHTML capturo login y lo remplazo
 //     console.log("son iguales");
@@ -81,9 +101,10 @@ window.addEventListener("click",function(event) {
 //     // guardar dato en local storage, set item
 //     registerUser(nuevoUsuario)
 //     console.log("usuario registrado");
-//     function registerUser(usuario){
+//     function registerUser(Usuario){
 //       window.localStorage.setItem("usuario", nuevoUsuario);
 //       return `New user ${nuevoUsuario} now registered!`;
 //   }
-// })
-
+// }
+})
+    

@@ -67,3 +67,23 @@ window.addEventListener("click",function(event) {
       regModal.style.display = "none";
   }
 })
+// document.querySelector("form").addEventListener("submit",function(event){
+//   event.preventDefault()
+//   var nuevoUsuario= document.getElementById("usuario").value
+//   console.log(nuevoUsuario);
+//   if (nuevoUsuario === usuario) {
+//     // innerHTML capturo login y lo remplazo
+//     console.log("son iguales");
+//     document.getElementById('login').innerText=nuevoUsuario
+
+//   }
+//   else {
+//     // guardar dato en local storage, set item
+//     registerUser(nuevoUsuario)
+//     console.log("usuario registrado");
+//     function registerUser(usuario){
+//       window.localStorage.setItem("usuario", nuevoUsuario);
+//       return `New user ${nuevoUsuario} now registered!`;
+//   }
+// })
+

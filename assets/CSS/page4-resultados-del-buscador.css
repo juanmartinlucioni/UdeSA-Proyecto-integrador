@@ -12,11 +12,11 @@ ul .result{
     justify-content: flex-end;
 }
 .result li img {
-    width: 90%;
+    width: 75%;
     transition: width 0.1s ease-in 0.1s;
 }
 .result:hover li img {
-    width: 100%;
+    width: 85%;
 }
 
 .result li {

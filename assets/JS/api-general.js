@@ -14,10 +14,12 @@ function runSearch(keyword) {
     .then(function (data) {
       var seriesSearchResult = data.results;
       for (var i = 0; i < seriesSearchResult.length; i++) {
+        var seriesId = seriesSearchResult[i].id
+        localStorage.setItem("Id"+[i], seriesId);
         if (seriesSearchResult[i].poster_path !== null) {
-        document.getElementById("results-list").innerHTML += "<ul class='result result"+i+"'><li>" + seriesSearchResult[i].name + "</li>" + "<li><img class='series-img' src='https://image.tmdb.org/t/p/w185/" + seriesSearchResult[i].poster_path + "' alt=''></li></ul>"
+          document.getElementById("results-list").innerHTML += "<ul class='result result" + i + "'><a><li>" + seriesSearchResult[i].name + "</li>" + "<li><img class='series-img' src='https://image.tmdb.org/t/p/original/" + seriesSearchResult[i].poster_path + "' alt=''></li></a></ul>"
       } else {
-        document.getElementById("results-list").innerHTML += "<ul class='result result" + i + "'><li>" + seriesSearchResult[i].name + "</li>" + "<li><img class='series-img' src='/assets/IMG/Zseries1.png' alt=''></li></ul>"
+          document.getElementById("results-list").innerHTML += "<ul class='result result" + i + "'><a><li>" + seriesSearchResult[i].name + "</li>" + "<li><img class='series-img' src='/assets/IMG/Zseries1.png' alt=''></li></a></ul>"
       }
     }
       console.log(seriesSearchResult) //ELIMINAR

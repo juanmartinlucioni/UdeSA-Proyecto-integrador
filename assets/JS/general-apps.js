@@ -71,12 +71,25 @@ window.addEventListener("click",function(event) {
 
 document.querySelector(".register-modal").addEventListener("submit",function(event){
   event.preventDefault()
-  var nuevoUsuario= document.getElementById("reg-user").value
-  console.log(nuevoUsuario); // eliminar
+  var nuevoUsuario= document.getElementById("reg-user").value;
   var users = JSON.parse(localStorage.getItem('Users')) || [];
-  console.log(users)
-  if (users.filter(e => e.username === nuevoUsuario).length > 0) {
-     return console.log("Este usuario ya esta registrado");
+  var regPassword = document.getElementById("reg-psw").value;
+  var regPasswordConfirm = document.getElementById("reg-pswconfirm").value;
+  if (regPassword !== regPasswordConfirm) {
+    UIkit.notification({
+      message: "<span uk-icon='warning'></span> Las contraseñas deben ser iguales",
+      status: 'warning',
+      pos: 'bottom-left',
+      timeout: 5000
+    });
+  }
+  else if (users.filter(e => e.username === nuevoUsuario).length > 0) {
+    UIkit.notification({
+      message: "<span uk-icon='close'></span> Este usuario ya esta registrado",
+      status: 'danger',
+      pos: 'bottom-left',
+      timeout: 5000
+    });
   }
   else {
     var userData = {
@@ -88,35 +101,35 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
     localStorage.setItem('Users', JSON.stringify(users));
     document.getElementById("register-modal").style.display = "none"
     document.getElementById("login-modal").style.display = "block"
-    console.log(users);
-    return alert(`New user ${nuevoUsuario} now registered!`);
-    }
+    UIkit.notification({
+      message: "<span uk-icon='check'></span> Se ha creado el usuario "+ nuevoUsuario + "!",
+      status: 'success',
+      pos: 'bottom-left',
+      timeout: 5000
+    });
   }
-)
+});
 // al poner la contrasena mal, me dijo que el usuario no existe, osea no loggea, necesito una condicon que cuando exista usuario pero psw != notificacion " contrasena mal
 
 // Log in with User
 document.querySelector(".login-modal").addEventListener("submit", function (event) {
   event.preventDefault()
   var users = JSON.parse(localStorage.getItem('Users')) || [];
-  console.log(users)
   var usurarioIngresado = document.getElementById("login-user").value
-  console.log(usurarioIngresado);
   var passwordIngresado = document.getElementById("login-psw").value
-  console.log(passwordIngresado);
   if ((users.filter(e => e.username === usurarioIngresado).length > 0) && (users.filter(e => e.password === passwordIngresado).length > 0)){
   document.querySelector(".login-button").innerHTML= usurarioIngresado
   document.getElementById("login-modal").style.display = "none"
   UIkit.notification({
-    message: 'Bienvenido '+ usurarioIngresado + "!",
-    status: 'primary',
+    message: "Bienvenido " + usurarioIngresado + "!",
+    status: 'success',
     pos: 'bottom-left',
     timeout: 5000
   });
   }
   else if((users.filter(e => e.username === usurarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
-      message: 'Contraseña incorrecta!',
+      message: "<span uk-icon='close'></span> Contraseña incorrecta!",
       status: 'danger',
       pos: 'bottom-left',
       timeout: 5000
@@ -124,7 +137,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   }
   else {
     UIkit.notification({
-      message: usurarioIngresado+' no existe, por favor registrese!',
+      message: "<span uk-icon='warning'></span> " +usurarioIngresado+" no existe, por favor registrese!",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000

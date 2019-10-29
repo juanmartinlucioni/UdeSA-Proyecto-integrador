@@ -47,7 +47,7 @@
 
       <div class="modal" id="login-modal">
 
-        <form class="modal-content animate" action="index.html" method="post">
+        <form class="modal-content login-modal animate" action="index.html" method="post">
           <span  class="close close-login" title="Close Modal">×</span>
           <div class="form-image-container">
             <img src="assets/img/zseries1.png" alt="">
@@ -55,9 +55,9 @@
           <div class="form-information">
           <div class="modal-form-inputs">
               <label><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input type="text" id="login-user" placeholder="Enter Username" name="username" required>
               <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+              <input type="password" id="login-psw" placeholder="Enter Password" name="psw" required>
             </div>
           <button class="login-modal-button" type="submit">Login</button>
           <div class="modal-bottom">
@@ -83,11 +83,11 @@
           <div class="form-information">
           <div class="modal-form-inputs">
               <label><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input type="text" placeholder="Enter Username" id="reg-user" name="username" required>
               <label><b>Email</b></label>
-              <input type="email" placeholder="Enter Email" name="email" required>
+              <input type="email" placeholder="Enter Email" id="reg-email" name="email" required>
               <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+              <input type="password" placeholder="Enter Password" id="reg-psw" name="psw" required>
               <label><b>Confirm Password</b></label>
               <input type="password" placeholder="Confirm Password" name="pswconfirm" required>
             </div>

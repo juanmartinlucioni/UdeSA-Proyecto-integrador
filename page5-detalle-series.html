@@ -45,52 +45,52 @@
       </main>
 
       <div class="modal" id="login-modal">
-
-        <form class="modal-content animate" action="index.html" method="post">
-          <span  class="close close-login" title="Close Modal">×</span>
+      
+        <form class="modal-content login-modal animate" action="index.html" method="post">
+          <span class="close close-login" title="Close Modal">×</span>
           <div class="form-image-container">
             <img src="assets/img/zseries1.png" alt="">
           </div>
           <div class="form-information">
-          <div class="modal-form-inputs">
+            <div class="modal-form-inputs">
               <label><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input type="text" id="login-user" placeholder="Enter Username" name="username" required>
               <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+              <input type="password" id="login-psw" placeholder="Enter Password" name="psw" required>
             </div>
-          <button class="login-modal-button" type="submit">Login</button>
-          <div class="modal-bottom">
-            <div class="modal-form-checkbox">
-              <input type="checkbox" id="login-checkbox"name="login-checkbox" checked="checked">
-              <label class="rememberme" for="checkbox1">Remember me</label>
-          </div>
-          <div class="register-trigger">
-            <p class="register-click-here">Need an account? Click here!</p>
-          </div>
-        </div>
+            <button class="login-modal-button" type="submit">Login</button>
+            <div class="modal-bottom">
+              <div class="modal-form-checkbox">
+                <input type="checkbox" id="login-checkbox" name="login-checkbox" checked="checked">
+                <label class="rememberme" for="checkbox1">Remember me</label>
+              </div>
+              <div class="register-trigger">
+                <p class="register-click-here">Need an account? Click here!</p>
+              </div>
+            </div>
           </div>
         </form>
       </div>
-
+      
       <div class="modal" id="register-modal">
-
-        <form class="register-modal modal-content animate" action="index.html" method="post">
-          <span  class="close close-reg" title="Close Modal">×</span>
+      
+        <form class="register-modal modal-content animate" action="page5-detalle-series.html" method="get">
+          <span class="close close-reg" title="Close Modal">×</span>
           <div class="form-image-container">
             <img src="assets/img/zseries1.png" alt="">
           </div>
           <div class="form-information">
-          <div class="modal-form-inputs">
+            <div class="modal-form-inputs">
               <label><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input type="text" placeholder="Enter Username" id="reg-user" name="username" required>
               <label><b>Email</b></label>
-              <input type="email" placeholder="Enter Email" name="email" required>
+              <input type="email" placeholder="Enter Email" id="reg-email" name="email" required>
               <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+              <input type="password" placeholder="Enter Password" id="reg-psw" name="psw" required>
               <label><b>Confirm Password</b></label>
-              <input type="password" placeholder="Confirm Password" name="pswconfirm" required>
+              <input type="password" placeholder="Confirm Password" id="reg-pswconfirm" name="pswconfirm" required>
             </div>
-          <button class="register-modal-button" type="submit">Register</button>
+            <button class="register-modal-button" type="submit">Register</button>
           </div>
         </form>
       </div>

@@ -72,11 +72,24 @@ window.addEventListener("click",function(event) {
 document.querySelector(".register-modal").addEventListener("submit",function(event){
   event.preventDefault()
   var nuevoUsuario= document.getElementById("reg-user").value
-  console.log(nuevoUsuario); // eliminar
+  var registerPassword = document.getElementById("reg-psw").value;
+  var passwordConfirm = document.getElementById("reg-pswconfirm").value;
   var users = JSON.parse(localStorage.getItem('Users')) || [];
-  console.log(users)
-  if (users.filter(e => e.username === nuevoUsuario).length > 0) {
-     return console.log("Este usuario ya esta registrado");
+  if (registerPassword !== passwordConfirm) {
+    UIkit.notification({
+      message: "<span uk-icon='icon: warning'></span> Las contraseñas deben ser iguales",
+      status: 'warning',
+      pos: 'bottom-left',
+      timeout: 5000,
+    });
+  }
+  else if (users.filter(e => e.username === nuevoUsuario).length > 0) {
+    UIkit.notification({
+      message: "<span uk-icon='icon: warning'></span> Este usuario ya esta registrado",
+      status: 'warning',
+      pos: 'bottom-left',
+      timeout: 5000,
+    });
   }
   else {
     var userData = {
@@ -88,8 +101,12 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
     localStorage.setItem('Users', JSON.stringify(users));
     document.getElementById("register-modal").style.display = "none"
     document.getElementById("login-modal").style.display = "block"
-    console.log(users);
-    return alert(`New user ${nuevoUsuario} now registered!`);
+    UIkit.notification({
+      message: "<span uk-icon='icon: check'></span> Nuevo usuario " + nuevoUsuario + " registrado!",
+      status: 'success',
+      pos: 'bottom-left',
+      timeout: 5000,
+    });
     }
   }
 )
@@ -99,35 +116,32 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
 document.querySelector(".login-modal").addEventListener("submit", function (event) {
   event.preventDefault()
   var users = JSON.parse(localStorage.getItem('Users')) || [];
-  console.log(users)
   var usurarioIngresado = document.getElementById("login-user").value
-  console.log(usurarioIngresado);
   var passwordIngresado = document.getElementById("login-psw").value
-  console.log(passwordIngresado);
   if ((users.filter(e => e.username === usurarioIngresado).length > 0) && (users.filter(e => e.password === passwordIngresado).length > 0)){
   document.querySelector(".login-button").innerHTML= usurarioIngresado
   document.getElementById("login-modal").style.display = "none"
   UIkit.notification({
-    message: 'Bienvenido '+ usurarioIngresado + "!",
-    status: 'primary',
+    message: "<span uk-icon='icon: check'></span> Bienvenido " + usurarioIngresado + "!",
+    status: 'success',
     pos: 'bottom-left',
     timeout: 5000
   });
   }
   else if((users.filter(e => e.username === usurarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
-      message: 'Contraseña incorrecta!',
+      message: "<span uk-icon='icon: close'></span> Contraseña incorrecta!",
       status: 'danger',
       pos: 'bottom-left',
-      timeout: 5000
+      timeout: 5000,
     });
   }
   else {
     UIkit.notification({
-      message: usurarioIngresado+' no existe, porfavor registrese!',
+      message: "<span uk-icon='icon: warning'></span> " + usurarioIngresado + " no existe, porfavor registrese!",
       status: 'warning',
       pos: 'bottom-left',
-      timeout: 5000
+      timeout: 5000,
     });
     document.getElementById("login-modal").style.display = "none"
     document.getElementById("register-modal").style.display = "block"

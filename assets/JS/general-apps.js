@@ -124,7 +124,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   }
   else {
     UIkit.notification({
-      message: usurarioIngresado+' no existe, porfavor registrese!',
+      message: usurarioIngresado+' no existe, por favor registrese!',
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000

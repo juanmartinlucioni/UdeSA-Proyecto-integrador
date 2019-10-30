@@ -231,6 +231,21 @@ label.rememberme:hover{
   color: red;
   cursor: pointer;
 }
+/* User modal */
+h1#titulo-user-modal{
+color: #edf0f1;
+}
+div.botones-user-modal{
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+}
+button.logout-button{
+  background-color:rgb(172,4,4);
+}
+button.logout-button:hover{
+  background-color:rgba(172,4,4,0.8);
+}
 /* Animacion Modal */
 .animate {
   -webkit-animation: animatezoom 0.6s;

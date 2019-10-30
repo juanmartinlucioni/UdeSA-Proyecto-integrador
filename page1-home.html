@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="assets/UIkit/css/uikit.min.css" />
     <link rel="stylesheet" href="assets/CSS/general-styles.css">
+    <link rel="stylesheet" href="assets/CSS/page1-home.css">
     <script src="https://kit.fontawesome.com/c466667ff8.js"></script>
+    <script src="assets/UIkit/js/uikit.min.js"></script>
+    <script src="assets/UIkit/js/uikit-icons.min.js"></script>
   </head>
   <body>
     <div class="content-wrap">
@@ -13,9 +17,9 @@
         <a class="logo" href="#"><img src="assets/img/zseries1.png" alt="logo"></a>
         <div class="searchbox">
           <div class="searchbar-wrap">
-            <input type="text" name="searchbar" value="" class="searchbar">
+            <input type="text" name="searchbar" value="" class="searchbar" id="searchbar">
           </div>
-          <i class="fas fa-search"></i>
+          <label for="searchbar"><i class="fas fa-search"></i></label>
         </div>
         <div class="hamburger">
           <div class="line"></div>
@@ -32,9 +36,18 @@
         <a class="CTA" href="#"><button type="button" class="login-button" style="width:auto;">Log in</button></a>
       </header>
 
+      <main class="main-body">
+        <h1 class="uk-heading-medium">Trending Series</h1>
+        <article class="trending-wrapper">
+          <ul class="trending-posters series-posters"></ul>
+          <ul class="trending-names series-names"></ul>
+        </article>
+       
+      </main>
+
       <div class="modal" id="login-modal">
 
-        <form class="modal-content animate" action="index.html" method="post">
+        <form class="modal-content login-modal animate" action="index.html" method="post">
           <span  class="close close-login" title="Close Modal">×</span>
           <div class="form-image-container">
             <img src="assets/img/zseries1.png" alt="">
@@ -42,9 +55,9 @@
           <div class="form-information">
           <div class="modal-form-inputs">
               <label><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input type="text" id="login-user" placeholder="Enter Username" name="username" required>
               <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+              <input type="password" id="login-psw" placeholder="Enter Password" name="psw" required>
             </div>
           <button class="login-modal-button" type="submit">Login</button>
           <div class="modal-bottom">
@@ -62,7 +75,7 @@
 
       <div class="modal" id="register-modal">
 
-        <form class="register-modal modal-content animate" action="index.html" method="post">
+        <form class="register-modal modal-content animate" action="page1-home.html" method="get">
           <span  class="close close-reg" title="Close Modal">×</span>
           <div class="form-image-container">
             <img src="assets/img/zseries1.png" alt="">
@@ -70,13 +83,13 @@
           <div class="form-information">
           <div class="modal-form-inputs">
               <label><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input type="text" placeholder="Enter Username" id="reg-user" name="username" required>
               <label><b>Email</b></label>
-              <input type="email" placeholder="Enter Email" name="email" required>
+              <input type="email" placeholder="Enter Email" id="reg-email" name="email" required>
               <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
+              <input type="password" placeholder="Enter Password" id="reg-psw" name="psw" required>
               <label><b>Confirm Password</b></label>
-              <input type="password" placeholder="Confirm Password" name="pswconfirm" required>
+              <input type="password" placeholder="Confirm Password" id="reg-pswconfirm" name="pswconfirm" required>
             </div>
           <button class="register-modal-button" type="submit">Register</button>
           </div>
@@ -93,7 +106,8 @@
           <img src="assets/IMG/tmdb.png" alt="The Movie Database Logo">
         </div>
       </footer>
-    </div>
     <script src="assets/JS/general-apps.js"></script>
+    <script src="assets/JS/api-general.js"></script>
+    <script src="assets/JS/page1-home.js"></script>
   </body>
 </html>

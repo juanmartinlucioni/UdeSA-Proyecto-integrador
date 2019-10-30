@@ -33,7 +33,7 @@
             <li><a href="#">Favoritos</a></li>
           </ul>
         </nav>
-        <a class="CTA" href="#"><button type="button" class="login-button" style="width:auto;">Log in</button></a>
+        <a class="CTA" href="#"><button type="button" id="nav-button" class="login-button" style="width:auto;">Log in</button></a>
       </header>
 
       <main class="main-body">
@@ -44,6 +44,21 @@
         </article>
        
       </main>
+
+      <div class="modal" id="user-modal">
+        <form class="modal-content user-modal animate"action="index.html" method="post">
+          <span  class="close close-user" title="Close Modal">×</span>
+          <!-- <img src="" alt=""> -->
+          <label for="change-u">Change username here</label>
+          <input type="text" id="change-user" placeholder="Enter Username" name="username">
+          <label for="change-email">Change mail here</label>
+          <input type="email"placeholder="Enter Email" id="change-email" name="email">
+          <label for="change-psw">Change password here</label>
+          <input type="password" placeholder="old password" id="change-psw">
+          <button class="user-modal-button" type="submit">Realizar Cambios</button>
+        </form>
+          <button class="logout-button"type="submit">Log Out</button>
+      </div>
 
       <div class="modal" id="login-modal">
 

@@ -82,7 +82,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
       pos: 'bottom-left',
       timeout: 5000
     });
-  }
+ }
   else if (users.filter(e => e.username === nuevoUsuario).length > 0) {
     UIkit.notification({
       message: "<span uk-icon='close'></span> Este usuario ya esta registrado",
@@ -126,7 +126,13 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
     pos: 'bottom-left',
     timeout: 5000
   });
+  document.getElementById("nav-button").classList.add("user-button");
+  document.getElementById("nav-button").classList.toggle("login-button");
+  var userBtn = document.querySelector(".user-button");
+  userBtn.onclick = function() {
+  userModal.style.display = "block";
   }
+}
   else if((users.filter(e => e.username === usurarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
       message: "<span uk-icon='close'></span> Contraseña incorrecta!",
@@ -147,3 +153,21 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   }
  
 })
+
+// User Modal (una vez ya logeado)
+var userModal = document.getElementById("user-modal");
+window.onclick = function(event) {
+     if (event.target == userModal) {
+         userModal.style.display = "none";
+     }
+ }
+
+var userBtn = document.querySelector(".user-button");
+  userBtn.onclick = function() {
+  userModal.style.display = "block";
+ }
+
+var closeUserModal = document.querySelector(".close-user");
+  closeUserModal.onclick = function() {
+  userModal.style.display = "none";
+ }

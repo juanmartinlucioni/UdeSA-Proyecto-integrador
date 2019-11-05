@@ -41,7 +41,7 @@
                     </div>
                     </div>
                     <div class="Imagenes">
-                        <li><a href='Proyecto-final-detalle-peli-pag5.html?idDePelicula="${id}"><p class='titulo-pelis-home'></p><img src="${image}" alt=""></a></li>
+                        <li><p class='titulo-series-home'></p><img src="${image}" alt="${title}"></a></li>
                     </div>
                     </div>`
                 }

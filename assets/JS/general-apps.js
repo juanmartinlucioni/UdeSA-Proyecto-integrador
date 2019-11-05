@@ -95,7 +95,8 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
     var userData = {
       username: document.getElementById("reg-user").value,
       email: document.getElementById("reg-email").value,
-      password: document.getElementById("reg-psw").value
+      password: document.getElementById("reg-psw").value,
+      favoritos: []
     }
     users.push(userData);
     localStorage.setItem('Users', JSON.stringify(users));
@@ -142,7 +143,14 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
     closeUserModal.onclick = function() {
     userModal.style.display = "none";
   }
-
+  document.querySelector(".user-modal").addEventListener("submit", function (event) {
+    event.preventDefault()
+    location.reload()
+    // var logoutTrigger = 
+    // regTrigger.onclick = function() {
+      // logModal.style.display = "block";
+      userModal.style.display = "none";
+    })
 }
   else if((users.filter(e => e.username === usurarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
@@ -165,20 +173,4 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
  
 })
 
-// User Modal (una vez ya logeado) no se si es necesario tenerlo aca
-// var userModal = document.getElementById("user-modal");
-// window.onclick = function(event) {
-//      if (event.target == userModal) {
-//          userModal.style.display = "none";
-//      }
-//  }
 
-// var userBtn = document.querySelector(".user-button");
-//   userBtn.onclick = function() {
-//   userModal.style.display = "block";
-//  }
-
-// var closeUserModal = document.getElementById("close-user-modal");
-//   closeUserModal.onclick = function() {
-//   userModal.style.display = "none";
-//  }

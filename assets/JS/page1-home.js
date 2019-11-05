@@ -41,7 +41,7 @@
                     </div>
                     </div>
                     <div class="Imagenes">
-                        <li><a href='Proyecto-final-detalle-peli-pag5.html?idDePelicula="${id}"><p class='titulo-pelis-home'></p><img src="${image}" alt=""></a></li>
+                        <img src="${image}" alt="">
                     </div>
                     </div>`
                 }
@@ -83,7 +83,7 @@
                     </div>
                     </div>
                     <div class="Imagenes">
-                        <li><a href='Proyecto-final-detalle-peli-pag5.html?idDePelicula="${id}"><p class='titulo-pelis-home'></p><img src="${image}" alt=""></a></li>
+                        <img src="${image}" alt="">
                     </div>
                     </div>`
                 }
@@ -125,7 +125,7 @@
                     </div>
                     </div>
                     <div class="Imagenes">
-                        <li><a href='Proyecto-final-detalle-peli-pag5.html?idDePelicula="${id}"><p class='titulo-pelis-home'></p><img src="${image}" alt=""></a></li>
+                        <img src="${image}" alt="">
                     </div>
                     </div>`
                     }

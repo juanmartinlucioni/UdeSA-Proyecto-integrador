@@ -9,7 +9,6 @@
                 return respuesta.json()
             })
             .then(function (informacion) {
-                console.log(informacion);
                 var title
                 var poster
                 var posterUrl
@@ -18,21 +17,18 @@
                 var average
                 var releaseDate
                 for (var i = 0; i < informacion.results.length; i++) {
-                    // informacion[i]
-                    console.log(informacion.results[i]);
                     id = informacion.results[i].id
                     title = informacion.results[i].name
                     poster = informacion.results[i].poster_path
                     posterUrl = 'https://image.tmdb.org/t/p/original/'
                     image = posterUrl + poster
                     average = informacion.results[i].vote_average
-                    releaseDate = informacion.results[i].first_air_date
-                    console.log(image);
+                    releaseDate = informacion.results[i].first_air_date;
 
                     var listadoPopulares = document.querySelector(".listado-series-populares")
                     listadoPopulares.innerHTML +=  `<div class="series">
                     <div class="overlay">
-                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon">favorite</i></a></span></div>
+                    <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon" onclick="favorite(${id})">favorite</i></a></span></div>
                     <div class="serie">
                         <h2>${title}</h2>
                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
@@ -52,7 +48,6 @@
                 return respuesta.json()
             })
             .then(function (informacion) {
-                console.log(informacion);
                 var title
                 var poster
                 var posterUrl
@@ -61,20 +56,18 @@
                 var average
                 var releaseDate
                 for (var i = 0; i < informacion.results.length; i++) {
-                    console.log(informacion.results[i]);
                     id = informacion.results[i].id
                     title = informacion.results[i].name
                     poster = informacion.results[i].poster_path
                     posterUrl = 'https://image.tmdb.org/t/p/original/'
                     image = posterUrl + poster
                     average = informacion.results[i].vote_average
-                    releaseDate = informacion.results[i].first_air_date
-                    console.log(image);
+                    releaseDate = informacion.results[i].first_air_date;
 
                     var listadoPuntuadas = document.querySelector(".listado-series-puntuadas")
                     listadoPuntuadas.innerHTML +=  `<div class="series">
                     <div class="overlay">
-                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon">favorite</i></a></span></div>
+                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon" onclick="favorite(${id})">favorite</i></a></span></div>
                     <div class="serie">
                         <h2>${title}</h2>
                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
@@ -94,7 +87,6 @@
                     return respuesta.json()
                 })
                 .then(function (informacion) {
-                    console.log(informacion);
                     var title
                     var poster
                     var posterUrl
@@ -103,20 +95,18 @@
                     var average
                     var releaseDate
                     for (var i = 0; i < informacion.results.length; i++) {
-                        console.log(informacion.results[i]);
                         id = informacion.results[i].id
                         title = informacion.results[i].name
                         poster = informacion.results[i].poster_path
                         posterUrl = 'https://image.tmdb.org/t/p/original/'
                         image = posterUrl + poster
                         average = informacion.results[i].vote_average
-                        releaseDate = informacion.results[i].first_air_date
-                        console.log(image);
+                        releaseDate = informacion.results[i].first_air_date;
 
                         var listadoPuntuadas = document.querySelector(".listado-series-aire")
                         listadoPuntuadas.innerHTML += `<div class="series">
                     <div class="overlay">
-                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon">favorite</i></a></span></div>
+                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon" onclick="favorite(${id})">favorite</i></a></span></div>
                     <div class="serie">
                         <h2>${title}</h2>
                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
@@ -139,4 +129,16 @@ function serieSelected(id) {
     localStorage.setItem("seriesId", id);
     window.open("page5-detalle-series.html");
     return false;
+}
+// favoritos agregar
+
+function favorite(id) {
+var favoritas= JSON.parse(localStorage.getItem("favs")) || [];
+if (favoritas.indexOf(id) === -1) {
+    favoritas.push(id);
+    localStorage.setItem("favs", JSON.stringify(favoritas));
+} else { 
+   console.log("ya esta en favs")
+}
+
 }

@@ -15,10 +15,12 @@
   <body>
     <div class="content-wrap">
       <header class="header">
-        <a class="logo" href="#"><img src="assets/img/zseries1.png" alt="logo"></a>
+        <a class="logo" href="page1-home.html"><img src="assets/img/zseries1.png" alt="logo"></a>
         <div class="searchbox">
           <div class="searchbar-wrap">
-            <input type="text" name="searchbar" value="" class="searchbar" id="searchbar">
+           <form action="page4-resultados-del-buscador.html" method="get" id="search-form">
+             <input type="text" name="search" value="" class="searchbar" id="searchbar">
+           </form>
           </div>
           <label for="searchbar"><i class="fas fa-search"></i></label>
         </div>
@@ -38,10 +40,12 @@
       </header>
 
       <main class="main-body">
-        <div class="series-info">
-          <img class="poster" src="" alt="">
-          <article class="series-details"></article>
-        </div>
+        <section id="detalles">
+         
+      </div>
+          <button class="boton-de-recomendaciones" type="submit" onclick="mostrarRecomendaciones()">Ver
+            Recomendaciones</button>
+        </section>
       </main>
 
       <div class="modal" id="login-modal">

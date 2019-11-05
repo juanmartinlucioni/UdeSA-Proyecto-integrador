@@ -50,3 +50,9 @@
                 console.log("Error: " + error);
             })
         })
+// ir a detalles
+function serieSelected(id) {
+    localStorage.setItem("seriesId", id);
+    window.open("page5-detalle-series.html");
+    return false;
+}

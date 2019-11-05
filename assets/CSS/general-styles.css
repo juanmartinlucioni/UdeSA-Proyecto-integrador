@@ -131,8 +131,9 @@ button {
 button:hover {
   background-color: rgba(0,136, 169, 0.8);
 }
-content-wrap {
+.content-wrap {
   position: relative;
+  z-index: 1000;
 }
 /* Modal Login */
 .modal {
@@ -296,6 +297,8 @@ footer {
   align-items: center;
   width: 100%;
   background-color: black;
+  position: relative;
+  bottom: 0;
 }
 footer .tmdb-logo {
   display: flex;

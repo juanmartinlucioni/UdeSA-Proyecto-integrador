@@ -6,6 +6,9 @@
     border: 1px solid black;
     margin: 50px 1%;
 }
+.trending-header {
+    color: #808080;
+}
 .series-posters{
     display: flex;
     flex-direction: row;

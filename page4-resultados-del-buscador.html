@@ -13,35 +13,34 @@
   </head>
   <body>
     <div class="content-wrap">
-        <header class="header">
-          <a class="logo" href="page1-home.html"><img src="assets/img/zseries1.png" alt="logo"></a>
-          <div class="searchbox">
-            <div class="searchbar-wrap">
-              <form action="page4-resultados-del-buscador.html" method="get" id="search-form">
-                <input type="text" name="search" value="" class="searchbar" id="searchbar">
-              </form>
-            </div>
-            <label for="searchbar"><i class="fas fa-search"></i></label>
-          </div>
-          <div class="hamburger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-          <nav>
-            <ul class="nav_links">
-              <li><a href="page1-home.html">Home</a></li>
-              <li><a href="#">Peliculas</a></li>
-              <li><a href="#">Favoritos</a></li>
-            </ul>
-          </nav>
-          <a class="CTA" href="#"><button type="button" class="login-button" style="width:auto;">Log in</button></a>
+        <header id="header" class="header">
         </header>
   
         <main class="main-body">
           <ul class="search-results-list" id="results-list">
           </ul>
         </main>
+
+        <div class="modal" id="user-modal">
+            <form class="modal-content user-modal animate"action="index.html" method="post">
+              <span  class="close close-user" id="close-user-modal" title="Close Modal">×</span>
+              <!-- <img src="" alt=""> -->
+              <h1 id="titulo-user-modal">Ajustes de Usuario</h1>
+              <div class="modal-form-inputs">
+              <label for="change-u">Change username here</label>
+              <input type="text" id="change-user" placeholder="Enter Username" name="username">
+              <label for="change-email">Change mail here</label>
+              <input type="email"placeholder="Enter Email" id="change-email" name="email">
+              <label for="change-psw">Change password here</label>
+              <input type="password" placeholder="old password" id="change-psw">
+            </div>
+            <div class="botones-user-modal">
+              <button class="user-modal-button" type="submit">Realizar Cambios</button>
+              <button class="logout-button"type="submit">Log Out</button>
+            </div>
+            </form>
+              
+          </div>
   
         <div class="modal" id="login-modal">
         
@@ -104,6 +103,7 @@
             <img src="assets/IMG/tmdb.png" alt="The Movie Database Logo">
           </div>
         </footer>
+    <script src="assets/HTML/header.js"></script>
     <script src="assets/JS/general-apps.js"></script>
     <script src="assets/JS/api-general.js"></script>
     <script src="assets/JS/page4-resultados-del-buscador.js"></script>  

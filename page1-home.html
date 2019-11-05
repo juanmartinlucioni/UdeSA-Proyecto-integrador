@@ -13,33 +13,11 @@
   </head>
   <body>
     <div class="content-wrap">
-      <header class="header">
-        <a class="logo" href="#"><img src="assets/img/zseries1.png" alt="logo"></a>
-        <div class="searchbox">
-          <div class="searchbar-wrap">
-            <form action="page4-resultados-del-buscador.html" method="get" id="search-form">
-              <input type="text" name="search" value="" class="searchbar" id="searchbar">
-            </form>
-          </div>
-          <label for="searchbar"><i class="fas fa-search"></i></label>
-        </div>
-        <div class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-        <nav>
-          <ul class="nav_links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Peliculas</a></li>
-            <li><a href="#">Favoritos</a></li>
-          </ul>
-        </nav>
-        <a class="CTA" href="#"><button type="button" id="nav-button" class="login-button" style="width:auto;">Log in</button></a>
+      <header id="header" class="header">
       </header>
 
       <main class="main-body">
-        <h1 class="uk-heading-medium">Trending Series</h1>
+        <h1 class="uk-heading-medium trending-header"><span>Trending Series</span></h1>
         <article class="trending-wrapper">
           <ul class="trending-posters series-posters"></ul>
           <ul class="trending-names series-names"></ul>
@@ -129,6 +107,7 @@
           <img src="assets/IMG/tmdb.png" alt="The Movie Database Logo">
         </div>
       </footer>
+    <script src="assets/HTML/header.js"></script>
     <script src="assets/JS/general-apps.js"></script>
     <script src="assets/JS/api-general.js"></script>
     <script src="assets/JS/page1-home.js"></script>

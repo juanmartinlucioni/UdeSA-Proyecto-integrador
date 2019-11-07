@@ -23,7 +23,6 @@ ul .result{
     text-align: center;
 }
 
-
 /* Media Query Mobile */
 @media (max-width: 420px) {
     ul .result {

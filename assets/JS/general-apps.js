@@ -110,7 +110,6 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
     });
   }
 });
-// al poner la contrasena mal, me dijo que el usuario no existe, osea no loggea, necesito una condicon que cuando exista usuario pero psw != notificacion " contrasena mal
 
 // Log in with User
 document.querySelector(".login-modal").addEventListener("submit", function (event) {

@@ -4,7 +4,7 @@ document.getElementById('header').innerHTML += "\
 </a>\
 <div class='searchbox'>\
     <div class='searchbar-wrap'>\
-        <form action='page4-resultados-del-buscador.html' method='get' id='search-form'>\
+        <form name='search-form' onsubmit='return checkSearch()' action='page4-resultados-del-buscador.html' method='get' id='search-form'>\
             <input type='text' name='search' value='' class='searchbar' id='searchbar'>\
         </form>\
     </div>\

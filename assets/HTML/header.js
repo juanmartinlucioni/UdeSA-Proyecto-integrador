@@ -17,8 +17,8 @@ document.getElementById('header').innerHTML += "\
 </div>\
 <nav>\
     <ul class='nav_links'>\
-        <li><a href='#'>Home</a></li> <li><a href='#'>Peliculas</a></li>\
-        <li><a href='#'>Favoritos</a></li>\
+        <li><a href='page1-home.html'>Home</a></li> <li><a href='page3-series-por-genero.html'>Genres</a></li>\
+        <li><a href='page7-favoritas.html'>Favorites</a></li>\
     </ul>\
 </nav>\
 <a class='CTA' href='#'>\

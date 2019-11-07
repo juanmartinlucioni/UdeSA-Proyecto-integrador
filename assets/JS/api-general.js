@@ -14,13 +14,13 @@ function runSearch(keyword) {
       var seriesSearchResult = data.results;
       var resultsList = document.getElementById("results-list");
       for (var i = 0; i < seriesSearchResult.length; i++) {
+        id = seriesSearchResult[i].id
         if (seriesSearchResult[i].poster_path !== null) {
-        resultsList.innerHTML += "<ul class='result result"+i+"'><li>" + seriesSearchResult[i].name + "</li>" + "<li><img class='series-img' src='https://image.tmdb.org/t/p/w185/" + seriesSearchResult[i].poster_path + "' alt=''></li></ul>"
+        resultsList.innerHTML += "<ul class='result result"+i+"'><li>" + seriesSearchResult[i].name + "</li>" + "<li><a id='detalles' onclick='serieSelected("+ id +")' href='page5-detalle-series.html'><img class='series-img' src='https://image.tmdb.org/t/p/original/" + seriesSearchResult[i].poster_path + "' alt=''></a></li></ul>"
       } else {
-        resultsList.innerHTML += "<ul class='result result" + i + "'><li>" + seriesSearchResult[i].name + "</li>" + "<li><img class='series-img' src='assets/IMG/Zseries1.png' alt=''></li></ul>"
+        resultsList.innerHTML += "<ul class='result result" + i + "'><li>" + seriesSearchResult[i].name + "</li>" + "<li><a id='detalles' onclick='serieSelected("+ id +")' href='page5-detalle-series.html'><img class='series-img' src='assets/IMG/noimage.png' alt=''></a></li></ul>"
       }
     }
-      console.log(seriesSearchResult) //ELIMINAR
     })
 }
 searchBar.onkeypress = function (event) {

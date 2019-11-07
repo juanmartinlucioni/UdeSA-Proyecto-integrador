@@ -8,7 +8,7 @@
 .series-info-wrapper{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-right: 30px;
     margin-bottom: 20px;
 }
@@ -31,6 +31,9 @@
 }
 .trailer-wrapper {
     display: block;
+}
+.reco-button {
+    margin-bottom: 10px;
 }
 /* Carrousel */
 div.series{

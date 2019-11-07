@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/UIkit/css/uikit.min.css" />
     <link rel="stylesheet" href="assets/CSS/general-styles.css">
     <link rel="stylesheet" href="assets/CSS/page6-buscador-avanzado.css">
@@ -17,7 +18,32 @@
         </header>
   
         <main class="main-body">
-
+          <form action="" id="adv-search-form" method="get" onsubmit="return advanceCheck()">
+            <label for="genre-include">Select genre to include</label>
+              <select class="uk-select" name="genre-include" id="genre-include">
+                <option value="">Select a genre...</option>
+              </select>
+            <label for="genre-exclude">Select genre to exclude</label>
+              <select class="uk-select" name="genre-exclude" id="genre-exclude">
+                <option value="">Select a genre...</option>
+              </select>
+            <!-- <label for="sort-input">Sort by</label>
+            <input type="text" name="sort-input" id="sort-input"> -->
+            <label for="year">Year of release</label>
+            <input type="text" name="year" id="year">
+            <button id="adv-search-btn" type="submit">Search</button>
+          </form>
+          <section id="adv-search-results">
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+              uk-slider="autoplay: true; autoplay-interval: 3000">
+              <ul class="adv-results uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@">
+              </ul>
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                uk-slider-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                uk-slider-item="next"></a>
+            </div>
+          </section>
         </main>
   
       <div class="modal" id="login-modal">

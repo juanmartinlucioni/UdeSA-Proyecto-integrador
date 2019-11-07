@@ -30,6 +30,7 @@ function runSearch(keyword) {
     })
 }
 
+//Search check
 function checkSearch() {
   var x = document.forms["search-form"]["search"].value;
   if (x == "" || x.length < 3) {

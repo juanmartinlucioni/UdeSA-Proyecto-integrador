@@ -98,3 +98,8 @@ div.series:hover .overlay{
 .series-posters li img:hover {
     width: 100%;
 }
+/* modal recos */
+.titulo-series-recomendadas { 
+    display: flex;
+    justify-content: center;
+}

@@ -28,7 +28,7 @@
                     var listadoPopulares = document.querySelector(".listado-series-populares")
                     listadoPopulares.innerHTML +=  `<div class="series">
                     <div class="overlay">
-                    <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon" onclick="favorite(${id});return false">favorite</i></a></span></div>
+                    <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
                     <div class="serie">
                         <h2>${title}</h2>
                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
@@ -67,7 +67,7 @@
                     var listadoPuntuadas = document.querySelector(".listado-series-puntuadas")
                     listadoPuntuadas.innerHTML +=  `<div class="series">
                     <div class="overlay">
-                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon" onclick="favorite(${id});return false">favorite</i></a></span></div>
+                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
                     <div class="serie">
                         <h2>${title}</h2>
                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
@@ -105,7 +105,7 @@
                         var listadoPuntuadas = document.querySelector(".listado-series-aire")
                         listadoPuntuadas.innerHTML += `<div class="series">
                     <div class="overlay">
-                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon" onclick="favorite(${id});return false">favorite</i></a></span></div>
+                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
                     <div class="serie">
                         <h2>${title}</h2>
                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
@@ -123,37 +123,3 @@
                 console.log("Error: " + error);
             })
         })
-// ir a detalles
-function serieSelected(id) {
-    localStorage.setItem("seriesId", id);
-    // window.open("page5-detalle-series.html");
-    return false;
-}
-// favoritos agregar
-
-function favorite(id) {
-var favoritas= JSON.parse(localStorage.getItem("favs")) || [];
-if (favoritas.indexOf(id) === -1) {
-    favoritas.push(id);
-    localStorage.setItem("favs", JSON.stringify(favoritas));
-    UIkit.notification({
-        message: "Agregada a favoritos",
-        status: 'success',
-        pos: 'bottom-left',
-        timeout: 5000
-    });
-    var materialIcon = document.getElementById("fav-icon")
-    materialIcon.innerText= "delete"; 
-
-    // return false
-} else { 
-    UIkit.notification({
-        message: "Esta serie ya esta en favoritos",
-        status: 'warning',
-        pos: 'bottom-left',
-        timeout: 5000
-    });
- return false
-}
-
-}

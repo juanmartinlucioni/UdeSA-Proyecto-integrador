@@ -26,9 +26,9 @@ for ( var i = 0; i< favoritas.length; i++){
             var releaseDate = informacion.first_air_date
 
             var listadoFavoritas = document.querySelector(".listado-favoritas")
-            listadoFavoritas.innerHTML +=  `<div class="series">
+            listadoFavoritas.innerHTML +=  `<div class="series" id=${id}>
             <div class="overlay">
-            <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon" onclick="removeFav(${id});return false">delete</i></a></span></div>
+            <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon-${id}" onclick="removeFav(${id});return false">delete</i></a></span></div>
             <div class="serie">
                 <h2>${title}</h2>
                 <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
@@ -44,12 +44,18 @@ for ( var i = 0; i< favoritas.length; i++){
     }
       
 })
+function serieSelected(id) {
+    localStorage.setItem("seriesId", id);
+    // window.open("page5-detalle-series.html");
+    return false;
+}
 // sacar de favoritas
 function removeFav(id){
   let jsonFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
   let index = jsonFavoritas.indexOf(id);
   jsonFavoritas.splice(index, 1)
   localStorage.setItem("favs", JSON.stringify(jsonFavoritas));
+  document.getElementById(id).style.display = "none"
   UIkit.notification({
       message: "Eliminada de favoritos",
       status: 'warning',

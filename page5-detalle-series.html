@@ -28,12 +28,25 @@
           <button class="reco-button" type="submit">Ver
             Recomendaciones</button>
         </main>
-      <div class="modal" id="reco-modal">
-        <div class="modal-content">
-          <span class="close close-reco" title="Close Modal">×</span>
-          <section class="series-recomendadas">
-            <div class="titulo-series-recomendadas">
-              <h1>Similar TV Shows:</h1>
+        <div class="modal" id="reco-modal">
+          <div class="modal-content">
+            <span class="close close-reco" title="Close Modal">×</span>
+            <section class="series-recomendadas">
+                <div class="titulo-series-recomendadas">
+                  <h1>Similar TV Shows:</h1>
+                </div>
+                <div>
+                  <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+                    uk-slider="autoplay: true; autoplay-interval: 3000">
+                    <ul class="listado-series-recomendadas uk-slider-items uk-child-width-1-4@s uk-child-width-1-4@">
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                      uk-slider-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                      uk-slider-item="next"></a>
+                  </div>
+                </div>
+              </section>
             </div>
             <div>
               <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 3000">

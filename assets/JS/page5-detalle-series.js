@@ -127,6 +127,7 @@ window.addEventListener("load", function () {
 })
 
 // modal recommended
+
 var recoModal = document.getElementById("reco-modal");
 window.onclick = function(event) {
      if (event.target == recoModal) {

@@ -1,4 +1,5 @@
 // Animaciones Menu Hamburguesa
+
 const hamburger = document.querySelector(".hamburger");
 const navlinks = document.querySelector(".nav_links");
 const links = document.querySelectorAll(".nav_links li");
@@ -12,6 +13,7 @@ hamburger.addEventListener("click",()=> {
 });
 
 //Animaciones Search Bar
+
 const searchbar = document.querySelector(".searchbar");
 const searchbox = document.querySelector(".searchbox");
 const searchicon = document.querySelector(".fa-search");
@@ -21,6 +23,7 @@ searchicon.addEventListener("click", ()=> {
 });
 
 //Hover logo
+
 const logo = document.querySelector(".logo");
 const logoimg = document.querySelector(".logo img");
 
@@ -31,7 +34,9 @@ logo.onmouseover = function() {
 logo.onmouseout = function() {
   logoimg.setAttribute('src', 'assets/IMG/zseries1.png');
 }
+
 //Login In Modal
+
 var logModal = document.getElementById("login-modal");
 window.onclick = function(event) {
      if (event.target == logModal) {
@@ -50,6 +55,7 @@ var closeLogModal = document.querySelector(".close-login");
  }
 
 //Register Modal
+
 var regModal = document.getElementById("register-modal");
 var regTrigger = document.querySelector(".register-trigger");
  regTrigger.onclick = function() {
@@ -67,6 +73,7 @@ window.addEventListener("click",function(event) {
       regModal.style.display = "none";
   }
 })
+
 // Local storage Usuarios
 
 document.querySelector(".register-modal").addEventListener("submit",function(event){
@@ -112,6 +119,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
 });
 
 // Log in with User
+
 document.querySelector(".login-modal").addEventListener("submit", function (event) {
   event.preventDefault()
   var users = JSON.parse(localStorage.getItem('Users')) || [];
@@ -145,9 +153,6 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   document.querySelector(".user-modal").addEventListener("submit", function (event) {
     event.preventDefault()
     location.reload()
-    // var logoutTrigger = 
-    // regTrigger.onclick = function() {
-      // logModal.style.display = "block";
       userModal.style.display = "none";
     })
     var usuarioActual = sessionStorage.setItem("usuarioActual", usuarioIngresado);
@@ -172,5 +177,52 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   }
  
 })
+
+// Agregar series a favoirtas usando corazon
+
+function favorite(id) {
+  var favoritas = JSON.parse(localStorage.getItem("favs")) || [];
+  if (favoritas.indexOf(id) === -1) {
+    favoritas.push(id);
+    localStorage.setItem("favs", JSON.stringify(favoritas));
+    UIkit.notification({
+      message: "Agregada a favoritos",
+      status: 'success',
+      pos: 'bottom-left',
+      timeout: 5000
+    });
+      var materialIcon = document.getElementById("fav-icon-"+id)
+      materialIcon.innerText = "delete";
+      
+  } else {
+    removeFav(id)
+    var materialIcon = document.getElementById("fav-icon-"+id)
+    materialIcon.innerText = "favorite";
+    return false
+  }
+}
+
+// ir a detalles de series
+
+function serieSelected(id) {
+  localStorage.setItem("seriesId", id);
+  // window.open("page5-detalle-series.html");
+  return false;
+}
+
+// sacar de favs
+
+function removeFav(id) {
+  let jsonFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
+  let index = jsonFavoritas.indexOf(id);
+  jsonFavoritas.splice(index, 1)
+  localStorage.setItem("favs", JSON.stringify(jsonFavoritas));
+  UIkit.notification({
+    message: "Eliminada de favoritos",
+    status: 'danger',
+    pos: 'bottom-left',
+    timeout: 5000
+  });
+}
 
 

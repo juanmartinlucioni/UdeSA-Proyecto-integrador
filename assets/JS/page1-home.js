@@ -102,7 +102,6 @@
                         image = posterUrl + poster
                         average = informacion.results[i].vote_average
                         releaseDate = informacion.results[i].first_air_date;
-
                         var listadoPuntuadas = document.querySelector(".listado-series-aire")
                         listadoPuntuadas.innerHTML += `<div class="series">
                     <div class="overlay">
@@ -127,7 +126,7 @@
 // ir a detalles
 function serieSelected(id) {
     localStorage.setItem("seriesId", id);
-    window.open("page5-detalle-series.html");
+    // window.open("page5-detalle-series.html");
     return false;
 }
 // favoritos agregar

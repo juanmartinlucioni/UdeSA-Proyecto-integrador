@@ -15,38 +15,18 @@
   </head>
   <body>
     <div class="content-wrap">
-      <header class="header">
-        <a class="logo" href="page1-home.html"><img src="assets/img/zseries1.png" alt="logo"></a>
-        <div class="searchbox">
-          <div class="searchbar-wrap">
-           <form action="page4-resultados-del-buscador.html" method="get" id="search-form">
-             <input type="text" name="search" value="" class="searchbar" id="searchbar">
-           </form>
-          </div>
-          <label for="searchbar"><i class="fas fa-search"></i></label>
-        </div>
-        <div class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-        <nav>
-          <ul class="nav_links">
-            <li><a href="page1-home.html">Home</a></li>
-            <li><a href="#">Peliculas</a></li>
-            <li><a href="#">Favoritos</a></li>
-          </ul>
-        </nav>
-        <a class="CTA" href="#"><button type="button" class="login-button" style="width:auto;">Log in</button></a>
+      <header id="header" class="header">
       </header>
 
       <main class="main-body">
-        <section id="detalles">
-         
-      </div>
+      <section id="detalles">
+        <section class="trailer-wrapper" id="trailer-wrapper">
+          <h2>Videos</h2>
+        </section>
           <button class="reco-button" type="submit">Ver
             Recomendaciones</button>
         </section>
+        </main>
         <div class="modal" id="reco-modal">
             <section class="series-recomendadas">
                 <div class="titulo-series-recomendadas">
@@ -64,8 +44,8 @@
                   </div>
                 </div>
               </section>
-          </div>
-      </main>
+         </div>
+
 
       <div class="modal" id="login-modal">
         <form class="modal-content login-modal animate" action="index.html" method="post">
@@ -127,6 +107,7 @@
           <img src="assets/IMG/tmdb.png" alt="The Movie Database Logo">
         </div>
       </footer>
+    <script src="assets/HTML/header.js"></script>
     <script src="assets/JS/general-apps.js"></script>
     <script src="assets/JS/api-general.js"></script>
     <script src="assets/JS/page5-detalle-series.js"></script>    

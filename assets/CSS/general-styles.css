@@ -29,6 +29,11 @@ ul{
   padding: 0;
   margin:0;
 }
+h1,
+h2,
+h3{
+  color: #0088a9;
+}
 h1.uk-heading-medium{
   padding: 10px;
   margin: 10px;
@@ -490,4 +495,78 @@ footer p {
   footer p {
     margin-top: 7px;
   }
+}
+/* Carrousel */
+div.series {
+  display: flex;
+  align-items: center;
+  transition: all .2s ease-in-out;
+}
+
+div.imagenes {
+  width: 100%;
+}
+
+div.overlay {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+}
+
+div.series:hover {
+  transform: scale(1.05);
+  z-index: 9;
+}
+
+div.series:hover .overlay {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+  background-color: rgba(0, 128, 128, 0.756);
+  width: 100%;
+  height: 100%;
+}
+
+/* boton de favs */
+.addBtn {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.heart {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.heart:hover {
+  animation: fav-icon 0.4s ease forwards infinite;
+  color: red;
+}
+
+/* animacion boton favs */
+@keyframes fav-icon {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  33% {
+    transform: rotate(15deg)
+  }
+
+  66% {
+    transform: rotate(-15deg)
+  }
+
+  100% {
+    transform: rotate(0deg)
+  }
+}
+
+/* Animacion hover serie */
+.series-posters li img:hover {
+  width: 100%;
 }

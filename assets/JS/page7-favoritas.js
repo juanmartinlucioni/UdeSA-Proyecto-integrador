@@ -44,6 +44,11 @@ for ( var i = 0; i< favoritas.length; i++){
     }
       
 })
+function serieSelected(id) {
+    localStorage.setItem("seriesId", id);
+    // window.open("page5-detalle-series.html");
+    return false;
+}
 // sacar de favoritas
 function removeFav(id){
   let jsonFavoritas = JSON.parse(localStorage.getItem("favs")) || [];

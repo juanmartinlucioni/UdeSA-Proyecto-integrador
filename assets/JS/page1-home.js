@@ -155,4 +155,5 @@ if (favoritas.indexOf(id) === -1) {
     });
  return false
 }
+
 }

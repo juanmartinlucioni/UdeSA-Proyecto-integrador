@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/UIkit/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/CSS/general-styles.css">
+    <link rel="stylesheet" href="assets/CSS/page7-favoritas.css">
+    <script src="https://kit.fontawesome.com/c466667ff8.js"></script>
+    <script src="assets/UIkit/js/uikit.min.js"></script>
+    <script src="assets/UIkit/js/uikit-icons.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+  </head>
+  <body>
+    <div class="content-wrap">
+        <header class="header">
+          <a class="logo" href="page1-home.html"><img src="assets/img/zseries1.png" alt="logo"></a>
+          <div class="searchbox">
+            <div class="searchbar-wrap">
+              <form action="page4-resultados-del-buscador.html" method="get" id="search-form">
+                <input type="text" name="search" value="" class="searchbar" id="searchbar">
+              </form>
+            </div>
+            <label for="searchbar"><i class="fas fa-search"></i></label>
+          </div>
+          <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <nav>
+            <ul class="nav_links">
+              <li><a href="page1-home.html">Home</a></li>
+              <li><a href="#">Peliculas</a></li>
+              <li><a href="#">Favoritos</a></li>
+            </ul>
+          </nav>
+          <a class="CTA" href="#"><button type="button" class="login-button" style="width:auto;">Log in</button></a>
+        </header>
+  
+        <main class="main-body">
+            <div class="titulo-favoritas">
+                <h1>Favoritas:</h1>
+              </div>
+              <div>
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+                  uk-slider="autoplay: true; autoplay-interval: 3000">
+                  <ul class="listado-favoritas uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@">
+                  </ul>
+                  <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                    uk-slider-item="previous"></a>
+                  <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                    uk-slider-item="next"></a>
+                </div>
+            </div>
+        </main>
+  
+      <div class="modal" id="login-modal">
+      
+        <form class="modal-content login-modal animate" action="index.html" method="post">
+          <span class="close close-login" title="Close Modal">×</span>
+          <div class="form-image-container">
+            <img src="assets/img/zseries1.png" alt="">
+          </div>
+          <div class="form-information">
+            <div class="modal-form-inputs">
+              <label><b>Username</b></label>
+              <input type="text" id="login-user" placeholder="Enter Username" name="username" required>
+              <label><b>Password</b></label>
+              <input type="password" id="login-psw" placeholder="Enter Password" name="psw" required>
+            </div>
+            <button class="login-modal-button" type="submit">Login</button>
+            <div class="modal-bottom">
+              <div class="modal-form-checkbox">
+                <input type="checkbox" id="login-checkbox" name="login-checkbox" checked="checked">
+                <label class="rememberme" for="checkbox1">Remember me</label>
+              </div>
+              <div class="register-trigger">
+                <p class="register-click-here">Need an account? Click here!</p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <div class="modal" id="register-modal">
+      
+        <form class="register-modal modal-content animate" action="page6-buscador-avanzado.html" method="get">
+          <span class="close close-reg" title="Close Modal">×</span>
+          <div class="form-image-container">
+            <img src="assets/img/zseries1.png" alt="">
+          </div>
+          <div class="form-information">
+            <div class="modal-form-inputs">
+              <label><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" id="reg-user" name="username" required>
+              <label><b>Email</b></label>
+              <input type="email" placeholder="Enter Email" id="reg-email" name="email" required>
+              <label><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" id="reg-psw" name="psw" required>
+              <label><b>Confirm Password</b></label>
+              <input type="password" placeholder="Confirm Password" id="reg-pswconfirm" name="pswconfirm" required>
+            </div>
+            <button class="register-modal-button" type="submit">Register</button>
+          </div>
+        </form>
+      </div>
+      </div>
+  
+        <footer class="footer">
+          <div class="footernames">
+            <p>Matías Ayerza, Juan Martin Lucioni, Jim Rattagan</p>
+          </div>
+          <div class="tmdb-logo">
+            <p>Datos provistos por</p>
+            <img src="assets/IMG/tmdb.png" alt="The Movie Database Logo">
+          </div>
+        </footer>
+      <script src="assets/JS/general-apps.js"></script>
+      <script src="assets/JS/api-general.js"></script>
+    <script src="assets/JS/page7-favoritas.js"></script>
+  </body>
+</html>

@@ -77,7 +77,9 @@ window.addEventListener("load", function () {
                     <iframe width="640" height="390" src="${video}" frameborder="0" allowfullscreen></iframe>`
                 }
             })
+
                 // "<h1>${title}</h1><img src="${posterURL}" alt=""><h2>Sinopsis</h2><p>${sinopsis}</p><h2>trailer</h2><iframe src="${trailer}" frameborder="0"></iframe>"
+
         
           //reco moda fetch
                         var recoUrl = "https://api.themoviedb.org/3/tv/"+ id +"/similar?api_key=" + apiKey + "&language=en-US&query&page=1"

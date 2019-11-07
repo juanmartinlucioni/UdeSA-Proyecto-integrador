@@ -191,15 +191,13 @@ function favorite(id) {
       pos: 'bottom-left',
       timeout: 5000
     });
-    var materialIcon = document.getElementById("fav-icon")
-    materialIcon.innerText = "delete";
+      var materialIcon = document.getElementById("fav-icon-"+id)
+      materialIcon.innerText = "delete";
+      
   } else {
-    UIkit.notification({
-      message: "Esta serie ya esta en favoritos",
-      status: 'warning',
-      pos: 'bottom-left',
-      timeout: 5000
-    });
+    removeFav(id)
+    var materialIcon = document.getElementById("fav-icon-"+id)
+    materialIcon.innerText = "favorite";
     return false
   }
 }
@@ -210,6 +208,21 @@ function serieSelected(id) {
   localStorage.setItem("seriesId", id);
   // window.open("page5-detalle-series.html");
   return false;
+}
+
+// sacar de favs
+
+function removeFav(id) {
+  let jsonFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
+  let index = jsonFavoritas.indexOf(id);
+  jsonFavoritas.splice(index, 1)
+  localStorage.setItem("favs", JSON.stringify(jsonFavoritas));
+  UIkit.notification({
+    message: "Eliminada de favoritos",
+    status: 'danger',
+    pos: 'bottom-left',
+    timeout: 5000
+  });
 }
 
 

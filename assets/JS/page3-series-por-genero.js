@@ -23,7 +23,7 @@
         <div class="carrousel">
                         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
               uk-slider="autoplay: true; autoplay-interval: 3000">
-              <ul class="listado-series-por-genero-${ids} uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@">
+              <ul class="listado-series-por-genero-${ids} uk-slider-items uk-child-width-1-4@s uk-child-width-1-4@">
               </ul>
               <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
                 uk-slider-item="previous"></a>
@@ -65,7 +65,7 @@ function makeCallback(ids) {
                 var listadoGenero = document.querySelector(".listado-series-por-genero-" + ids)
                 listadoGenero.innerHTML += `<div class="series">
                         <div class="overlay">
-                        <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon" onclick="favorite(${id});return false">favorite</i></a></span></div>
+                        <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
                         <div class="serie">
                             <h2>${title}</h2>
                             <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>

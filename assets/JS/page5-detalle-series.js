@@ -125,13 +125,9 @@ window.addEventListener("load", function () {
                     
 
 })
-// ir a detalles
-function serieSelected(id) {
-    localStorage.setItem("seriesId", id);
-    // window.open("page5-detalle-series.html");
-    return false;
-}
+
 // modal recommended
+
 var recoModal = document.getElementById("reco-modal");
 window.onclick = function(event) {
      if (event.target == recoModal) {

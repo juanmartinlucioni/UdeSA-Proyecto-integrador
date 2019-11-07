@@ -21,6 +21,9 @@ window.addEventListener("load", function () {
                         releaseDate = informacion.first_air_date
                         trailer = informacion.video
                         average = informacion.vote_average
+                        lastEpisode = informacion.last_episode_to_air.name
+                        lastEpisodeDate = informacion.last_air_date
+                        status= informacion.status
                         console.log(informacion)
                         for (var i = 0; i < informacion.genres.length; i++) {
                             var genres = informacion.genres[i].name
@@ -75,7 +78,6 @@ window.addEventListener("load", function () {
                 }
             })
                 // "<h1>${title}</h1><img src="${posterURL}" alt=""><h2>Sinopsis</h2><p>${sinopsis}</p><h2>trailer</h2><iframe src="${trailer}" frameborder="0"></iframe>"
-                    })
         
           //reco moda fetch
                         var recoUrl = "https://api.themoviedb.org/3/tv/"+ id +"/similar?api_key=" + apiKey + "&language=en-US&query&page=1"
@@ -117,7 +119,7 @@ window.addEventListener("load", function () {
                                     </div>
                                     </div>`
                                 }
-                                 
+                            })
                     
 
 })
@@ -126,7 +128,7 @@ window.addEventListener("load", function () {
 var recoModal = document.getElementById("reco-modal");
 window.onclick = function(event) {
      if (event.target == recoModal) {
-         logModal.style.display = "none";
+         recoModal.style.display = "none";
      }
  }
 
@@ -135,8 +137,7 @@ var recoBtn = document.querySelector(".reco-button");
   recoModal.style.display = "block";
  }
 
-// var closeRecoModal = document.querySelector(".close-reco");
-//   closeRecoModal.onclick = function() {
-//   recoModal.style.display = "none";
-//  }
-})
+var closeRecoModal = document.querySelector(".close-reco");
+  closeRecoModal.onclick = function() {
+  recoModal.style.display = "none";
+ }

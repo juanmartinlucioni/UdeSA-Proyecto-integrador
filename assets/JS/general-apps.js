@@ -116,13 +116,13 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
 document.querySelector(".login-modal").addEventListener("submit", function (event) {
   event.preventDefault()
   var users = JSON.parse(localStorage.getItem('Users')) || [];
-  var usurarioIngresado = document.getElementById("login-user").value
+  var usuarioIngresado = document.getElementById("login-user").value
   var passwordIngresado = document.getElementById("login-psw").value
-  if ((users.filter(e => e.username === usurarioIngresado).length > 0) && (users.filter(e => e.password === passwordIngresado).length > 0)){
-  document.querySelector(".login-button").innerHTML= usurarioIngresado
+  if ((users.filter(e => e.username === usuarioIngresado).length > 0) && (users.filter(e => e.password === passwordIngresado).length > 0)){
+  document.querySelector(".login-button").innerHTML= usuarioIngresado
   document.getElementById("login-modal").style.display = "none"
   UIkit.notification({
-    message: "Bienvenido " + usurarioIngresado + "!",
+    message: "Bienvenido " + usuarioIngresado + "!",
     status: 'success',
     pos: 'bottom-left',
     timeout: 5000
@@ -151,8 +151,9 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
       // logModal.style.display = "block";
       userModal.style.display = "none";
     })
+    var usuarioActual = sessionStorage.setItem("usuarioActual", usuarioIngresado);
 }
-  else if((users.filter(e => e.username === usurarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
+  else if((users.filter(e => e.username === usuarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
       message: "<span uk-icon='close'></span> Contraseña incorrecta!",
       status: 'danger',
@@ -162,7 +163,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   }
   else {
     UIkit.notification({
-      message: "<span uk-icon='warning'></span> " +usurarioIngresado+" no existe, por favor registrese!",
+      message: "<span uk-icon='warning'></span> " +usuarioIngresado+" no existe, por favor registrese!",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000

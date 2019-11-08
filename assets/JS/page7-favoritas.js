@@ -63,3 +63,20 @@ function removeFav(id){
       timeout: 5000
   });
 }
+
+// eliminar todas las favoritas 
+
+var removeBtn = document.getElementById("borrar-todas")
+    removeBtn.onclick = function() {
+   localStorage.removeItem("favs")
+   var favseries = document.querySelectorAll(".series")
+   for (let i = 0; i < favseries.length; i++) {
+       favseries[i].style.display="none";
+   }
+   UIkit.notification({
+    message: "Todas eliminadas de favoritos",
+    status: 'danger',
+    pos: 'bottom-left',
+    timeout: 5000
+});
+}

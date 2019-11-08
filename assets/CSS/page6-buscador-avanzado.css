@@ -1,3 +1,9 @@
+/* Form design */
+#adv-search-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /* Carrousel */
 div.series{
     display: flex;

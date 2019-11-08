@@ -13,6 +13,41 @@ fetch(genresUrl)
         }
     })
 
+//Generar lista de año
+var currentYear = new Date().getFullYear();
+
+for (var i = currentYear; i >= 1940; --i) {
+    var yearList = document.getElementById("year")
+    yearList.innerHTML += "<option value="+i+">"+i+"</option>"
+}
+
+//Cambio include/exclude
+function includeChange() {
+    var excludeSelect = document.getElementById("genre-exclude").selectedIndex;
+    if (excludeSelect !== 0){
+        document.getElementById("genre-exclude").value = "";
+        UIkit.notification({
+            message: "<span uk-icon='warning'></span> Solo puede utilizar un tipo de filtro de generos",
+            status: 'warning',
+            pos: 'bottom-left',
+            timeout: 2000
+        });
+    }
+}
+
+function excludeChange() {
+    var includeSelect = document.getElementById("genre-include").selectedIndex;
+    if (includeSelect !== 0){
+        document.getElementById("genre-include").value = "";
+        UIkit.notification({
+            message: "<span uk-icon='warning'></span> Solo puede utilizar un tipo de filtro de generos",
+            status: 'warning',
+            pos: 'bottom-left',
+            timeout: 2000
+        });
+    }
+}
+
 //Chequeo de condiciones
 var advBaseUrl = "https://api.themoviedb.org/3/discover/tv?api_key=2d4fd4d7daaa410f13903dbc540ca5d4"
 
@@ -20,13 +55,14 @@ function advanceCheck(){
     var includeSelect = document.getElementById("genre-include").selectedIndex;
     var excludeSelect = document.getElementById("genre-exclude").selectedIndex;
     var sort = document.getElementById("sort-input").selectedIndex;
-    var year = document.getElementById("year").value;
+    var year = document.getElementById("year").selectedIndex;
 
     var includeSelectId = document.getElementById("genre-include").value;
     var excludeSelectId = document.getElementById("genre-exclude").value;
     var sortSelected = document.getElementById("sort-input").value;
+    var yearSelected = document.getElementById("year").value;
 
-    if ((includeSelect == 0) && (excludeSelect == 0) && (year == "") && (sort == 0)){
+    if ((includeSelect == 0) && (excludeSelect == 0) && (year == 0) && (sort == 0)){
         UIkit.notification({
             message: "<span uk-icon='warning'></span> Complete al menos un campo",
             status: 'warning',
@@ -34,24 +70,8 @@ function advanceCheck(){
             timeout: 2000
         });
         return false
-    } else if ((includeSelect !== 0) && (excludeSelect !== 0)){
-        UIkit.notification({
-            message: "<span uk-icon='warning'></span> Solo puede utilizar un tipo de filtro de generos",
-            status: 'warning',
-            pos: 'bottom-left',
-            timeout: 2000
-        });
-        return false
-    } else if ((year.length > 0) && (year.length !== 4)) {
-        UIkit.notification({
-            message: "<span uk-icon='warning'></span> El año debe estar completo (ej: 1986)",
-            status: 'warning',
-            pos: 'bottom-left',
-            timeout: 2000
-        });
-        return false
     } else {
-        let url = "".concat(advBaseUrl, "&with_genres=", includeSelectId, "&without_genres=", excludeSelectId, "&sort_by=", sortSelected, "&first_air_date_year=", year)
+        let url = "".concat(advBaseUrl, "&with_genres=", includeSelectId, "&without_genres=", excludeSelectId, "&sort_by=", sortSelected, "&first_air_date_year=", yearSelected)
         fetch(url)
             .then(advResults => advResults.json())
             .then(function (advData){

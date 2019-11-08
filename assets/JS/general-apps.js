@@ -178,7 +178,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
  
 })
 
-// Agregar series a favoirtas usando corazon
+// Agregar series a favoritas usando corazon
 
 function favorite(id) {
   var favoritas = JSON.parse(localStorage.getItem("favs")) || [];
@@ -206,7 +206,6 @@ function favorite(id) {
 
 function serieSelected(id) {
   localStorage.setItem("seriesId", id);
-  // window.open("page5-detalle-series.html");
   return false;
 }
 

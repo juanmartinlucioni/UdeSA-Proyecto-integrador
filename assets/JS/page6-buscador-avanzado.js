@@ -17,16 +17,16 @@ fetch(genresUrl)
 var advBaseUrl = "https://api.themoviedb.org/3/discover/tv?api_key=2d4fd4d7daaa410f13903dbc540ca5d4"
 
 function advanceCheck(){
-    var form = document.getElementById("adv-search-form");
     var includeSelect = document.getElementById("genre-include").selectedIndex;
     var excludeSelect = document.getElementById("genre-exclude").selectedIndex;
-    // var sort = document.getElementById("sort-input").value;
+    var sort = document.getElementById("sort-input").selectedIndex;
     var year = document.getElementById("year").value;
 
     var includeSelectId = document.getElementById("genre-include").value;
     var excludeSelectId = document.getElementById("genre-exclude").value;
+    var sortSelected = document.getElementById("sort-input").value;
 
-    if ((includeSelect == 0) && (excludeSelect == 0) && (year == "")){
+    if ((includeSelect == 0) && (excludeSelect == 0) && (year == "") && (sort == 0)){
         UIkit.notification({
             message: "<span uk-icon='warning'></span> Complete al menos un campo",
             status: 'warning',
@@ -51,8 +51,7 @@ function advanceCheck(){
         });
         return false
     } else {
-        let url = "".concat(advBaseUrl, "&with_genres=", includeSelectId, "&without_genres=", excludeSelectId, "&first_air_date_year=", year)
-        console.log(url) //eliminar
+        let url = "".concat(advBaseUrl, "&with_genres=", includeSelectId, "&without_genres=", excludeSelectId, "&sort_by=", sortSelected, "&first_air_date_year=", year)
         fetch(url)
             .then(advResults => advResults.json())
             .then(function (advData){
@@ -77,7 +76,7 @@ function advanceCheck(){
 
                     resultados.innerHTML += `<div class="series">
                     <div class="overlay">
-                    <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon" onclick="favorite(${id});return false">favorite</i></a></span></div>
+                    <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
                     <div class="serie">
                         <h2>${title}</h2>
                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
@@ -90,7 +89,6 @@ function advanceCheck(){
                     </div>
                     </div>`
                 }
-                console.log(seriesFound);
             })
         return false
     }

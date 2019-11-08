@@ -1,7 +1,8 @@
-    window.addEventListener("load", function () {
-        var apiKey = "2d4fd4d7daaa410f13903dbc540ca5d4"
-        var genresUrl = "https://api.themoviedb.org/3/genre/tv/list?api_key="+ apiKey +"&language=en-US"
-        fetch(genresUrl)
+window.addEventListener("load", function () {
+    //Genres
+    var apiKey = "2d4fd4d7daaa410f13903dbc540ca5d4"
+    var genresUrl = "https://api.themoviedb.org/3/genre/tv/list?api_key="+ apiKey +"&language=en-US"
+    fetch(genresUrl)
         .then(function(answer){
             return answer.json()
         })

@@ -1,3 +1,14 @@
+/* Login Modal Fix */
+#login-modal {
+    z-index: 10000;
+}
+#register-modal {
+    z-index: 10000;
+}
+#user-modal {
+    z-index: 10000;
+}
+
 /* Series Details */
 .main-body {
     margin-left: 15px;

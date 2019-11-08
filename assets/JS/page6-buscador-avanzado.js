@@ -71,7 +71,7 @@ function advanceCheck(){
         });
         return false
     } else {
-        let url = "".concat(advBaseUrl, "&with_genres=", includeSelectId, "&without_genres=", excludeSelectId, "&sort_by=", sortSelected, "&first_air_date_year=", yearSelected)
+        let url = "".concat(advBaseUrl, "&with_genres=", includeSelectId, "&without_genres=", excludeSelectId, "&sort_by=", sortSelected, "&first_air_date_year=", yearSelected, "&include_null_first_air_dates=false")
         fetch(url)
             .then(advResults => advResults.json())
             .then(function (advData){

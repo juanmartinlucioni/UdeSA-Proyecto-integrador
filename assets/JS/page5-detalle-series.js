@@ -2,7 +2,6 @@ window.addEventListener("load", function () {
     var apiKey = "2d4fd4d7daaa410f13903dbc540ca5d4"
 
     var id = localStorage.getItem("seriesId")
-    console.log(id)
 
             var url = "https://api.themoviedb.org/3/tv/" + id + "?api_key=" + apiKey + "&language=en-US"
             fetch(url)

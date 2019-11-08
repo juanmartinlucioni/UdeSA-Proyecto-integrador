@@ -20,6 +20,7 @@ document.getElementById('header').innerHTML += "\
         <li><a href='page1-home.html'>Home</a></li>\
         <li><a href='page3-series-por-genero.html'>Genres</a></li>\
         <li><a href='page7-favoritas.html'>Favorites</a></li>\
+        <li><a href='page6-buscador-avanzado.html'>Advanced Search</a></li>\
     </ul>\
 </nav>\
 <a class='CTA' href='#'>\

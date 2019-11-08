@@ -21,11 +21,11 @@
           <h1>Advanced Search</h1>
           <form action="" id="adv-search-form" method="get" onsubmit="return advanceCheck()">
             <label for="genre-include">Select genre to include</label>
-              <select class="uk-select" name="genre-include" id="genre-include">
+              <select class="uk-select" name="genre-include" id="genre-include" onchange="includeChange()">
                 <option value="">Select a genre</option>
               </select>
             <label for="genre-exclude">Select genre to exclude</label>
-              <select class="uk-select" name="genre-exclude" id="genre-exclude">
+              <select class="uk-select" name="genre-exclude" id="genre-exclude" onchange="excludeChange()">
                 <option value="">Select a genre</option>
               </select>
             <label for="sort-input">Sort by</label>
@@ -39,7 +39,9 @@
                   <option value="popularity.asc">Least Popular</option>
               </select>
             <label for="year">Year of release</label>
-            <input type="text" name="year" id="year">
+              <select class="uk-select" name="year" id="year">
+                <option value="">Select year</option>
+              </select>
             <button id="adv-search-btn" type="submit">Search</button>
           </form>
           <section id="adv-search-results">

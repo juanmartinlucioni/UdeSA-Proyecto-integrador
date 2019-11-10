@@ -14,7 +14,8 @@ window.addEventListener("load", function () {
                         poster = informacion.poster_path
                         posterUrl = 'https://image.tmdb.org/t/p/w400/'
                         image = posterUrl + poster
-                        genresArray= []
+                        genresArray = []
+                        genresIdArray= []
                         language = informacion.original_language
                         sinopsis = informacion.overview
                         releaseDate = informacion.first_air_date
@@ -23,19 +24,15 @@ window.addEventListener("load", function () {
                         lastEpisode = informacion.last_episode_to_air.name
                         lastEpisodeDate = informacion.last_air_date
                         status= informacion.status
-                        console.log(informacion)
                         for (var i = 0; i < informacion.genres.length; i++) {
                             var genres = informacion.genres[i].name
                             genresArray.push(genres)
+                            var genresId = informacion.genres[i].id
+                            genresIdArray.push(genresId)
                         }
                        
-                        console.log(genres)
+                        console.log(genresIdArray)
                         console.log(genresArray)
-
-                        if (trailer == false) {
-                    
-                            
-                        };
                         console.log(informacion)
 
                 var detalles = document.getElementById("detalles")
@@ -56,9 +53,16 @@ window.addEventListener("load", function () {
                                     <p><strong>First air date:</strong> <span>${releaseDate}</span></p>
                                     <p><strong>Latest episode:</strong> <span>${lastEpisode}</span></p>
                                     <p><strong>Aired on:</strong> <span>${lastEpisodeDate}</span></p>
+                                    <p><strong>Genres:</strong> <span id="genre-list">
+                                    </span></p>
                                 </aside>
                             </div>
                         </div>`
+                    for (let i = 0; i < genresArray.length; i++) {
+                        genreList = document.getElementById("genre-list");
+                        genreList.innerHTML += `<a href="page2-informacion-genero.html?genreid=${genresIdArray[i]}&genrename=${genresArray[i]}">${genresArray[i]}</a> `
+                    }
+                    
                     })
     url = "https://api.themoviedb.org/3/tv/" + id + "/videos?api_key=" + apiKey + "&language=en-US"
         fetch(url)

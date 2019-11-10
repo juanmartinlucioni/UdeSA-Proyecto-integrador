@@ -178,6 +178,33 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
  
 })
 
+//Mantener login
+var usuarioActual = sessionStorage.getItem("usuarioActual");
+if(usuarioActual !== null) {
+    document.querySelector(".login-button").innerHTML= usuarioActual;
+    document.getElementById("nav-button").classList.add("user-button");
+document.getElementById("nav-button").classList.toggle("login-button");
+var userModal = document.getElementById("user-modal"); // user modal empieza
+window.onclick = function(event) {
+    if (event.target == userModal) {
+        userModal.style.display = "none";
+    }
+}
+    var userBtn = document.querySelector(".user-button");
+    userBtn.onclick = function() {
+    userModal.style.display = "block";
+}
+    var closeUserModal = document.getElementById("close-user-modal");
+    closeUserModal.onclick = function() {
+    userModal.style.display = "none";
+}
+document.querySelector(".user-modal").addEventListener("submit", function (event) {
+    event.preventDefault()
+    location.reload()
+    userModal.style.display = "none";
+    })
+}
+
 // Agregar series a favoritas usando corazon
 
 function favorite(id) {

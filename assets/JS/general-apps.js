@@ -191,6 +191,7 @@ function favorite(id) {
       pos: 'bottom-left',
       timeout: 5000
     });
+
       var materialIcon = document.getElementById("fav-icon-"+id)
       materialIcon.innerText = "delete";
       
@@ -202,14 +203,14 @@ function favorite(id) {
   }
 }
 
-// ir a detalles de series
+// Ir a detalles de series
 
 function serieSelected(id) {
   localStorage.setItem("seriesId", id);
   return false;
 }
 
-// sacar de favs
+// Sacar de favs
 
 function removeFav(id) {
   let jsonFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
@@ -223,5 +224,13 @@ function removeFav(id) {
     timeout: 5000
   });
 }
+// on load - checkea si estan en favs o no y les pone el tachito en vez del corazon.
 
+function onloadCheck(id) {
+  var listadoFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
+  if (listadoFavoritas.includes(id)) {
+    var materialIcon = document.getElementById("fav-icon-" + id)
+    materialIcon.innerText = "delete";
+  }
+}
 

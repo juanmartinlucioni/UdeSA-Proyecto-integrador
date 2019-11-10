@@ -76,11 +76,9 @@ window.addEventListener("load", function () {
                     <iframe width="640" height="390" src="${video}" frameborder="0" allowfullscreen></iframe>`
                 }
             })
-
-                // "<h1>${title}</h1><img src="${posterURL}" alt=""><h2>Sinopsis</h2><p>${sinopsis}</p><h2>trailer</h2><iframe src="${trailer}" frameborder="0"></iframe>"
-
         
-          //reco moda fetch
+          // Reco modal fetch
+          
                         var recoUrl = "https://api.themoviedb.org/3/tv/"+ id +"/similar?api_key=" + apiKey + "&language=en-US&query&page=1"
                         console.log(recoUrl);
                         fetch(recoUrl)
@@ -107,7 +105,7 @@ window.addEventListener("load", function () {
                                     var listadoRecomendadas = document.querySelector(".listado-series-recomendadas")
                                     listadoRecomendadas.innerHTML +=  `<div class="series">
                                     <div class="overlay">
-                                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon" onclick="favorite(${id});return false">favorite</i></a></span></div>
+                                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
                                     <div class="serie">
                                         <h2>${title}</h2>
                                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
@@ -119,6 +117,7 @@ window.addEventListener("load", function () {
                                         <img src="${image}" alt="">
                                     </div>
                                     </div>`
+                                    onloadCheck(id)
                                 }
                             })
                     

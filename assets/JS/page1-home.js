@@ -40,6 +40,7 @@
                         <img src="${image}" alt="">
                     </div>
                     </div>`
+                    onloadCheck(id)
                 }
             })
         var ratedUrl = "https://api.themoviedb.org/3/tv/top_rated?api_key=" + apiKey + "&page=1"
@@ -79,6 +80,7 @@
                         <img src="${image}" alt="">
                     </div>
                     </div>`
+                    onloadCheck(id)
                 }
             })
             var airUrl = "https://api.themoviedb.org/3/tv/airing_today?api_key=" + apiKey + "&page=1"
@@ -117,9 +119,11 @@
                         <img src="${image}" alt="">
                     </div>
                     </div>`
+                    onloadCheck(id)
                     }
                 })
             .catch(function (error) {
                 console.log("Error: " + error);
-            })
+            })  
         })
+

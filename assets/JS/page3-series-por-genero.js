@@ -78,6 +78,7 @@ function makeCallback(ids) {
                             <img src="${image}" alt="">
                         </div>
                         </div>`
+                        onloadCheck(id)
             }
         }
 }

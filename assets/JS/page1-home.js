@@ -38,6 +38,7 @@ window.addEventListener("load", function () {
                         <img src="${image}" alt="">
                     </div>
                     </div>`
+                    onloadCheck(id)
                 }
             })
 
@@ -79,6 +80,7 @@ window.addEventListener("load", function () {
                         <img src="${image}" alt="">
                     </div>
                     </div>`
+                    onloadCheck(id)
                 }
             })
 
@@ -119,10 +121,11 @@ window.addEventListener("load", function () {
                         <img src="${image}" alt="">
                     </div>
                     </div>`
-                }
-            })
-
+                    onloadCheck(id)
+                    }
+                })
             .catch(function (error) {
                 console.log("Error: " + error);
-            })
+            })  
         })
+

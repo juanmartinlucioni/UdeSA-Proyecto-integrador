@@ -75,11 +75,13 @@ div.series:hover .overlay{
     width: 100%;
     height: 100%;
 }
+
 /* boton de favs */
 .addBtn{
+    margin: 15px;
     position: absolute;
-    top: 5%;
-    right: 5%;
+    top: auto;
+    left: 18.33%;
 }
 .heart{
     font-size: 35px;

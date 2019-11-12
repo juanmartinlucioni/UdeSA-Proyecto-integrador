@@ -261,3 +261,9 @@ function onloadCheck(id) {
   }
 }
 
+// agregar favs a un usuario especifico
+//  function favUser(){
+   let jsonUserFavs = JSON.parse(localStorage.getItem("Users"));
+   console.log(jsonUserFavs)
+
+//  }

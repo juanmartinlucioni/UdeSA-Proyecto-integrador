@@ -527,6 +527,13 @@ div.series:hover .overlay {
   width: 100%;
   height: 100%;
 }
+a#detalles {
+  position: relative;
+  font-weight: bolder;
+}
+a#detalles:hover{
+  text-decoration: underline;
+}
 
 /* boton de favs */
 .addBtn {

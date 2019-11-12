@@ -1,0 +1,7 @@
+div.button-ver-mas{
+    display: flex;
+    justify-content: center;
+}
+.ver-mas {
+    margin: 20px;
+}

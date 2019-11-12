@@ -23,7 +23,8 @@ window.addEventListener("load", function () {
                         average = informacion.vote_average
                         lastEpisode = informacion.last_episode_to_air.name
                         lastEpisodeDate = informacion.last_air_date
-                        status= informacion.status
+                        status = informacion.status
+                        seasons = informacion.seasons.length
                         for (var i = 0; i < informacion.genres.length; i++) {
                             var genres = informacion.genres[i].name
                             genresArray.push(genres)
@@ -40,6 +41,7 @@ window.addEventListener("load", function () {
                         <div class="serie">
                             <h1>${title}</h1>
                         <div class='series-info-wrapper'>
+                                <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
                                 <img src="${image}" alt="${title}">
                                 <aside class="series-info">
                                     <div class='sinopsis-wrapper'>
@@ -53,11 +55,14 @@ window.addEventListener("load", function () {
                                     <p><strong>First air date:</strong> <span>${releaseDate}</span></p>
                                     <p><strong>Latest episode:</strong> <span>${lastEpisode}</span></p>
                                     <p><strong>Aired on:</strong> <span>${lastEpisodeDate}</span></p>
+                                    <p><strong>Seasons:</strong> <span>${seasons}</span></p>
+                                    <p><strong>Original Language:</strong> <span style= text-transform:uppercase; >${language}</span></p>
                                     <p><strong>Genres:</strong> <span id="genre-list">
                                     </span></p>
                                 </aside>
                             </div>
                         </div>`
+                        onloadCheck(id)
                     for (let i = 0; i < genresArray.length; i++) {
                         genreList = document.getElementById("genre-list");
                         genreList.innerHTML += `<a href="page2-informacion-genero.html?genreid=${genresIdArray[i]}&genrename=${genresArray[i]}">${genresArray[i]}</a> `
@@ -82,7 +87,7 @@ window.addEventListener("load", function () {
             })
         
           // Reco modal fetch
-          
+
                         var recoUrl = "https://api.themoviedb.org/3/tv/"+ id +"/similar?api_key=" + apiKey + "&language=en-US&query&page=1"
                         console.log(recoUrl);
                         fetch(recoUrl)

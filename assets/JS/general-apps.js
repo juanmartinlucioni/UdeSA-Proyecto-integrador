@@ -84,7 +84,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
   var regPasswordConfirm = document.getElementById("reg-pswconfirm").value;
   if (regPassword !== regPasswordConfirm) {
     UIkit.notification({
-      message: "<span uk-icon='warning'></span> Las contraseñas deben ser iguales",
+      message: "<span uk-icon='warning'></span> Passwords must match each other",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000
@@ -92,7 +92,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
  }
   else if (users.filter(e => e.username === nuevoUsuario).length > 0) {
     UIkit.notification({
-      message: "<span uk-icon='close'></span> Este usuario ya esta registrado",
+      message: "<span uk-icon='close'></span> This user already exists",
       status: 'danger',
       pos: 'bottom-left',
       timeout: 5000
@@ -110,7 +110,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
     document.getElementById("register-modal").style.display = "none"
     document.getElementById("login-modal").style.display = "block"
     UIkit.notification({
-      message: "<span uk-icon='check'></span> Se ha creado el usuario "+ nuevoUsuario + "!",
+      message: "<span uk-icon='check'></span> New user "+ nuevoUsuario + " created!",
       status: 'success',
       pos: 'bottom-left',
       timeout: 5000
@@ -129,7 +129,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   document.querySelector(".login-button").innerHTML= usuarioIngresado
   document.getElementById("login-modal").style.display = "none"
   UIkit.notification({
-    message: "Bienvenido " + usuarioIngresado + "!",
+    message: "Welcome " + usuarioIngresado + "!",
     status: 'success',
     pos: 'bottom-left',
     timeout: 5000
@@ -159,7 +159,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
 }
   else if((users.filter(e => e.username === usuarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
-      message: "<span uk-icon='close'></span> Contraseña incorrecta!",
+      message: "<span uk-icon='close'></span> Incorrect password!",
       status: 'danger',
       pos: 'bottom-left',
       timeout: 5000
@@ -167,7 +167,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   }
   else {
     UIkit.notification({
-      message: "<span uk-icon='warning'></span> " +usuarioIngresado+" no existe, por favor registrese!",
+      message: "<span uk-icon='warning'></span> User " +usuarioIngresado+" does not exist, please register!",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000
@@ -213,7 +213,7 @@ function favorite(id) {
     favoritas.push(id);
     localStorage.setItem("favs", JSON.stringify(favoritas));
     UIkit.notification({
-      message: "Agregada a favoritos",
+      message: "Added to favorites",
       status: 'success',
       pos: 'bottom-left',
       timeout: 5000
@@ -245,7 +245,7 @@ function removeFav(id) {
   jsonFavoritas.splice(index, 1)
   localStorage.setItem("favs", JSON.stringify(jsonFavoritas));
   UIkit.notification({
-    message: "Eliminada de favoritos",
+    message: "Removed from favorites",
     status: 'danger',
     pos: 'bottom-left',
     timeout: 5000

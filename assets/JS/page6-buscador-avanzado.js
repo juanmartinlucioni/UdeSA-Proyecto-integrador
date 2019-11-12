@@ -27,7 +27,7 @@ function includeChange() {
     if (excludeSelect !== 0){
         document.getElementById("genre-exclude").value = "";
         UIkit.notification({
-            message: "<span uk-icon='warning'></span> Solo puede utilizar un tipo de filtro de generos",
+            message: "<span uk-icon='warning'></span> You can only use one genre filter",
             status: 'warning',
             pos: 'bottom-left',
             timeout: 2000
@@ -40,7 +40,7 @@ function excludeChange() {
     if (includeSelect !== 0){
         document.getElementById("genre-include").value = "";
         UIkit.notification({
-            message: "<span uk-icon='warning'></span> Solo puede utilizar un tipo de filtro de generos",
+            message: "<span uk-icon='warning'></span> You can only use one genre filter",
             status: 'warning',
             pos: 'bottom-left',
             timeout: 2000
@@ -64,7 +64,7 @@ function advanceCheck(){
 
     if ((includeSelect == 0) && (excludeSelect == 0) && (year == 0) && (sort == 0)){
         UIkit.notification({
-            message: "<span uk-icon='warning'></span> Complete al menos un campo",
+            message: "<span uk-icon='warning'></span> Complete at least one field",
             status: 'warning',
             pos: 'bottom-left',
             timeout: 2000
@@ -101,7 +101,7 @@ function advanceCheck(){
                         <h2>${title}</h2>
                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
                         <p><strong>First air date:</strong> <span>${releaseDate}</span></p>
-                        <a id="detalles" onclick="serieSelected('${id}')" href="page5-detalle-series.html">Detalle</a>
+                        <a id="detalles" onclick="serieSelected('${id}')" href="page5-detalle-series.html">Details</a>
                     </div>
                     </div>
                     <div class="Imagenes">

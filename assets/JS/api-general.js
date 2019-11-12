@@ -35,7 +35,7 @@ function checkSearch() {
   var x = document.forms["search-form"]["search"].value;
   if (x == "" || x.length < 3) {
     UIkit.notification({
-      message: "<span uk-icon='warning'></span> El término de búsqueda debe ser mayor a 3 caractéres",
+      message: "<span uk-icon='warning'></span> Search term must be longer than three characters",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 2000

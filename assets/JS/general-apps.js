@@ -261,3 +261,12 @@ function onloadCheck(id) {
   }
 }
 
+// Media Queries
+var searchClick = document.getElementById("search-trigger");
+
+searchClick.onclick = function () {
+  var logo = document.querySelector(".logo");
+  var logButton = document.querySelector(".CTA");
+  logo.classList.toggle("none");
+  logButton.classList.toggle("none");
+}

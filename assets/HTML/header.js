@@ -1,6 +1,6 @@
 document.getElementById('header').innerHTML += "\
 <a class='logo' href='page1-home.html'>\
-    <img src='../img/zseries1.png' alt='logo'>\
+    <img src='assets/img/zseries1.png' alt='logo'>\
 </a>\
 <div class='searchbox'>\
     <div class='searchbar-wrap'>\
@@ -8,7 +8,7 @@ document.getElementById('header').innerHTML += "\
             <input type='text' name='search' value='' class='searchbar' id='searchbar'>\
         </form>\
     </div>\
-    <label for='searchbar'><i class='fas fa-search'></i></label>\
+    <label for='searchbar'><i class='fas fa-search' id='search-trigger'></i></label>\
 </div>\
 <div class='hamburger'>\
     <div class='line'></div>\
@@ -24,5 +24,5 @@ document.getElementById('header').innerHTML += "\
     </ul>\
 </nav>\
 <a class='CTA' href='#'>\
-    <button type='button' id='nav-button' class='login-button' style='width:auto;'>Log in</button>\
+    <button type='button' id='nav-button' class='login-button'>Log in</button>\
 </a>"

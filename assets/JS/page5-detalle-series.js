@@ -41,11 +41,13 @@ window.addEventListener("load", function () {
                         <div class="serie">
                             <h1>${title}</h1>
                         <div class='series-info-wrapper'>
-                                <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
                                 <img src="${image}" alt="${title}">
                                 <aside class="series-info">
                                     <div class='sinopsis-wrapper'>
-                                        <h2>Sinopsis</h2>
+                                        <div class='sinopsis-header'>
+                                            <h2>Sinopsis</h2>
+                                            <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
+                                        </div>    
                                         <p>${sinopsis}</p>
                                     </div>
                                     <h2>About ${title}</h2>
@@ -82,7 +84,7 @@ window.addEventListener("load", function () {
                     var videoSection = document.getElementById("trailer-wrapper")
                     videoSection.innerHTML +=
                     `<h3 class='video-title'>${videoName}</h3>
-                    <iframe width="640" height="390" src="${video}" frameborder="0" allowfullscreen></iframe>`
+                    <iframe src="${video}" frameborder="0" allowfullscreen></iframe>`
                 }
             })
         

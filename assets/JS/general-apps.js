@@ -28,11 +28,11 @@ const logo = document.querySelector(".logo");
 const logoimg = document.querySelector(".logo img");
 
 logo.onmouseover = function() {
-  logoimg.setAttribute('src', 'assets/IMG/zseries1hover.png');
+  logoimg.setAttribute('src', 'assets/IMG/Zseries1hover.png');
 }
 
 logo.onmouseout = function() {
-  logoimg.setAttribute('src', 'assets/IMG/zseries1.png');
+  logoimg.setAttribute('src', 'assets/IMG/Zseries1.png');
 }
 
 //Login In Modal
@@ -84,7 +84,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
   var regPasswordConfirm = document.getElementById("reg-pswconfirm").value;
   if (regPassword !== regPasswordConfirm) {
     UIkit.notification({
-      message: "<span uk-icon='warning'></span> Password must be the same",
+      message: "<span uk-icon='warning'></span> Passwords must match each other",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000
@@ -159,7 +159,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
 }
   else if((users.filter(e => e.username === usuarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
-      message: "<span uk-icon='close'></span> Incorrect Password!",
+      message: "<span uk-icon='close'></span> Incorrect password!",
       status: 'danger',
       pos: 'bottom-left',
       timeout: 5000
@@ -167,7 +167,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   }
   else {
     UIkit.notification({
-      message: "<span uk-icon='warning'></span> " +usuarioIngresado+" doesn't exist, please register!",
+      message: "<span uk-icon='warning'></span> User " +usuarioIngresado+" does not exist, please register!",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000
@@ -270,3 +270,11 @@ searchClick.onclick = function () {
   logo.classList.toggle("none");
   logButton.classList.toggle("none");
 }
+
+// agregar favs a un usuario especifico
+//  function favUser(){
+   let jsonUserFavs = JSON.parse(localStorage.getItem("Users"));
+   console.log(jsonUserFavs)
+
+//  }
+

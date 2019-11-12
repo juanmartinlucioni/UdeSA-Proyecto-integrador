@@ -33,7 +33,7 @@ window.addEventListener("load", function () {
             </div>
         </div>
         <div class="button-ver-mas">
-        <button class="ver-mas" onclick= "window.location.href ='page2-informacion-genero.html?genreid=${ids}&genrename=${name}'" type="button">Ver Más</button>
+        <button class="ver-mas" onclick= "window.location.href ='page2-informacion-genero.html?genreid=${ids}&genrename=${name}'" type="button">View More</button>
         </div>
         </div>`;
        

@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-    //Populares
+    // Populares
         var apiKey = "2d4fd4d7daaa410f13903dbc540ca5d4"
         var popularUrl = " https://api.themoviedb.org/3/tv/popular?api_key=" + apiKey + "&page=1"
         fetch(popularUrl)
@@ -42,7 +42,7 @@ window.addEventListener("load", function () {
                 }
             })
 
-        //Top rated
+    // Top rated
         var ratedUrl = "https://api.themoviedb.org/3/tv/top_rated?api_key=" + apiKey + "&page=1"
         fetch(ratedUrl)
             .then(function (respuesta) {
@@ -84,7 +84,7 @@ window.addEventListener("load", function () {
                 }
             })
 
-            //On Air
+    // On Air
         var airUrl = "https://api.themoviedb.org/3/tv/airing_today?api_key=" + apiKey + "&page=1"
         fetch(airUrl)
             .then(function (respuesta) {

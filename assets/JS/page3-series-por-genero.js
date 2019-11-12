@@ -74,7 +74,7 @@ function makeCallback(ids) {
                             <h2>${title}</h2>
                             <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
                             <p><strong>First air date:</strong> <span>${releaseDate}</span></p>
-                            <a id="detalles" onclick="serieSelected('${id}')" href="page5-detalle-series.html">Detalle</a>
+                            <a id="detalles" onclick="serieSelected('${id}')" href="page5-detalle-series.html">Details</a>
                         </div>
                         </div>
                         <div class="Imagenes">

@@ -85,8 +85,8 @@ div.series:hover .overlay{
     display: flex;
     justify-content: space-between;
 }
-.addBtn{
-    margin-top: 0px;
+.sinopsis-header .addBtn{
+    /* margin-top: 0px; */
     position: relative;
 }
 .heart{
@@ -134,15 +134,9 @@ div.series:hover .overlay{
     .series-info-wrapper img {
         margin-right: 0px;
     }
-    .trailer-wrapper {
-        margin-right: 15px;
-    }
     iframe {
         height: 100%;
         width: 100%;
-    }
-    .addBtn {
-        position: relative;
     }
     .main-body {
         margin-right: 15px;
@@ -164,5 +158,11 @@ div.series:hover .overlay{
     }
     .series-info-wrapper img {
         width: 400px;
+    }
+    iframe {
+        width: 100%;
+    }
+    .trailer-wrapper {
+        margin-right: 15px;
     }
 }

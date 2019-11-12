@@ -52,6 +52,7 @@ function checkSearch() {
         fetch(url)
           .then(result => result.json())
           .then(function (data) {
+            console.log(url)
             var seriesSearchResult = data.results;
               if (data.results.length !== 0){
                 var genreList = document.getElementById("genre-list");

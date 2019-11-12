@@ -24,15 +24,15 @@ ul .result{
 }
 
 /* Media Query Mobile */
-@media (max-width: 420px) {
+@media (max-width: 425px) {
     ul .result {
-        width: 100%;
+        width: 50%;
     }
 }
 
 
 /* Media Query Tablets */
-@media (min-width: 421px) and (max-width: 800px){
+@media (min-width: 426px) and (max-width: 800px){
     ul .result {
         width: 30%;
     }

@@ -149,6 +149,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
       userModal.style.display = "none";
     })
     var usuarioActual = sessionStorage.setItem("usuarioActual", usuarioIngresado);   
+    location.reload()
 }
   else if((users.filter(e => e.username === usuarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
@@ -214,6 +215,7 @@ logOutBtn.onclick = function() {
   loginBtn.onclick = function () {
     loginModal.style.display = "block";
   }
+  location.reload()
 }
 
 // Ir a detalles de series
@@ -254,7 +256,7 @@ searchClick.onclick = function () {
           favoritas.push(id)
           localStorage.setItem("Users", JSON.stringify(jsonUsers));
           UIkit.notification({
-            message: "Agregada a favoritos",
+            message: "Added to favorites",
             status: 'success',
             pos: 'bottom-left',
             timeout: 5000
@@ -268,7 +270,7 @@ searchClick.onclick = function () {
           favoritas.splice(index, 1)
           localStorage.setItem("Users", JSON.stringify(jsonUsers));
           UIkit.notification({
-            message: "Eliminada de favoritos",
+            message: "Removed from favorites",
             status: 'danger',
             pos: 'bottom-left',
             timeout: 5000

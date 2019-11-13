@@ -1,7 +1,33 @@
-div.button-ver-mas{
+/* Lista arriba de todo */
+.genre-list-wrapper {
+    margin-bottom: 15px;
+}
+#genre-top-list {
+    columns: 4;
+    margin-left: 10px;
+}
+h1 {
+    margin-left: 5px;
+}
+h2 {
+    margin-left: 10px;
+}
+
+/* Footer de cada genero */
+div.genre-footer{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .ver-mas {
     margin: 20px;
+}
+.back-to-top-btn {
+    margin: 20px;
+}
+
+/* Media Query Mobile */
+@media (max-width: 426px) {
+    #genre-top-list {
+        columns: 2;
+    }
 }

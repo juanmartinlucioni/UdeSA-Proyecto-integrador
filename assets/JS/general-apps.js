@@ -283,14 +283,16 @@ searchClick.onclick = function () {
 // on load - checkea si estan en favs o no y les pone el tachito en vez del corazon.
 function onloadCheck(id) {
   var activeUser = document.getElementById("nav-button").textContent
-  let jsonUsers = JSON.parse(localStorage.getItem("Users"));
-  var user = jsonUsers.find(function (user) {
-    return user.username === activeUser
-  })
-  var favoritas = user.favoritos
-  if (favoritas.includes(id)) {
-    var materialIcon = document.getElementById("fav-icon-" + id)
-    materialIcon.innerText = "delete";
+  if(activeUser !== "Log in"){
+    let jsonUsers = JSON.parse(localStorage.getItem("Users"));
+    var user = jsonUsers.find(function (user) {
+      return user.username === activeUser
+    })
+    var favoritas = user.favoritos
+    if (favoritas.includes(id)) {
+      var materialIcon = document.getElementById("fav-icon-" + id)
+      materialIcon.innerText = "delete";
+    }
   }
 }
 // sacar de favoritas

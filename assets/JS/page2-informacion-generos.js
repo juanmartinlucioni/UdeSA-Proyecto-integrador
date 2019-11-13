@@ -35,7 +35,4 @@ function addNewItem() {
 
 function viewmore(loadPage) {
     genreSearch(genreQuery, loadPage);
-}
-
-
-    
+}   

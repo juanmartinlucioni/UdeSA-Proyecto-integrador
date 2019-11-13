@@ -8,6 +8,9 @@
 #user-modal {
     z-index: 10000;
 }
+h1 {
+    margin-left: 0px;
+}
 
 /* Series Details */
 .main-body {

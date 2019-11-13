@@ -17,9 +17,9 @@ function runSearch(keyword) {
           for (var i = 0; i < seriesSearchResult.length; i++) {
             id = seriesSearchResult[i].id
             if (seriesSearchResult[i].poster_path !== null) {
-            resultsList.innerHTML += "<ul class='result result"+i+"'><li>" + seriesSearchResult[i].name + "</li>" + "<li><a id='detalles' onclick='serieSelected("+ id +")' href='page5-detalle-series.html'><img class='series-img' src='https://image.tmdb.org/t/p/original/" + seriesSearchResult[i].poster_path + "' alt=''></a></li></ul>"
+            resultsList.innerHTML += "<ul class='result'><li>" + seriesSearchResult[i].name + "</li>" + "<li><a id='detalles' onclick='serieSelected("+ id +")' href='page5-detalle-series.html'><img class='series-img' src='https://image.tmdb.org/t/p/original/" + seriesSearchResult[i].poster_path + "' alt=''></a></li></ul>"
           } else {
-            resultsList.innerHTML += "<ul class='result result" + i + "'><li>" + seriesSearchResult[i].name + "</li>" + "<li><a id='detalles' onclick='serieSelected("+ id +")' href='page5-detalle-series.html'><img class='series-img' src='assets/IMG/noimage.png' alt=''></a></li></ul>"
+            resultsList.innerHTML += "<ul class='result'><li>" + seriesSearchResult[i].name + "</li>" + "<li><a id='detalles' onclick='serieSelected("+ id +")' href='page5-detalle-series.html'><img class='series-img' src='assets/IMG/noimage.png' alt=''></a></li></ul>"
           }
         }
       } else {
@@ -52,7 +52,6 @@ function checkSearch() {
         fetch(url)
           .then(result => result.json())
           .then(function (data) {
-            console.log(url)
             var seriesSearchResult = data.results;
               if (data.results.length !== 0){
                 var genreList = document.getElementById("genre-list");
@@ -63,6 +62,30 @@ function checkSearch() {
                 } else {
                   genreList.innerHTML += "<ul class='result result" + i + "'><li>" + seriesSearchResult[i].name + "</li>" + "<li><a id='detalles' onclick='serieSelected("+ id +")' href='page5-detalle-series.html'><img class='series-img' src='assets/IMG/noimage.png' alt=''></a></li></ul>"
                 }
+              }
+            }
+          })
+      }
+
+//General Search Page 2
+    //URL Base
+    var searchPage2BaseUrl = "https://api.themoviedb.org/3/search/tv?api_key=2d4fd4d7daaa410f13903dbc540ca5d4"
+    function searchPage2(keyword, page) {
+        let url = "".concat(searchPage2BaseUrl, "&query=", keyword, "&page=", page)
+        fetch(url)
+          .then(result => result.json())
+          .then(function (data) {
+            console.log(url)
+            var seriesSearchResult = data.results;
+              if (data.results.length !== 0){
+                var resultsList = document.getElementById("results-list");
+                for (var i = 0; i < seriesSearchResult.length; i++) {
+                  id = seriesSearchResult[i].id
+                  if (seriesSearchResult[i].poster_path !== null) {
+                    resultsList.innerHTML += "<ul class='result'><li>" + seriesSearchResult[i].name + "</li>" + "<li><a id='detalles' onclick='serieSelected("+ id +")' href='page5-detalle-series.html'><img class='series-img' src='https://image.tmdb.org/t/p/original/" + seriesSearchResult[i].poster_path + "' alt=''></a></li></ul>"
+                  } else {
+                    resultsList.innerHTML += "<ul class='result'><li>" + seriesSearchResult[i].name + "</li>" + "<li><a id='detalles' onclick='serieSelected("+ id +")' href='page5-detalle-series.html'><img class='series-img' src='assets/IMG/noimage.png' alt=''></a></li></ul>"
+                  }
               }
             }
           })

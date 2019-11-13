@@ -1,5 +1,4 @@
 // Animaciones Menu Hamburguesa
-
 const hamburger = document.querySelector(".hamburger");
 const navlinks = document.querySelector(".nav_links");
 const links = document.querySelectorAll(".nav_links li");
@@ -13,7 +12,6 @@ hamburger.addEventListener("click",()=> {
 });
 
 //Animaciones Search Bar
-
 const searchbar = document.querySelector(".searchbar");
 const searchbox = document.querySelector(".searchbox");
 const searchicon = document.querySelector(".fa-search");
@@ -23,7 +21,6 @@ searchicon.addEventListener("click", ()=> {
 });
 
 //Hover logo
-
 const logo = document.querySelector(".logo");
 const logoimg = document.querySelector(".logo img");
 
@@ -36,7 +33,6 @@ logo.onmouseout = function() {
 }
 
 //Login In Modal
-
 var logModal = document.getElementById("login-modal");
 window.onclick = function(event) {
      if (event.target == logModal) {
@@ -55,7 +51,6 @@ var closeLogModal = document.querySelector(".close-login");
  }
 
 //Register Modal
-
 var regModal = document.getElementById("register-modal");
 var regTrigger = document.querySelector(".register-trigger");
  regTrigger.onclick = function() {
@@ -75,7 +70,6 @@ window.addEventListener("click",function(event) {
 })
 
 // Local storage Usuarios
-
 document.querySelector(".register-modal").addEventListener("submit",function(event){
   event.preventDefault()
   var nuevoUsuario= document.getElementById("reg-user").value;
@@ -119,7 +113,6 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
 });
 
 // Log in with User
-
 document.querySelector(".login-modal").addEventListener("submit", function (event) {
   event.preventDefault()
   var users = JSON.parse(localStorage.getItem('Users')) || [];
@@ -175,7 +168,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
     document.getElementById("login-modal").style.display = "none"
     document.getElementById("register-modal").style.display = "block"
   }
- 
+
 })
 
 //Mantener login
@@ -184,7 +177,8 @@ if(usuarioActual !== null) {
     document.querySelector(".login-button").innerHTML= usuarioActual;
     document.getElementById("nav-button").classList.add("user-button");
     document.getElementById("nav-button").classList.remove("login-button");
-  // user modal empieza
+
+// User modal empieza
 var userModal = document.getElementById("user-modal");
 window.onclick = function(event) {
     if (event.target == userModal) {
@@ -222,60 +216,10 @@ logOutBtn.onclick = function() {
   }
 }
 
-// Agregar series a favoritas usando corazon
-
-function favorite(id) {
-  var favoritas = JSON.parse(localStorage.getItem("favs")) || [];
-  if (favoritas.indexOf(id) === -1) {
-    favoritas.push(id);
-    localStorage.setItem("favs", JSON.stringify(favoritas));
-    UIkit.notification({
-      message: "Added to favorites",
-      status: 'success',
-      pos: 'bottom-left',
-      timeout: 5000
-    });
-
-      var materialIcon = document.getElementById("fav-icon-"+id)
-      materialIcon.innerText = "delete";
-      
-  } else {
-    removeFav(id)
-    var materialIcon = document.getElementById("fav-icon-"+id)
-    materialIcon.innerText = "favorite";
-    return false
-  }
-}
-
 // Ir a detalles de series
-
 function serieSelected(id) {
   localStorage.setItem("seriesId", id);
   return false;
-}
-
-// Sacar de favs
-
-function removeFav(id) {
-  let jsonFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
-  let index = jsonFavoritas.indexOf(id);
-  jsonFavoritas.splice(index, 1)
-  localStorage.setItem("favs", JSON.stringify(jsonFavoritas));
-  UIkit.notification({
-    message: "Removed from favorites",
-    status: 'danger',
-    pos: 'bottom-left',
-    timeout: 5000
-  });
-}
-// on load - checkea si estan en favs o no y les pone el tachito en vez del corazon.
-
-function onloadCheck(id) {
-  var listadoFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
-  if (listadoFavoritas.includes(id)) {
-    var materialIcon = document.getElementById("fav-icon-" + id)
-    materialIcon.innerText = "delete";
-  }
 }
 
 // Media Queries
@@ -289,11 +233,8 @@ searchClick.onclick = function () {
 }
 
 // agregar favs a un usuario especifico
-//  function favUser(){
-  var activeUser = document.getElementById("nav-button").textContent
-  console.log(activeUser);
-
   function favorite(id) {
+    var activeUser = document.getElementById("nav-button").textContent
     if (activeUser === "Log in"){
     UIkit.notification({
       message: "Please Login",
@@ -304,15 +245,10 @@ searchClick.onclick = function () {
     return false
   }
     else {
-      
       let jsonUsers = JSON.parse(localStorage.getItem("Users"));
-      console.log(jsonUsers)
       var user = jsonUsers.find(function(user){
-       
         return user.username === activeUser
       })
-      console.log(user)
-      // if (user.filter(e => e.username === activeUser).length > 0) {
         var favoritas = user.favoritos
         if (favoritas.indexOf(id) === -1) {
           favoritas.push(id)
@@ -342,5 +278,37 @@ searchClick.onclick = function () {
           return false
         }
       }
-     
     }
+
+// on load - checkea si estan en favs o no y les pone el tachito en vez del corazon.
+function onloadCheck(id) {
+  var activeUser = document.getElementById("nav-button").textContent
+  let jsonUsers = JSON.parse(localStorage.getItem("Users"));
+  var user = jsonUsers.find(function (user) {
+    return user.username === activeUser
+  })
+  var favoritas = user.favoritos
+  if (favoritas.includes(id)) {
+    var materialIcon = document.getElementById("fav-icon-" + id)
+    materialIcon.innerText = "delete";
+  }
+}
+// sacar de favoritas
+function removeFav(id) {
+  var activeUser = document.getElementById("nav-button").textContent
+  let jsonUsers = JSON.parse(localStorage.getItem("Users"));
+  var user = jsonUsers.find(function (user) {
+    return user.username === activeUser
+  })
+  var favoritas = user.favoritos
+  let index = favoritas.indexOf(id);
+  favoritas.splice(index, 1)
+  localStorage.setItem("Users", JSON.stringify(jsonUsers));
+  document.getElementById(id).style.display = "none"
+  UIkit.notification({
+    message: "Removed from favorites",
+    status: 'warning',
+    pos: 'bottom-left',
+    timeout: 5000
+  });
+}

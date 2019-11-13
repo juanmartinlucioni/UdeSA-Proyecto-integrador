@@ -290,8 +290,57 @@ searchClick.onclick = function () {
 
 // agregar favs a un usuario especifico
 //  function favUser(){
-   let jsonUserFavs = JSON.parse(localStorage.getItem("Users"));
-   console.log(jsonUserFavs)
+  var activeUser = document.getElementById("nav-button").textContent
+  console.log(activeUser);
 
-//  }
-
+  function favorite(id) {
+    if (activeUser === "Log in"){
+    UIkit.notification({
+      message: "Please Login",
+      status: 'danger',
+      pos: 'bottom-left',
+      timeout: 5000
+    });
+    return false
+  }
+    else {
+      
+      let jsonUsers = JSON.parse(localStorage.getItem("Users"));
+      console.log(jsonUsers)
+      var user = jsonUsers.find(function(user){
+       
+        return user.username === activeUser
+      })
+      console.log(user)
+      // if (user.filter(e => e.username === activeUser).length > 0) {
+        var favoritas = user.favoritos
+        if (favoritas.indexOf(id) === -1) {
+          favoritas.push(id)
+          localStorage.setItem("Users", JSON.stringify(jsonUsers));
+          UIkit.notification({
+            message: "Agregada a favoritos",
+            status: 'success',
+            pos: 'bottom-left',
+            timeout: 5000
+          });
+        var materialIcon = document.getElementById("fav-icon-" + id)
+        materialIcon.innerText = "delete";
+        return false
+        }
+        else {
+          let index = favoritas.indexOf(id);
+          favoritas.splice(index, 1)
+          localStorage.setItem("Users", JSON.stringify(jsonUsers));
+          UIkit.notification({
+            message: "Eliminada de favoritos",
+            status: 'danger',
+            pos: 'bottom-left',
+            timeout: 5000
+          });
+          var materialIcon = document.getElementById("fav-icon-" + id)
+          materialIcon.innerText = "favorite";
+          return false
+        }
+      }
+     
+    }

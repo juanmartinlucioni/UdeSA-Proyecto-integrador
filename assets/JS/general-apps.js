@@ -155,7 +155,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
     location.reload()
       userModal.style.display = "none";
     })
-    var usuarioActual = sessionStorage.setItem("usuarioActual", usuarioIngresado);
+    var usuarioActual = sessionStorage.setItem("usuarioActual", usuarioIngresado);   
 }
   else if((users.filter(e => e.username === usuarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
@@ -183,8 +183,9 @@ var usuarioActual = sessionStorage.getItem("usuarioActual");
 if(usuarioActual !== null) {
     document.querySelector(".login-button").innerHTML= usuarioActual;
     document.getElementById("nav-button").classList.add("user-button");
-document.getElementById("nav-button").classList.toggle("login-button");
-var userModal = document.getElementById("user-modal"); // user modal empieza
+    document.getElementById("nav-button").classList.remove("login-button");
+  // user modal empieza
+var userModal = document.getElementById("user-modal");
 window.onclick = function(event) {
     if (event.target == userModal) {
         userModal.style.display = "none";
@@ -203,6 +204,22 @@ document.querySelector(".user-modal").addEventListener("submit", function (event
     location.reload()
     userModal.style.display = "none";
     })
+}
+
+//Log Out
+var logOutBtn = document.querySelector(".logout-button")
+logOutBtn.onclick = function() {
+  var userModal = document.getElementById("user-modal");
+  var loginModal = document.getElementById("login-modal");
+  document.getElementById("nav-button").innerHTML = "Log In";
+  document.getElementById("nav-button").classList.remove("user-button");
+  document.getElementById("nav-button").classList.add("login-button");
+  userModal.style.display = "none";
+  sessionStorage.removeItem("usuarioActual")
+  var loginBtn = document.querySelector(".login-button");
+  loginBtn.onclick = function () {
+    loginModal.style.display = "block";
+  }
 }
 
 // Agregar series a favoritas usando corazon

@@ -33,7 +33,7 @@ for ( var i = 0; i< favoritas.length; i++){
                 <h2>${title}</h2>
                 <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
                 <p><strong>First air date:</strong> <span>${releaseDate}</span></p>
-                <a id="detalles" onclick="serieSelected('${id}')" href="page5-detalle-series.html">Detalle</a>
+                <a id="detalles" onclick="serieSelected('${id}')" href="page5-detalle-series.html">Details</a>
             </div>
             </div>
             <div class="Imagenes">
@@ -57,7 +57,7 @@ function removeFav(id){
   localStorage.setItem("favs", JSON.stringify(jsonFavoritas));
   document.getElementById(id).style.display = "none"
   UIkit.notification({
-      message: "Eliminada de favoritos",
+      message: "Removed from favorites",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000
@@ -74,7 +74,7 @@ var removeBtn = document.getElementById("borrar-todas")
        favseries[i].style.display="none";
    }
    UIkit.notification({
-    message: "Todas eliminadas de favoritos",
+    message: "All series removed from favorites",
     status: 'danger',
     pos: 'bottom-left',
     timeout: 5000

@@ -84,7 +84,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
   var regPasswordConfirm = document.getElementById("reg-pswconfirm").value;
   if (regPassword !== regPasswordConfirm) {
     UIkit.notification({
-      message: "<span uk-icon='warning'></span> Las contraseñas deben ser iguales",
+      message: "<span uk-icon='warning'></span> Passwords must match each other",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000
@@ -92,7 +92,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
  }
   else if (users.filter(e => e.username === nuevoUsuario).length > 0) {
     UIkit.notification({
-      message: "<span uk-icon='close'></span> Este usuario ya esta registrado",
+      message: "<span uk-icon='close'></span> This user already exists",
       status: 'danger',
       pos: 'bottom-left',
       timeout: 5000
@@ -110,7 +110,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
     document.getElementById("register-modal").style.display = "none"
     document.getElementById("login-modal").style.display = "block"
     UIkit.notification({
-      message: "<span uk-icon='check'></span> Se ha creado el usuario "+ nuevoUsuario + "!",
+      message: "<span uk-icon='check'></span> New user "+ nuevoUsuario + " created!",
       status: 'success',
       pos: 'bottom-left',
       timeout: 5000
@@ -129,7 +129,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   document.querySelector(".login-button").innerHTML= usuarioIngresado
   document.getElementById("login-modal").style.display = "none"
   UIkit.notification({
-    message: "Bienvenido " + usuarioIngresado + "!",
+    message: "Welcome " + usuarioIngresado + "!",
     status: 'success',
     pos: 'bottom-left',
     timeout: 5000
@@ -155,11 +155,11 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
     location.reload()
       userModal.style.display = "none";
     })
-    var usuarioActual = sessionStorage.setItem("usuarioActual", usuarioIngresado);
+    var usuarioActual = sessionStorage.setItem("usuarioActual", usuarioIngresado);   
 }
   else if((users.filter(e => e.username === usuarioIngresado).length > 0) && (users.filter(e => e.password !== passwordIngresado).length > 0)){
     UIkit.notification({
-      message: "<span uk-icon='close'></span> Contraseña incorrecta!",
+      message: "<span uk-icon='close'></span> Incorrect password!",
       status: 'danger',
       pos: 'bottom-left',
       timeout: 5000
@@ -167,7 +167,7 @@ document.querySelector(".login-modal").addEventListener("submit", function (even
   }
   else {
     UIkit.notification({
-      message: "<span uk-icon='warning'></span> " +usuarioIngresado+" no existe, por favor registrese!",
+      message: "<span uk-icon='warning'></span> User " +usuarioIngresado+" does not exist, please register!",
       status: 'warning',
       pos: 'bottom-left',
       timeout: 5000
@@ -183,8 +183,9 @@ var usuarioActual = sessionStorage.getItem("usuarioActual");
 if(usuarioActual !== null) {
     document.querySelector(".login-button").innerHTML= usuarioActual;
     document.getElementById("nav-button").classList.add("user-button");
-document.getElementById("nav-button").classList.toggle("login-button");
-var userModal = document.getElementById("user-modal"); // user modal empieza
+    document.getElementById("nav-button").classList.remove("login-button");
+  // user modal empieza
+var userModal = document.getElementById("user-modal");
 window.onclick = function(event) {
     if (event.target == userModal) {
         userModal.style.display = "none";
@@ -205,6 +206,22 @@ document.querySelector(".user-modal").addEventListener("submit", function (event
     })
 }
 
+//Log Out
+var logOutBtn = document.querySelector(".logout-button")
+logOutBtn.onclick = function() {
+  var userModal = document.getElementById("user-modal");
+  var loginModal = document.getElementById("login-modal");
+  document.getElementById("nav-button").innerHTML = "Log In";
+  document.getElementById("nav-button").classList.remove("user-button");
+  document.getElementById("nav-button").classList.add("login-button");
+  userModal.style.display = "none";
+  sessionStorage.removeItem("usuarioActual")
+  var loginBtn = document.querySelector(".login-button");
+  loginBtn.onclick = function () {
+    loginModal.style.display = "block";
+  }
+}
+
 // Agregar series a favoritas usando corazon
 
 function favorite(id) {
@@ -213,7 +230,7 @@ function favorite(id) {
     favoritas.push(id);
     localStorage.setItem("favs", JSON.stringify(favoritas));
     UIkit.notification({
-      message: "Agregada a favoritos",
+      message: "Added to favorites",
       status: 'success',
       pos: 'bottom-left',
       timeout: 5000
@@ -239,18 +256,18 @@ function serieSelected(id) {
 
 // Sacar de favs
 
-// function removeFav(id) {
-//   let jsonFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
-//   let index = jsonFavoritas.indexOf(id);
-//   jsonFavoritas.splice(index, 1)
-//   localStorage.setItem("favs", JSON.stringify(jsonFavoritas));
-//   UIkit.notification({
-//     message: "Eliminada de favoritos",
-//     status: 'danger',
-//     pos: 'bottom-left',
-//     timeout: 5000
-//   });
-// }
+function removeFav(id) {
+  let jsonFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
+  let index = jsonFavoritas.indexOf(id);
+  jsonFavoritas.splice(index, 1)
+  localStorage.setItem("favs", JSON.stringify(jsonFavoritas));
+  UIkit.notification({
+    message: "Removed from favorites",
+    status: 'danger',
+    pos: 'bottom-left',
+    timeout: 5000
+  });
+}
 // on load - checkea si estan en favs o no y les pone el tachito en vez del corazon.
 
 function onloadCheck(id) {
@@ -259,6 +276,16 @@ function onloadCheck(id) {
     var materialIcon = document.getElementById("fav-icon-" + id)
     materialIcon.innerText = "delete";
   }
+}
+
+// Media Queries
+var searchClick = document.getElementById("search-trigger");
+
+searchClick.onclick = function () {
+  var logo = document.querySelector(".logo");
+  var logButton = document.querySelector(".CTA");
+  logo.classList.toggle("none");
+  logButton.classList.toggle("none");
 }
 
 // agregar favs a un usuario especifico
@@ -317,8 +344,3 @@ function onloadCheck(id) {
       }
      
     }
-
-     
-  // }
-
-  

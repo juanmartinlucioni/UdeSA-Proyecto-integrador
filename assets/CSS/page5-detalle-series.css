@@ -43,6 +43,10 @@
 .trailer-wrapper {
     display: block;
 }
+iframe {
+    width: 640px;
+    height: 390px;
+}
 .reco-button {
     margin-bottom: 10px;
 }
@@ -77,11 +81,13 @@ div.series:hover .overlay{
 }
 
 /* boton de favs */
-.addBtn{
-    margin: 15px;
-    position: absolute;
-    top: auto;
-    left: 95%;
+.sinopsis-header {
+    display: flex;
+    justify-content: space-between;
+}
+.sinopsis-header .addBtn{
+    /* margin-top: 0px; */
+    position: relative;
 }
 .heart{
     font-size: 35px;
@@ -118,4 +124,45 @@ div.series:hover .overlay{
 .titulo-series-recomendadas { 
     display: flex;
     justify-content: center;
+}
+/* Media Query Mobile */
+@media (max-width: 425px) {
+    .series-info-wrapper {
+        flex-direction: column;
+        margin-right: 0px;
+    }
+    .series-info-wrapper img {
+        margin-right: 0px;
+    }
+    iframe {
+        height: 100%;
+        width: 100%;
+    }
+    .main-body {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    #detalles {
+        margin-right: 0px;
+    }
+    .serie {
+        margin-left: 0px;
+    }
+}
+
+
+/* Media Query Tablets */
+@media (min-width: 426px) and (max-width: 800px){
+    .series-info-wrapper {
+        flex-direction: column;
+    }
+    .series-info-wrapper img {
+        width: 400px;
+    }
+    iframe {
+        width: 100%;
+    }
+    .trailer-wrapper {
+        margin-right: 15px;
+    }
 }

@@ -7,6 +7,7 @@ window.addEventListener("load", function () {
                 return respuesta.json()
             })
             .then(function (informacion) {
+                console.log(informacion)
                 var title
                 var poster
                 var posterUrl

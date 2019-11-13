@@ -1,6 +1,6 @@
 document.getElementById('header').innerHTML += "\
 <a class='logo' href='page1-home.html'>\
-    <img src='assets/IMG/zseries1.png' alt='logo'>\
+    <img src='assets/IMG/Zseries1.png' alt='logo'>\
 </a>\
 <div class='searchbox'>\
     <div class='searchbar-wrap'>\

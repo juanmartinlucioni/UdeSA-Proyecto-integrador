@@ -25,11 +25,11 @@ const logo = document.querySelector(".logo");
 const logoimg = document.querySelector(".logo img");
 
 logo.onmouseover = function() {
-  logoimg.setAttribute('src', 'assets/IMG/zseries1hover.png');
+  logoimg.setAttribute('src', 'assets/IMG/Zseries1hover.png');
 }
 
 logo.onmouseout = function() {
-  logoimg.setAttribute('src', 'assets/IMG/zseries1.png');
+  logoimg.setAttribute('src', 'assets/IMG/Zseries1.png');
 }
 
 //Login In Modal

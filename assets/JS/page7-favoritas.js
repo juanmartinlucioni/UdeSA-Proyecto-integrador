@@ -1,11 +1,16 @@
 window.addEventListener("load", function () {
-var arrayFavs = localStorage.getItem("favs")
-if (arrayFavs === null){
+var activeUser = document.getElementById("nav-button").textContent
+let jsonUsers = JSON.parse(localStorage.getItem("Users"));
+console.log(jsonUsers)
+var user = jsonUsers.find(function (user) {
+    return user.username === activeUser
+})
+var favoritas = user.favoritos
+
+if (favoritas === null){
     var favoritas = []
 }
-else {
-var favoritas = JSON.parse(localStorage.getItem("favs"))
-}
+
 for ( var i = 0; i< favoritas.length; i++){
     var apiKey = "2d4fd4d7daaa410f13903dbc540ca5d4"
     var favsUrl = "https://api.themoviedb.org/3/tv/" + favoritas[i] + "?api_key=" + apiKey + "&language=en-US&query&page=1"
@@ -49,34 +54,30 @@ function serieSelected(id) {
     // window.open("page5-detalle-series.html");
     return false;
 }
-// sacar de favoritas
-function removeFav(id){
-  let jsonFavoritas = JSON.parse(localStorage.getItem("favs")) || [];
-  let index = jsonFavoritas.indexOf(id);
-  jsonFavoritas.splice(index, 1)
-  localStorage.setItem("favs", JSON.stringify(jsonFavoritas));
-  document.getElementById(id).style.display = "none"
-  UIkit.notification({
-      message: "Removed from favorites",
-      status: 'warning',
-      pos: 'bottom-left',
-      timeout: 5000
-  });
-}
 
 // eliminar todas las favoritas 
-
 var removeBtn = document.getElementById("borrar-todas")
-    removeBtn.onclick = function() {
-   localStorage.removeItem("favs")
-   var favseries = document.querySelectorAll(".series")
-   for (let i = 0; i < favseries.length; i++) {
+removeBtn.onclick = function() {
+    var activeUser = document.getElementById("nav-button").textContent
+    let jsonUsers = JSON.parse(localStorage.getItem("Users"));
+    var user = jsonUsers.find(function (user) {
+        return user.username === activeUser
+    })
+    var favoritas = user.favoritos
+    function empty() {
+        favoritas.length = 0;
+    }
+    empty();
+    localStorage.setItem("Users", JSON.stringify(jsonUsers));
+    //Hace que las series no sean visibles
+    var favseries = document.querySelectorAll(".series")
+    for (let i = 0; i < favseries.length; i++) {
        favseries[i].style.display="none";
-   }
-   UIkit.notification({
-    message: "All series removed from favorites",
-    status: 'danger',
-    pos: 'bottom-left',
-    timeout: 5000
-});
+    }
+    UIkit.notification({
+     message: "All series removed from favorites",
+     status: 'danger',
+     pos: 'bottom-left',
+     timeout: 5000
+ });
 }

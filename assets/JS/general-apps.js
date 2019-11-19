@@ -73,27 +73,43 @@ window.addEventListener("click",function(event) {
 document.querySelector(".register-modal").addEventListener("submit",function(event){
   event.preventDefault()
   var nuevoUsuario= document.getElementById("reg-user").value;
+  var nuevoEmail = document.getElementById("reg-email").value;
   var users = JSON.parse(localStorage.getItem('Users')) || [];
   var regPassword = document.getElementById("reg-psw").value;
   var regPasswordConfirm = document.getElementById("reg-pswconfirm").value;
-  nuevoUsuario.onchange = function (){
-    if (nuevoUsuario.lenght<=3){
+    if ((nuevoUsuario.length <=3)){
       UIkit.notification({
         message: "<span uk-icon='warning'></span> Username must be at least 4 characters",
-        status: 'warning',
+        status: 'danger',
         pos: 'bottom-left',
         timeout: 5000
       });
-    }
+      username.style.border = "2px solid red";
+      username.focus();
   }
-  if (regPassword !== regPasswordConfirm) {
-    UIkit.notification({
-      message: "<span uk-icon='warning'></span> Passwords must match each other",
-      status: 'warning',
-      pos: 'bottom-left',
-      timeout: 5000
-    });
- }
+  else if (validateEmail(nuevoEmail) == false) {
+
+  }
+  else if (regPassword == "") {
+      UIkit.notification({
+        message: "<span uk-icon='warning'></span> Password must be at least 6 characters",
+        status: 'danger',
+        pos: 'bottom-left',
+        timeout: 5000
+      });
+      password.style.border = "2px solid red";
+      password.focus();
+  }
+  else if (regPassword !== regPasswordConfirm) {
+        UIkit.notification({
+          message: "<span uk-icon='warning'></span> Password do not match!",
+          status: 'danger',
+          pos: 'bottom-left',
+          timeout: 5000
+        });
+        password_confirm.style.border = "2px solid red"
+        password_confirm.focus();
+  } 
   else if (users.filter(e => e.username === nuevoUsuario).length > 0) {
     UIkit.notification({
       message: "<span uk-icon='close'></span> This user already exists",
@@ -101,7 +117,8 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
       pos: 'bottom-left',
       timeout: 5000
     });
-  }
+    username.focus();
+  } 
   else {
     var userData = {
       username: document.getElementById("reg-user").value,
@@ -337,7 +354,7 @@ var password_confirm = document.forms['reg-form']['pswconfirm'];
 username.onchange = function(){
   if (username.value.length<=3){
     UIkit.notification({
-      message: "<span uk-icon='close'></span> Username must be at least 4 characters!",
+      message: "<span uk-icon='warning'></span> Username must be at least 4 characters!",
       status: 'danger',
       pos: 'bottom-left',
       timeout: 5000
@@ -353,7 +370,7 @@ username.onchange = function(){
 password.onchange = function () {
   if (password.value.length <= 5) {
     UIkit.notification({
-      message: "<span uk-icon='close'></span> Password must be at least 6 characters!",
+      message: "<span uk-icon='warning'></span> Password must be at least 6 characters!",
       status: 'danger',
       pos: 'bottom-left',
       timeout: 5000
@@ -370,7 +387,7 @@ password_confirm.onchange = function () {
     password_confirm.style.border = "2px solid #65FF00";
   } else {
     UIkit.notification({
-      message: "<span uk-icon='close'></span> Password do not match!",
+      message: "<span uk-icon='warning'></span> Password do not match!",
       status: 'danger',
       pos: 'bottom-left',
       timeout: 5000
@@ -385,13 +402,14 @@ function validateEmail(emailIngresado) {
   var testear = re.test(String(emailIngresado).toLowerCase())
    if (testear !== true) {
      UIkit.notification({
-       message: "<span uk-icon='close'></span> Please enter a valid email!",
+       message: "<span uk-icon='warning'></span> Please enter a valid email!",
        status: 'danger',
        pos: 'bottom-left',
        timeout: 5000
-     });;
+     });
      email.style.border = "2px solid red";
      email.focus();
+     return false
    }
    else{
      email.style.border = "2px solid #65FF00";
@@ -408,32 +426,33 @@ email.onchange = function(){
 
 // validate on submit
 
-// function postValidate() {
-//   // username
+// function postValidate(event) {
 //   if (username.value == "") {
+//     event.preventDefault()
 //     username.style.border = "2px solid red";
 //     username.focus();
 //     return false;
 //   }
 //   // username lenght
-//   if (username.value.length < 3) {
+//   else if (username.value.length < 3) {
+//     event.preventDefault()
 //     username.style.border = "2px solid red";
 //     username.focus();
 //     return false;
 //   }
-// }
 //   // validate email
 //   if (email.value == "") {
+//     event.preventDefault()
 //     email.style.border = "1px solid red";
-//     document.getElementById('email_div').style.color = "red";
-//     email_error.textContent = "Email is required";
+//     document.getElementById('reg-email').style.color = "red";
 //     email.focus();
 //     return false;
 //   }
 //   // validate password
 //   if (password.value == "") {
+//     event.preventDefault()
 //     password.style.border = "1px solid red";
-//     document.getElementById('password_div').style.color = "red";
+//     document.getElementById('reg-psw').style.color = "red";
 //     password_confirm.style.border = "1px solid red";
 //     password_error.textContent = "Password is required";
 //     password.focus();
@@ -442,13 +461,13 @@ email.onchange = function(){
 //   // check if the two passwords match
 //   if (password.value != password_confirm.value) {
 //     password.style.border = "1px solid red";
-//     document.getElementById('pass_confirm_div').style.color = "red";
+//     document.getElementById('reg-pswconfirm').style.color = "red";
 //     password_confirm.style.border = "1px solid red";
 //     password_error.innerHTML = "The two passwords do not match";
 //     return false;
 //   }
 // }
-// // event handler functions
+// event handler functions
 // function nameVerify() {
 //   if (username.value != "") {
 //     username.style.border = "1px solid #5e6e66";

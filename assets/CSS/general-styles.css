@@ -441,8 +441,8 @@ a#detalles:hover{
     opacity: 1;
   }
   .nav_links.open{
-    clip-path: circle(1200px at 90% -10%);
-    -webkit-clip-path: circle(1200px at 90% -10%);
+    clip-path: circle(1500px at 90% -10%);
+    -webkit-clip-path: circle(2500px at 90% -10%);
   }
   .nav_links{
     display: flex;
@@ -542,7 +542,7 @@ a#detalles:hover{
   }
   .nav_links.open{
     clip-path: circle(1500px at 90% -50%);
-    -webkit-clip-path: circle(1500px at 90% -50%);
+    -webkit-clip-path: circle(2500px at 90% -50%);
   }
   .nav_links{
     display: flex;

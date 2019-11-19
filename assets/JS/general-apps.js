@@ -69,13 +69,23 @@ window.addEventListener("click",function(event) {
   }
 })
 
-// Local storage Usuarios
+// Register = Local storage Usuarios
 document.querySelector(".register-modal").addEventListener("submit",function(event){
   event.preventDefault()
   var nuevoUsuario= document.getElementById("reg-user").value;
   var users = JSON.parse(localStorage.getItem('Users')) || [];
   var regPassword = document.getElementById("reg-psw").value;
   var regPasswordConfirm = document.getElementById("reg-pswconfirm").value;
+  nuevoUsuario.onchange = function (){
+    if (nuevoUsuario.lenght<=3){
+      UIkit.notification({
+        message: "<span uk-icon='warning'></span> Username must be at least 4 characters",
+        status: 'warning',
+        pos: 'bottom-left',
+        timeout: 5000
+      });
+    }
+  }
   if (regPassword !== regPasswordConfirm) {
     UIkit.notification({
       message: "<span uk-icon='warning'></span> Passwords must match each other",
@@ -113,6 +123,7 @@ document.querySelector(".register-modal").addEventListener("submit",function(eve
 });
 
 // Log in with User
+
 document.querySelector(".login-modal").addEventListener("submit", function (event) {
   event.preventDefault()
   var users = JSON.parse(localStorage.getItem('Users')) || [];
@@ -316,3 +327,158 @@ function removeFav(id) {
     timeout: 5000
   });
 }
+// validacion onchange de register
+var username = document.forms['reg-form']['username'];
+var email = document.forms['reg-form']['email'];
+var password = document.forms['reg-form']['psw'];
+var password_confirm = document.forms['reg-form']['pswconfirm'];
+
+//validacion de usuario
+username.onchange = function(){
+  if (username.value.length<=3){
+    UIkit.notification({
+      message: "<span uk-icon='close'></span> Username must be at least 4 characters!",
+      status: 'danger',
+      pos: 'bottom-left',
+      timeout: 5000
+    });;
+    username.style.border = "2px solid red";
+    username.focus();
+  }
+  else {
+    username.style.border = "2px solid #65FF00";
+  }
+}
+// validacion password
+password.onchange = function () {
+  if (password.value.length <= 5) {
+    UIkit.notification({
+      message: "<span uk-icon='close'></span> Password must be at least 6 characters!",
+      status: 'danger',
+      pos: 'bottom-left',
+      timeout: 5000
+    });;
+    password.style.border = "2px solid red";
+    password.focus();
+  } else {
+    password.style.border = "2px solid #65FF00";
+  }
+}
+// validacion verificacion psw
+password_confirm.onchange = function () {
+  if (password_confirm.value === password.value) {
+    password_confirm.style.border = "2px solid #65FF00";
+  } else {
+    UIkit.notification({
+      message: "<span uk-icon='close'></span> Password do not match!",
+      status: 'danger',
+      pos: 'bottom-left',
+      timeout: 5000
+    });;
+    password_confirm.style.border = "2px solid red"
+    password_confirm.focus();
+  }
+}
+// validacion de email
+function validateEmail(emailIngresado) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var testear = re.test(String(emailIngresado).toLowerCase())
+   if (testear !== true) {
+     UIkit.notification({
+       message: "<span uk-icon='close'></span> Please enter a valid email!",
+       status: 'danger',
+       pos: 'bottom-left',
+       timeout: 5000
+     });;
+     email.style.border = "2px solid red";
+     email.focus();
+   }
+   else{
+     email.style.border = "2px solid #65FF00";
+   }
+}
+email.onchange = function(){
+  emailIngresado = email.value
+  console.log(emailIngresado);
+  validateEmail(emailIngresado)
+ 
+}
+
+
+
+// validate on submit
+
+// function postValidate() {
+//   // username
+//   if (username.value == "") {
+//     username.style.border = "2px solid red";
+//     username.focus();
+//     return false;
+//   }
+//   // username lenght
+//   if (username.value.length < 3) {
+//     username.style.border = "2px solid red";
+//     username.focus();
+//     return false;
+//   }
+// }
+//   // validate email
+//   if (email.value == "") {
+//     email.style.border = "1px solid red";
+//     document.getElementById('email_div').style.color = "red";
+//     email_error.textContent = "Email is required";
+//     email.focus();
+//     return false;
+//   }
+//   // validate password
+//   if (password.value == "") {
+//     password.style.border = "1px solid red";
+//     document.getElementById('password_div').style.color = "red";
+//     password_confirm.style.border = "1px solid red";
+//     password_error.textContent = "Password is required";
+//     password.focus();
+//     return false;
+//   }
+//   // check if the two passwords match
+//   if (password.value != password_confirm.value) {
+//     password.style.border = "1px solid red";
+//     document.getElementById('pass_confirm_div').style.color = "red";
+//     password_confirm.style.border = "1px solid red";
+//     password_error.innerHTML = "The two passwords do not match";
+//     return false;
+//   }
+// }
+// // event handler functions
+// function nameVerify() {
+//   if (username.value != "") {
+//     username.style.border = "1px solid #5e6e66";
+//     document.getElementById('username_div').style.color = "#5e6e66";
+//     name_error.innerHTML = "";
+//     return true;
+//   }
+// }
+
+// function emailVerify() {
+//   if (email.value != "") {
+//     email.style.border = "1px solid #5e6e66";
+//     document.getElementById('email_div').style.color = "#5e6e66";
+//     email_error.innerHTML = "";
+//     return true;
+//   }
+// }
+
+// function passwordVerify() {
+//   if (password.value != "") {
+//     password.style.border = "1px solid #5e6e66";
+//     document.getElementById('pass_confirm_div').style.color = "#5e6e66";
+//     document.getElementById('password_div').style.color = "#5e6e66";
+//     password_error.innerHTML = "";
+//     return true;
+//   }
+//   if (password.value === password_confirm.value) {
+//     password.style.border = "1px solid #5e6e66";
+//     document.getElementById('pass_confirm_div').style.color = "#5e6e66";
+//     password_error.innerHTML = "";
+//     return true;
+//   }
+// }

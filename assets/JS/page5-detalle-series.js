@@ -13,7 +13,11 @@ window.addEventListener("load", function () {
                         title= informacion.name
                         poster = informacion.poster_path
                         posterUrl = 'https://image.tmdb.org/t/p/w400/'
-                        image = posterUrl + poster
+                        if (informacion.poster_path !== null){
+                            image = posterUrl + poster 
+                            } else {
+                                image = 'assets/IMG/noimage.png'
+                            }
                         genresArray = []
                         genresIdArray= []
                         language = informacion.original_language
@@ -109,7 +113,11 @@ window.addEventListener("load", function () {
                                     title = informacion.results[i].name
                                     poster = informacion.results[i].poster_path
                                     posterUrl = 'https://image.tmdb.org/t/p/original/'
-                                    image = posterUrl + poster
+                                    if (informacion.poster_path !== null){
+                                        image = posterUrl + poster 
+                                        } else {
+                                            image = 'assets/IMG/noimage.png'
+                                        }
                                     average = informacion.results[i].vote_average
                                     releaseDate = informacion.results[i].first_air_date;
                 

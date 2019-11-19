@@ -1,5 +1,11 @@
 window.addEventListener("load", function () {
+
 var activeUser = document.getElementById("nav-button").textContent
+if (activeUser === "Log in") {
+    var footer = document.querySelector(".footer")  
+    footer.style.position = "fixed";
+    footer.style.bottom = 0;
+}
 let jsonUsers = JSON.parse(localStorage.getItem("Users"));
 console.log(jsonUsers)
 var user = jsonUsers.find(function (user) {
@@ -47,7 +53,6 @@ for ( var i = 0; i< favoritas.length; i++){
             </div>`              
         })
     }
-      
 })
 function serieSelected(id) {
     localStorage.setItem("seriesId", id);

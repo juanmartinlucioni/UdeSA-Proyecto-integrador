@@ -22,6 +22,14 @@ ul .result{
 .result li {
     text-align: center;
 }
+.btn-footer {
+    display: flex;
+    justify-content: center;
+}
+.view-more-btn {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
 
 /* Media Query Mobile */
 @media (max-width: 425px) {

@@ -1,7 +1,41 @@
-div.button-ver-mas{
+/* Lista arriba de todo */
+.genre-list-wrapper {
+    margin-bottom: 15px;
+}
+#genre-top-list {
+    columns: 4;
+    margin-left: 10px;
+}
+h1 {
+    margin-left: 5px;
+}
+h2 {
+    margin-left: 10px;
+}
+.header-margin:before {
+    content: "";
+    display: block;
+    margin: -91.30px 0 0;
+    height: 91.30px;
+}
+
+/* Footer de cada genero */
+div.genre-footer{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .ver-mas {
-    margin: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.back-to-top-btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Media Query Mobile */
+@media (max-width: 426px) {
+    #genre-top-list {
+        columns: 2;
+    }
 }

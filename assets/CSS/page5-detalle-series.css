@@ -8,6 +8,9 @@
 #user-modal {
     z-index: 10000;
 }
+h1 {
+    margin-left: 0px;
+}
 
 /* Series Details */
 .main-body {
@@ -48,7 +51,8 @@ iframe {
     height: 390px;
 }
 .reco-button {
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 /* Carrousel */
 div.series{

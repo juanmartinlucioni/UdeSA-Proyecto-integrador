@@ -7,7 +7,7 @@ genreSearch(genreQuery, 1);
     
 //Title
 
-var genreName = searchQueryUrl.searchParams.get("genrename");
+var genreName = localStorage.getItem("selectedGenre");
 document.getElementById("genre-name").innerText = genreName;
 
 
@@ -35,7 +35,4 @@ function addNewItem() {
 
 function viewmore(loadPage) {
     genreSearch(genreQuery, loadPage);
-}
-
-
-    
+}   

@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0;
 }
+a{
+  transition: all 0.3s ease 0s;
+}
 a:hover{
   text-decoration: none;
 }
@@ -31,6 +34,9 @@ ul{
 }
 h1, h2, h3, h4, h5, h6 {
   color: #3e77b1;
+}
+h1 {
+  margin-left: 5px;
 }
 h1.uk-heading-medium{
   padding: 10px;
@@ -102,6 +108,7 @@ header {
 i.fa-search {
   cursor: pointer;
   margin-left: 5px;
+  transition: all 0.3s ease 0s;
 }
 i.fa-search:hover {
   color: #0088a9

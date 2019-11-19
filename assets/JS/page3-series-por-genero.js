@@ -7,20 +7,17 @@ window.addEventListener("load", function () {
             return answer.json()
         })
         .then(function(datos){
-            console.log(datos)
             var ids
             var name
         for (var i = 0; i <datos.genres.length; i++){
         ids = datos.genres[i].id
-        console.log(ids);
-        
         name = datos.genres[i].name
-        console.log(name);
-         var genreUrl = "https://api.themoviedb.org/3/discover/tv?api_key="+ apiKey +"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + ids
-         console.log(genreUrl)
-         var tituloGenre = document.getElementById("main")
-         tituloGenre.innerHTML += `<div class="genre">
-        <h1>${name}</h1>
+        var genreUrl = "https://api.themoviedb.org/3/discover/tv?api_key="+ apiKey +"&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + ids
+        var genreList = document.getElementById("genre-top-list");
+        genreList.innerHTML += `<li><a href="#header-${ids}">${name}</a></li>`
+        var tituloGenre = document.getElementById("main");
+        tituloGenre.innerHTML += `<div class="genre">
+        <div class="header-margin" id="header-${ids}"><h2>${name}</h2></div>
         <div class="carrousel">
                         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
               uk-slider="autoplay: true; autoplay-interval: 3000">
@@ -32,8 +29,12 @@ window.addEventListener("load", function () {
                 uk-slider-item="next"></a>
             </div>
         </div>
-        <div class="button-ver-mas">
-        <button class="ver-mas" onclick= "window.location.href ='page2-informacion-genero.html?genreid=${ids}&genrename=${name}'" type="button">View More</button>
+        <div class="genre-footer">
+            <button class="ver-mas" onclick="localStorage.setItem('selectedGenre', '${name}');window.location.href = 'page2-informacion-genero.html?genreid=${ids}';" type="button">View More</button>
+            <a href="#">
+                <button class="back-to-top-btn" type="button">Back To Top</button>
+            </a>
+        </div>
         </div>
         </div>`;
        

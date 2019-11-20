@@ -95,14 +95,10 @@ function makeCallback(ids) {
 var topBtn = document.querySelector(".back-to-top-btn");
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      topBtn.style.display = 'block';
-      console.log("hola");
-      
+      topBtn.classList.add("none"); 
     } 
     else {
-      topBtn.style.display = 'none';
-      console.log("chau");
-      
+      topBtn.classList.remove("none");
     }
 }
 function topFunction() {

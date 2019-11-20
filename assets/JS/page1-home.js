@@ -20,7 +20,11 @@ window.addEventListener("load", function () {
                     title = informacion.results[i].name
                     poster = informacion.results[i].poster_path
                     posterUrl = 'https://image.tmdb.org/t/p/original/'
-                    image = posterUrl + poster
+                    if (informacion.results[i].poster_path !== null){
+                        image = posterUrl + poster 
+                        } else {
+                            image = 'assets/IMG/noimage.png'
+                        }
                     average = informacion.results[i].vote_average
                     releaseDate = informacion.results[i].first_air_date;
 
@@ -62,7 +66,11 @@ window.addEventListener("load", function () {
                     title = informacion.results[i].name
                     poster = informacion.results[i].poster_path
                     posterUrl = 'https://image.tmdb.org/t/p/original/'
-                    image = posterUrl + poster
+                    if (informacion.results[i].poster_path !== null){
+                        image = posterUrl + poster 
+                        } else {
+                            image = 'assets/IMG/noimage.png'
+                        }
                     average = informacion.results[i].vote_average
                     releaseDate = informacion.results[i].first_air_date;
 
@@ -104,7 +112,11 @@ window.addEventListener("load", function () {
                     title = informacion.results[i].name
                     poster = informacion.results[i].poster_path
                     posterUrl = 'https://image.tmdb.org/t/p/original/'
-                    image = posterUrl + poster
+                    if (informacion.results[i].poster_path !== null){
+                        image = posterUrl + poster 
+                        } else {
+                            image = 'assets/IMG/noimage.png'
+                        }
                     average = informacion.results[i].vote_average
                     releaseDate = informacion.results[i].first_air_date;
                     var listadoPuntuadas = document.querySelector(".listado-series-aire")

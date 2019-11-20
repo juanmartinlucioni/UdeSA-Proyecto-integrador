@@ -75,6 +75,8 @@ function advanceCheck(){
         fetch(url)
             .then(advResults => advResults.json())
             .then(function (advData){
+                var footer = document.querySelector(".footer")  
+                footer.style.position = "relative";
                 var resultados = document.querySelector(".adv-results")
                 resultados.innerHTML = ""
                 var seriesFound = advData.results;
@@ -90,7 +92,11 @@ function advanceCheck(){
                     title = seriesFound[i].name
                     poster = seriesFound[i].poster_path
                     posterUrl = 'https://image.tmdb.org/t/p/original/'
-                    image = posterUrl + poster
+                    if (seriesFound[i].poster_path !== null){
+                    image = posterUrl + poster 
+                    } else {
+                        image = 'assets/IMG/noimage.png'
+                    }
                     average = seriesFound[i].vote_average
                     releaseDate = seriesFound[i].first_air_date;
 

@@ -31,7 +31,12 @@ for ( var i = 0; i< favoritas.length; i++){
             var title = informacion.name
             var poster = informacion.poster_path
             var posterUrl = 'https://image.tmdb.org/t/p/original/'
-            var image = posterUrl + poster
+            var image
+            if (informacion.poster_path !== null){
+                image = posterUrl + poster 
+                } else {
+                    image = 'assets/IMG/noimage.png'
+                }
             var id = informacion.id
             var average = informacion.vote_average
             var releaseDate = informacion.first_air_date

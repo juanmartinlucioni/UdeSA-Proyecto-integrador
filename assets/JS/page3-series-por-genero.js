@@ -31,9 +31,6 @@ window.addEventListener("load", function () {
         </div>
         <div class="genre-footer">
             <button class="ver-mas" onclick="localStorage.setItem('selectedGenre', '${name}');window.location.href = 'page2-informacion-genero.html?genreid=${ids}';" type="button">View More</button>
-            <a href="#">
-                <button class="back-to-top-btn" type="button">Back To Top</button>
-            </a>
         </div>
         </div>
         </div>`;
@@ -45,6 +42,9 @@ window.addEventListener("load", function () {
            
                 .then(makeCallback(ids))
         }
+    })
+    window.addEventListener("scroll", function () {
+        scrollFunction();
     })
 })
 
@@ -63,8 +63,8 @@ function makeCallback(ids) {
                 id = informacion.results[i].id
                 title = informacion.results[i].name
                 poster = informacion.results[i].poster_path
-                posterUrl = 'https://image.tmdb.org/t/p/original/'
-                if (seriesFound[i].poster_path !== null){
+                posterUrl = 'https://image.tmdb.org/t/p/original'
+                if (informacion.results[i].poster_path !== null){
                     image = posterUrl + poster 
                     } else {
                         image = 'assets/IMG/noimage.png'
@@ -89,6 +89,25 @@ function makeCallback(ids) {
                         onloadCheck(id)
             }
         }
+}
+
+//Back to Top
+var topBtn = document.querySelector(".back-to-top-btn");
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topBtn.style.display = 'block';
+      console.log("hola");
+      
+    } 
+    else {
+      topBtn.style.display = 'none';
+      console.log("chau");
+      
+    }
+}
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
         
 

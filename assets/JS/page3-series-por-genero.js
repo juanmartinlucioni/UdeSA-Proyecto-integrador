@@ -21,7 +21,7 @@ window.addEventListener("load", function () {
         <div class="carrousel">
                         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
               uk-slider="autoplay: true; autoplay-interval: 3000">
-              <ul class="listado-series-por-genero-${ids} uk-slider-items uk-child-width-1-4@s uk-child-width-1-4@">
+              <ul class="listado-series-por-genero-${ids} uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@m">
               </ul>
               <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
                 uk-slider-item="previous"></a>

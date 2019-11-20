@@ -92,17 +92,13 @@ function makeCallback(ids) {
 }
 
 //Back to Top
-var topBtn = document.querySelector(".back-to-top-btn");
 function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      topBtn.style.display = 'block';
-      console.log("hola");
-      
+    var topBtn = document.querySelector(".arrow-top")
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {  
+    topBtn.style.display = "block";
     } 
     else {
-      topBtn.style.display = 'none';
-      console.log("chau");
-      
+    topBtn.style.display = "none";
     }
 }
 function topFunction() {

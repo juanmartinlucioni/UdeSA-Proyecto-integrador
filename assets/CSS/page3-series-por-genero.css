@@ -28,8 +28,8 @@ div.genre-footer{
     margin-top: 15px;
     margin-bottom: 15px;
 }
-.back-to-top-btn {
-    display: block;
+.arrow-top {
+    display: none;
     position: fixed;
     bottom: 15px;
     right: 15px;

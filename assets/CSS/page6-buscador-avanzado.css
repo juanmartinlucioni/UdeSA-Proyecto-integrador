@@ -1,3 +1,8 @@
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+}
 /* Form design */
 #adv-search-btn {
     margin-top: 10px;

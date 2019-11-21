@@ -8,12 +8,16 @@ window.addEventListener("load", function () {
                 .then(function (respuesta) {
                     return respuesta.json()
                 })
-                .then(function (informacion) {
+                .then(function (informacion) {                   
                         id = informacion.id
                         title= informacion.name
                         poster = informacion.poster_path
                         posterUrl = 'https://image.tmdb.org/t/p/w400/'
-                        image = posterUrl + poster
+                        if (informacion.poster_path !== null){
+                            image = posterUrl + poster 
+                            } else {
+                                image = 'assets/IMG/noimage.png'
+                            }
                         genresArray = []
                         genresIdArray= []
                         language = informacion.original_language
@@ -25,6 +29,7 @@ window.addEventListener("load", function () {
                         lastEpisodeDate = informacion.last_air_date
                         status = informacion.status
                         seasons = informacion.seasons.length
+                        homepage = informacion.homepage
                         for (var i = 0; i < informacion.genres.length; i++) {
                             var genres = informacion.genres[i].name
                             genresArray.push(genres)
@@ -59,6 +64,7 @@ window.addEventListener("load", function () {
                                     <p><strong>Aired on:</strong> <span>${lastEpisodeDate}</span></p>
                                     <p><strong>Seasons:</strong> <span>${seasons}</span></p>
                                     <p><strong>Original Language:</strong> <span style= text-transform:uppercase; >${language}</span></p>
+                                    <p><a href='${homepage}' target='_blank'><strong>Homepage</strong></a></p>
                                     <p><strong>Genres:</strong> <span id="genre-list">
                                     </span></p>
                                 </aside>
@@ -109,7 +115,11 @@ window.addEventListener("load", function () {
                                     title = informacion.results[i].name
                                     poster = informacion.results[i].poster_path
                                     posterUrl = 'https://image.tmdb.org/t/p/original/'
-                                    image = posterUrl + poster
+                                    if (informacion.poster_path !== null){
+                                        image = posterUrl + poster 
+                                        } else {
+                                            image = 'assets/IMG/noimage.png'
+                                        }
                                     average = informacion.results[i].vote_average
                                     releaseDate = informacion.results[i].first_air_date;
                 

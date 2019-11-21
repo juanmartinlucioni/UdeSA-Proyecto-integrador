@@ -8,7 +8,7 @@ window.addEventListener("load", function () {
                 .then(function (respuesta) {
                     return respuesta.json()
                 })
-                .then(function (informacion) {
+                .then(function (informacion) {                   
                         id = informacion.id
                         title= informacion.name
                         poster = informacion.poster_path
@@ -29,6 +29,7 @@ window.addEventListener("load", function () {
                         lastEpisodeDate = informacion.last_air_date
                         status = informacion.status
                         seasons = informacion.seasons.length
+                        homepage = informacion.homepage
                         for (var i = 0; i < informacion.genres.length; i++) {
                             var genres = informacion.genres[i].name
                             genresArray.push(genres)
@@ -63,6 +64,7 @@ window.addEventListener("load", function () {
                                     <p><strong>Aired on:</strong> <span>${lastEpisodeDate}</span></p>
                                     <p><strong>Seasons:</strong> <span>${seasons}</span></p>
                                     <p><strong>Original Language:</strong> <span style= text-transform:uppercase; >${language}</span></p>
+                                    <p><a href='${homepage}'><strong>Homepage</strong></a></p>
                                     <p><strong>Genres:</strong> <span id="genre-list">
                                     </span></p>
                                 </aside>

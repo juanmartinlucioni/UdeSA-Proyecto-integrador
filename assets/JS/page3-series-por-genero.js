@@ -21,7 +21,7 @@ window.addEventListener("load", function () {
         <div class="carrousel">
                         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
               uk-slider="autoplay: true; autoplay-interval: 3000">
-              <ul class="listado-series-por-genero-${ids} uk-slider-items uk-child-width-1-4@s uk-child-width-1-4@">
+              <ul class="listado-series-por-genero-${ids} uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@m">
               </ul>
               <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
                 uk-slider-item="previous"></a>
@@ -31,9 +31,6 @@ window.addEventListener("load", function () {
         </div>
         <div class="genre-footer">
             <button class="ver-mas" onclick="localStorage.setItem('selectedGenre', '${name}');window.location.href = 'page2-informacion-genero.html?genreid=${ids}';" type="button">View More</button>
-            <a href="#">
-                <button class="back-to-top-btn" type="button">Back To Top</button>
-            </a>
         </div>
         </div>
         </div>`;
@@ -45,6 +42,9 @@ window.addEventListener("load", function () {
            
                 .then(makeCallback(ids))
         }
+    })
+    window.addEventListener("scroll", function () {
+        scrollFunction();
     })
 })
 
@@ -63,8 +63,12 @@ function makeCallback(ids) {
                 id = informacion.results[i].id
                 title = informacion.results[i].name
                 poster = informacion.results[i].poster_path
-                posterUrl = 'https://image.tmdb.org/t/p/original/'
-                image = posterUrl + poster
+                posterUrl = 'https://image.tmdb.org/t/p/original'
+                if (informacion.results[i].poster_path !== null){
+                    image = posterUrl + poster 
+                    } else {
+                        image = 'assets/IMG/noimage.png'
+                    }
                 average = informacion.results[i].vote_average
                 releaseDate = informacion.results[i].first_air_date;
                 var listadoGenero = document.querySelector(".listado-series-por-genero-" + ids)
@@ -85,6 +89,21 @@ function makeCallback(ids) {
                         onloadCheck(id)
             }
         }
+}
+
+//Back to Top
+function scrollFunction() {
+    var topBtn = document.querySelector(".arrow-top")
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {  
+    topBtn.style.display = "block";
+    } 
+    else {
+    topBtn.style.display = "none";
+    }
+}
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
         
 

@@ -1,4 +1,4 @@
-.search-results-list {
+.genre-results-list {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -21,6 +21,14 @@ ul .result{
 
 .result li {
     text-align: center;
+}
+.btn-footer {
+    display: flex;
+    justify-content: center;
+}
+.view-more-btn {
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 /* Media Query Mobile */

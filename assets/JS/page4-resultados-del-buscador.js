@@ -1,33 +1,32 @@
-var usuarioActual = sessionStorage.getItem("usuarioActual");
-if(usuarioActual !== null) {
-    document.querySelector(".login-button").innerHTML= usuarioActual;
-    document.getElementById("nav-button").classList.add("user-button");
-  document.getElementById("nav-button").classList.toggle("login-button");
-  var userModal = document.getElementById("user-modal"); // user modal empieza
-  window.onclick = function(event) {
-     if (event.target == userModal) {
-         userModal.style.display = "none";
-     }
-  }
-    var userBtn = document.querySelector(".user-button");
-    userBtn.onclick = function() {
-    userModal.style.display = "block";
-   }
-    var closeUserModal = document.getElementById("close-user-modal");
-    closeUserModal.onclick = function() {
-    userModal.style.display = "none";
-  }
-  document.querySelector(".user-modal").addEventListener("submit", function (event) {
-    event.preventDefault()
-    location.reload()
-    // var logoutTrigger = 
-    // regTrigger.onclick = function() {
-      // logModal.style.display = "block";
-      userModal.style.display = "none";
-    })
-}
+//Search
 var searchUrl = window.location.href;
 const searchQueryUrl = new URL (searchUrl);
 var query = searchQueryUrl.searchParams.get("search");
 runSearch(query);
 document.getElementById("searchbar").value = query;
+
+//infinite scroll
+
+window.onscroll = function () {
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+  //funciones que se activan al llegar al fondo de la pagina
+  addNewItem()    
+  viewmore(loadPage)
+  }
+};
+
+// Como resolvi el infinite scroll? declare dos variables new page es un array y loadPage es el length de ese array, cada vez que se llega al fondo de la hoja addNewItem() agrega un item al array, loadPage lo cuenta y suma +1 cada vez que se llega al final. luego ViewMore le pide a la API la pagina que sugiere loadPage.
+
+var newPage = [1]
+var loadPage = null
+
+function addNewItem() {
+  var sumPage = newPage.push(1)
+  loadPage = newPage.length
+}
+
+//View More
+
+function viewmore(loadPage) {
+  searchPage2(query, loadPage);
+}

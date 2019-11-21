@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <!-- fav icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/IMG/fav-icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/IMG/fav-icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/IMG/fav-icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/IMG/fav-icons/site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/IMG/fav-icons/favicon.ico">
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- UiKit CSS -->
     <link rel="stylesheet" href="assets/UIkit/css/uikit.min.css" />
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/CSS/general-styles.css">
     <link rel="stylesheet" href="assets/CSS/page5-detalle-series.css">
-    <script src="https://kit.fontawesome.com/c466667ff8.js"></script>
+    <!-- JS Uikit & FontAwsome -->
     <script src="https://kit.fontawesome.com/c466667ff8.js"></script>
     <script src="assets/UIkit/js/uikit.min.js"></script>
     <script src="assets/UIkit/js/uikit-icons.min.js"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
   </head>
   <body>
     <div class="content-wrap">
@@ -25,19 +34,19 @@
         <section class="trailer-wrapper" id="trailer-wrapper">
           <h2>Videos</h2>
         </section>
-          <button class="reco-button" type="submit">Ver
-            Recomendaciones</button>
+          <button class="reco-button" type="submit">Show Similar</button>
         </main>
         <div class="modal" id="reco-modal">
+          <div class="modal-content">
             <span class="close close-reco" title="Close Modal">×</span>
             <section class="series-recomendadas">
                 <div class="titulo-series-recomendadas">
-                  <h1>Similar TV Shows:</h1>
+                  <h1>Similar TV Shows</h1>
                 </div>
                 <div>
                   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
                     uk-slider="autoplay: true; autoplay-interval: 3000">
-                    <ul class="listado-series-recomendadas uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@">
+                    <ul class="listado-series-recomendadas uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@m">
                     </ul>
                     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
                       uk-slider-item="previous"></a>
@@ -46,27 +55,59 @@
                   </div>
                 </div>
               </section>
-         </div>
+            </div>
+            <div>
+              <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 3000">
+                <ul class="listado-series-recomendadas uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@">
+                </ul>
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                uk-slider-item="next"></a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-
+      <div class="modal" id="user-modal">
+          <form class="modal-content user-modal animate"action="index.html" method="post">
+            <span  class="close close-user" id="close-user-modal" title="Close Modal">×</span>
+            <!-- <img src="" alt=""> -->
+            <h1 id="titulo-user-modal">User Settings</h1>
+            <div class="modal-form-inputs">
+            <label for="change-u">Change username here</label>
+            <input type="text" id="change-user" placeholder="Enter Username" name="username">
+            <label for="change-email">Change mail here</label>
+            <input type="email"placeholder="Enter Email" id="change-email" name="email">
+            <label for="change-psw">Change password here</label>
+            <input type="password" placeholder="old password" id="change-psw">
+          </div>
+          <div class="botones-user-modal">
+            <button class="user-modal-button" type="submit">Save Changes</button>
+            <button class="logout-button"type="button">Log Out</button>
+          </div>
+          </form>
+            
+        </div>
+        
       <div class="modal" id="login-modal">
         <form class="modal-content login-modal animate" action="index.html" method="post">
           <span class="close close-login" title="Close Modal">×</span>
           <div class="form-image-container">
-            <img src="assets/img/zseries1.png" alt="">
+            <a href="#"><img src="assets/IMG/Zseries1.png" alt=""></a>
           </div>
           <div class="form-information">
             <div class="modal-form-inputs">
               <label><b>Username</b></label>
-              <input type="text" id="login-user" placeholder="Enter Username" name="username" required>
+              <input type="text" id="login-user" placeholder="Enter Username" name="username">
               <label><b>Password</b></label>
-              <input type="password" id="login-psw" placeholder="Enter Password" name="psw" required>
+              <input type="password" id="login-psw" placeholder="Enter Password" name="psw">
             </div>
             <button class="login-modal-button" type="submit">Login</button>
             <div class="modal-bottom">
               <div class="modal-form-checkbox">
                 <input type="checkbox" id="login-checkbox" name="login-checkbox" checked="checked">
-                <label class="rememberme" for="checkbox1">Remember me</label>
+                <label class="rememberme" for="login-checkbox">Remember me</label>
               </div>
               <div class="register-trigger">
                 <p class="register-click-here">Need an account? Click here!</p>
@@ -75,37 +116,37 @@
           </div>
         </form>
       </div>
-      
+
       <div class="modal" id="register-modal">
-      
-        <form class="register-modal modal-content animate" action="page5-detalle-series.html" method="get">
+
+        <form class="register-modal modal-content animate" action="page1-home.html" method="get" name="reg-form">
           <span class="close close-reg" title="Close Modal">×</span>
           <div class="form-image-container">
-            <img src="assets/img/zseries1.png" alt="">
+            <img src="assets/IMG/Zseries1.png" alt="">
           </div>
           <div class="form-information">
             <div class="modal-form-inputs">
               <label><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" id="reg-user" name="username" required>
+              <input type="text" placeholder="Enter Username" id="reg-user" name="username">
               <label><b>Email</b></label>
-              <input type="email" placeholder="Enter Email" id="reg-email" name="email" required>
+              <input type="email" placeholder="Enter Email" id="reg-email" name="email">
               <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" id="reg-psw" name="psw" required>
+              <input type="password" placeholder="Enter Password" id="reg-psw" name="psw">
               <label><b>Confirm Password</b></label>
-              <input type="password" placeholder="Confirm Password" id="reg-pswconfirm" name="pswconfirm" required>
+              <input type="password" placeholder="Confirm Password" id="reg-pswconfirm" name="pswconfirm">
             </div>
             <button class="register-modal-button" type="submit">Register</button>
           </div>
         </form>
       </div>
-    </div>
+    
 
       <footer class="footer">
         <div class="footernames">
           <p>Matías Ayerza, Juan Martin Lucioni, Jim Rattagan</p>
         </div>
         <div class="tmdb-logo">
-          <p>Datos provistos por</p>
+          <p>Data provided by</p>
           <img src="assets/IMG/tmdb.png" alt="The Movie Database Logo">
         </div>
       </footer>

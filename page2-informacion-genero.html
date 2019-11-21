@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
+    <title>Genre</title>
     <!-- fav icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/IMG/fav-icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/IMG/fav-icons/favicon-32x32.png">
@@ -16,24 +16,27 @@
     <link rel="stylesheet" href="assets/UIkit/css/uikit.min.css" />
     <!-- CSS -->
     <link rel="stylesheet" href="assets/CSS/general-styles.css">
-    <link rel="stylesheet" href="assets/CSS/page4-resultados-del-buscador.css">
+    <link rel="stylesheet" href="assets/CSS/page2-informacion-generos.css">
     <!-- JS Uikit & FontAwsome -->
     <script src="https://kit.fontawesome.com/c466667ff8.js"></script>
     <script src="assets/UIkit/js/uikit.min.js"></script>
     <script src="assets/UIkit/js/uikit-icons.min.js"></script>
   </head>
   <body>
-    <div class="content-wrap">
+    <div class="content-wrap" id="wrapper">
         <header id="header" class="header">
         </header>
   
-        <main class="main-body">
-          <h1 id="results-title">Search Results</h1>
-          <ul class="search-results-list" id="results-list">
+        <main class="main-body" id="main-body">
+          <h1 id="genre-name"></h1>
+          <ul class="genre-results-list" id="genre-list">
           </ul>
+          <div class="btn-footer">
+            <button class="view-more-btn" onclick="viewmore(newPage += 1)">View more</button>
+          </div>
         </main>
-
-      <div class="modal" id="user-modal">
+  
+        <div class="modal" id="user-modal">
             <form class="modal-content user-modal animate"action="index.html" method="post">
               <span  class="close close-user" id="close-user-modal" title="Close Modal">×</span>
               <!-- <img src="" alt=""> -->
@@ -52,58 +55,58 @@
             </div>
             </form>
               
+          </div>
+          
+    <div class="modal" id="login-modal">
+      <form class="modal-content login-modal animate" action="index.html" method="post">
+        <span class="close close-login" title="Close Modal">×</span>
+        <div class="form-image-container">
+          <a href="#"><img src="assets/IMG/Zseries1.png" alt=""></a>
         </div>
-  
-      <div class="modal" id="login-modal">
-        <form class="modal-content login-modal animate" action="index.html" method="post">
-          <span class="close close-login" title="Close Modal">×</span>
-          <div class="form-image-container">
-            <a href="#"><img src="assets/IMG/Zseries1.png" alt=""></a>
+        <div class="form-information">
+          <div class="modal-form-inputs">
+            <label><b>Username</b></label>
+            <input type="text" id="login-user" placeholder="Enter Username" name="username">
+            <label><b>Password</b></label>
+            <input type="password" id="login-psw" placeholder="Enter Password" name="psw">
           </div>
-          <div class="form-information">
-            <div class="modal-form-inputs">
-              <label><b>Username</b></label>
-              <input type="text" id="login-user" placeholder="Enter Username" name="username">
-              <label><b>Password</b></label>
-              <input type="password" id="login-psw" placeholder="Enter Password" name="psw">
+          <button class="login-modal-button" type="submit">Login</button>
+          <div class="modal-bottom">
+            <div class="modal-form-checkbox">
+              <input type="checkbox" id="login-checkbox" name="login-checkbox" checked="checked">
+              <label class="rememberme" for="login-checkbox">Remember me</label>
             </div>
-            <button class="login-modal-button" type="submit">Login</button>
-            <div class="modal-bottom">
-              <div class="modal-form-checkbox">
-                <input type="checkbox" id="login-checkbox" name="login-checkbox" checked="checked">
-                <label class="rememberme" for="login-checkbox">Remember me</label>
-              </div>
-              <div class="register-trigger">
-                <p class="register-click-here">Need an account? Click here!</p>
-              </div>
+            <div class="register-trigger">
+              <p class="register-click-here">Need an account? Click here!</p>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
+    </div>
 
-      <div class="modal" id="register-modal">
+    <div class="modal" id="register-modal">
 
-        <form class="register-modal modal-content animate" action="page1-home.html" method="get" name="reg-form">
-          <span class="close close-reg" title="Close Modal">×</span>
-          <div class="form-image-container">
-            <img src="assets/IMG/Zseries1.png" alt="">
+      <form class="register-modal modal-content animate" action="page1-home.html" method="get" name="reg-form">
+        <span class="close close-reg" title="Close Modal">×</span>
+        <div class="form-image-container">
+          <img src="assets/IMG/Zseries1.png" alt="">
+        </div>
+        <div class="form-information">
+          <div class="modal-form-inputs">
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" id="reg-user" name="username">
+            <label><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" id="reg-email" name="email">
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="reg-psw" name="psw">
+            <label><b>Confirm Password</b></label>
+            <input type="password" placeholder="Confirm Password" id="reg-pswconfirm" name="pswconfirm">
           </div>
-          <div class="form-information">
-            <div class="modal-form-inputs">
-              <label><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" id="reg-user" name="username">
-              <label><b>Email</b></label>
-              <input type="email" placeholder="Enter Email" id="reg-email" name="email">
-              <label><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" id="reg-psw" name="psw">
-              <label><b>Confirm Password</b></label>
-              <input type="password" placeholder="Confirm Password" id="reg-pswconfirm" name="pswconfirm">
-            </div>
-            <button class="register-modal-button" type="submit">Register</button>
-          </div>
-        </form>
-      </div>
-      </div>
+          <button class="register-modal-button" type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+    </div>
   
         <footer class="footer">
           <div class="footernames">
@@ -117,6 +120,6 @@
     <script src="assets/HTML/header.js"></script>
     <script src="assets/JS/general-apps.js"></script>
     <script src="assets/JS/api-general.js"></script>
-    <script src="assets/JS/page4-resultados-del-buscador.js"></script>  
+    <script src="assets/JS/page2-informacion-generos.js"></script>
   </body>
 </html>

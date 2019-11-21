@@ -2,7 +2,6 @@ window.addEventListener("load", function () {
     var apiKey = "2d4fd4d7daaa410f13903dbc540ca5d4"
 
     var id = localStorage.getItem("seriesId")
-    console.log(id)
 
             var url = "https://api.themoviedb.org/3/tv/" + id + "?api_key=" + apiKey + "&language=en-US"
             fetch(url)
@@ -14,8 +13,13 @@ window.addEventListener("load", function () {
                         title= informacion.name
                         poster = informacion.poster_path
                         posterUrl = 'https://image.tmdb.org/t/p/w400/'
-                        image = posterUrl + poster
-                        genresArray= []
+                        if (informacion.poster_path !== null){
+                            image = posterUrl + poster 
+                            } else {
+                                image = 'assets/IMG/noimage.png'
+                            }
+                        genresArray = []
+                        genresIdArray= []
                         language = informacion.original_language
                         sinopsis = informacion.overview
                         releaseDate = informacion.first_air_date
@@ -23,20 +27,17 @@ window.addEventListener("load", function () {
                         average = informacion.vote_average
                         lastEpisode = informacion.last_episode_to_air.name
                         lastEpisodeDate = informacion.last_air_date
-                        status= informacion.status
-                        console.log(informacion)
+                        status = informacion.status
+                        seasons = informacion.seasons.length
                         for (var i = 0; i < informacion.genres.length; i++) {
                             var genres = informacion.genres[i].name
                             genresArray.push(genres)
+                            var genresId = informacion.genres[i].id
+                            genresIdArray.push(genresId)
                         }
                        
-                        console.log(genres)
+                        console.log(genresIdArray)
                         console.log(genresArray)
-
-                        if (trailer == false) {
-                    
-                            
-                        };
                         console.log(informacion)
 
                 var detalles = document.getElementById("detalles")
@@ -47,7 +48,10 @@ window.addEventListener("load", function () {
                                 <img src="${image}" alt="${title}">
                                 <aside class="series-info">
                                     <div class='sinopsis-wrapper'>
-                                        <h2>Sinopsis</h2>
+                                        <div class='sinopsis-header'>
+                                            <h2>Sinopsis</h2>
+                                            <div class="addBtn" id="favs"><span><a href="" ><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
+                                        </div>    
                                         <p>${sinopsis}</p>
                                     </div>
                                     <h2>About ${title}</h2>
@@ -57,9 +61,19 @@ window.addEventListener("load", function () {
                                     <p><strong>First air date:</strong> <span>${releaseDate}</span></p>
                                     <p><strong>Latest episode:</strong> <span>${lastEpisode}</span></p>
                                     <p><strong>Aired on:</strong> <span>${lastEpisodeDate}</span></p>
+                                    <p><strong>Seasons:</strong> <span>${seasons}</span></p>
+                                    <p><strong>Original Language:</strong> <span style= text-transform:uppercase; >${language}</span></p>
+                                    <p><strong>Genres:</strong> <span id="genre-list">
+                                    </span></p>
                                 </aside>
                             </div>
                         </div>`
+                        onloadCheck(id)
+                    for (let i = 0; i < genresArray.length; i++) {
+                        genreList = document.getElementById("genre-list");
+                        genreList.innerHTML += `<a href="page2-informacion-genero.html?genreid=${genresIdArray[i]}&genrename=${genresArray[i]}">${genresArray[i]}</a> `
+                    }
+                    
                     })
     url = "https://api.themoviedb.org/3/tv/" + id + "/videos?api_key=" + apiKey + "&language=en-US"
         fetch(url)
@@ -74,12 +88,12 @@ window.addEventListener("load", function () {
                     var videoSection = document.getElementById("trailer-wrapper")
                     videoSection.innerHTML +=
                     `<h3 class='video-title'>${videoName}</h3>
-                    <iframe width="640" height="390" src="${video}" frameborder="0" allowfullscreen></iframe>`
+                    <iframe src="${video}" frameborder="0" allowfullscreen></iframe>`
                 }
             })
-                // "<h1>${title}</h1><img src="${posterURL}" alt=""><h2>Sinopsis</h2><p>${sinopsis}</p><h2>trailer</h2><iframe src="${trailer}" frameborder="0"></iframe>"
         
-          //reco moda fetch
+          // Reco modal fetch
+
                         var recoUrl = "https://api.themoviedb.org/3/tv/"+ id +"/similar?api_key=" + apiKey + "&language=en-US&query&page=1"
                         console.log(recoUrl);
                         fetch(recoUrl)
@@ -99,25 +113,30 @@ window.addEventListener("load", function () {
                                     title = informacion.results[i].name
                                     poster = informacion.results[i].poster_path
                                     posterUrl = 'https://image.tmdb.org/t/p/original/'
-                                    image = posterUrl + poster
+                                    if (informacion.poster_path !== null){
+                                        image = posterUrl + poster 
+                                        } else {
+                                            image = 'assets/IMG/noimage.png'
+                                        }
                                     average = informacion.results[i].vote_average
                                     releaseDate = informacion.results[i].first_air_date;
                 
                                     var listadoRecomendadas = document.querySelector(".listado-series-recomendadas")
                                     listadoRecomendadas.innerHTML +=  `<div class="series">
                                     <div class="overlay">
-                                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon" onclick="favorite(${id});return false">favorite</i></a></span></div>
+                                    <div class="addBtn"><span><a href=""><i class="material-icons heart" id="fav-icon-${id}" onclick="favorite(${id});return false">favorite</i></a></span></div>
                                     <div class="serie">
                                         <h2>${title}</h2>
                                         <p id="p_rating"><strong>Rating:</strong> <span>${average} / 10 </span> </p>
                                         <p><strong>First air date:</strong> <span>${releaseDate}</span></p>
-                                        <a id="detalles" onclick="serieSelected('${id}')" href="page5-detalle-series.html">Detalle</a>
+                                        <a id="detalles" onclick="serieSelected('${id}')" href="page5-detalle-series.html">Details</a>
                                     </div>
                                     </div>
                                     <div class="Imagenes">
                                         <img src="${image}" alt="">
                                     </div>
                                     </div>`
+                                    onloadCheck(id)
                                 }
                             })
                     

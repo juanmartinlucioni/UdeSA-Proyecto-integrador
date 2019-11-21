@@ -64,7 +64,7 @@ window.addEventListener("load", function () {
                                     <p><strong>Aired on:</strong> <span>${lastEpisodeDate}</span></p>
                                     <p><strong>Seasons:</strong> <span>${seasons}</span></p>
                                     <p><strong>Original Language:</strong> <span style= text-transform:uppercase; >${language}</span></p>
-                                    <p><a href='${homepage}'><strong>Homepage</strong></a></p>
+                                    <p><a href='${homepage}' target='_blank'><strong>Homepage</strong></a></p>
                                     <p><strong>Genres:</strong> <span id="genre-list">
                                     </span></p>
                                 </aside>
